@@ -1,0 +1,57 @@
+<project name="Excelsior SDK" default="all" basedir=".">
+  <property file="build.properties" />
+  <property name="allElementsFile" value="${basedir}/allElements.xml"/>
+  
+
+  <target name="clean">
+    <delete dir="${buildDirectory}" />
+    <delete dir="${builder}/workspace" failonerror="false"/>
+  </target>
+
+  <target name="copy" depends="clean">
+    <mkdir dir="${buildDirectory}" />
+    <mkdir dir="${buildDirectory}/plugins" />
+    <mkdir dir="${buildDirectory}/features" />
+    <copy todir="${buildDirectory}/plugins">
+      <fileset dir="${pworkspace}">
+        <include name="com*/**" />
+        <include name="org*/**" />
+        <exclude name="com.excelsior*feature/**" />
+      </fileset>
+    </copy>
+    <copy todir="${buildDirectory}/plugins">
+      <fileset dir="${pworkspace}/xFind">
+        <include name="com*/**" />
+        <include name="org*/**" />
+        <exclude name="com.excelsior*feature/**" />
+      </fileset>
+    </copy>
+    <copy todir="${buildDirectory}/features">
+      <fileset dir="${pworkspace}">
+        <include name="com.excelsior*feature/**" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="pde-build" depends="copy">
+    <java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+      <arg value="-application" />
+      <arg value="org.eclipse.ant.core.antRunner" />
+      <arg value="-buildfile" />
+      <arg value="${eclipseLocation}/plugins/org.eclipse.pde.build_${pdeBuildPluginVersion}/scripts/productBuild/productBuild.xml" />
+      <arg value="-configuration" />
+      <arg value="${buildDirectory}/.eclipse" />
+      <jvmarg value="-Drevision=${revision}" />
+      <jvmarg value="-Xms256m" />
+      <jvmarg value="-Xmx512m" />
+      <jvmarg value="-XX:+UseParNewGC" />
+      <classpath>
+        <pathelement location="${eclipseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+      </classpath>
+    </java>
+  </target>
+
+  <target name="all" depends="pde-build">
+  </target>
+</project>
+

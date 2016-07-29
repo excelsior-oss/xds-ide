@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Excelsior IDE" id="com.excelsior.xds.ide.product" application="org.eclipse.ui.ide.workbench" version="1.7.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="icons/about.png"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xms40m -Xmx768m</vmArgs>
+      <programArgs>-data @user.home/xds-workspace -perspective com.excelsior.xds.DevelopmentPerspective --org.eclipse.equinox.p2.reconciler.dropins.directory dropins --launcher.defaultAction openFile</programArgs>
+   </launcherArgs>
+
+   <windowImages i16="eclipse.gif" i32="eclipse32.gif" i48="eclipse48.gif" i64="eclipse.png" i128="eclipse32.png"/>
+
+   <splash location="com.excelsior.xds.ide" />
+   
+   <launcher name="xds-ide">
+	   <linux />
+	   <macosx />
+	   <solaris/>
+	   <win useIco="true">
+		   <ico path="/com.excelsior.xds.ide/icons/xds32.png"/>
+		   <bmp/>
+	   </win>
+   </launcher>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.excelsior.xds.feature" />
+      <feature id="com.excelsior.xds.debugger.feature" />
+      <feature id="com.excelsior.xds.help.feature" />
+      <feature id="com.excelsior.xds.resources.feature" />
+      <feature id="com.excelsior.xds.resources.debugger.feature" />
+      <feature id="com.excelsior.xds.jre.feature" />
+      <feature id="com.excelsior.xds.help.feature" />
+      <feature id="com.excelsior.xds.nl_ru.feature"/>
+      <feature id="com.excelsior.xds.ui.editor.spellcheck.feature"/>    
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+   </features>
+   
+   <configurations>
+   	  <plugin id="com.excelsior.xds.ide" autoStart="true" startLevel="7" />
+      <plugin id="com.excelsior.xds.resources" autoStart="true" startLevel="6" />
+      <plugin id="com.excelsior.xds.resources.debugger" autoStart="true" startLevel="6" />
+   	  <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   	  <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+   	  <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
+   	  <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+   	  <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="5" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
+      <property name="preferenceCustomization" value="plugin_customization.ini" />
+   </configurations>
+   
+</product>

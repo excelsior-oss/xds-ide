@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+      point="org.eclipse.ui.services">
+   <sourceProvider
+         provider="com.excelsior.xds.xbookmarks.commands.XBookmarksState">
+      <variable
+            name="com.excelsior.xds.xbookmarks.exist"
+            priorityLevel="workbench">
+      </variable>
+   </sourceProvider>
+</extension>
+
+<extension
+      name="%extension.name"
+      point="org.eclipse.ui.commands">
+<!-- menu commands  -->
+    <command
+           name="%command.gotoXbm"
+           description="%command.gotoXbm.desc"
+           categoryId="org.eclipse.ui.category.navigate"
+           id="com.excelsior.xds.xbookmarks.commands.showGotoDialog">
+    </command>
+    <command
+           name="%command.toggleXbm"
+           description="%command.toggleXbm.desc"
+           categoryId="org.eclipse.ui.category.navigate"
+           id="com.excelsior.xds.xbookmarks.commands.showToggleDialog">
+    </command>    
+    <command
+           name="%command.removeXbm"
+           description="%command.removeXbm.desc"
+           categoryId="org.eclipse.ui.category.navigate"
+           id="com.excelsior.xds.xbookmarks.commands.removeAllBookmarks">
+    </command>            
+<!-- go to commands  -->
+    <command
+           name="%command.gotoXbm"
+           description="%command.gotoXbm.desc2"
+           categoryId="org.eclipse.ui.category.navigate"
+           id="com.excelsior.xds.xbookmarks.commands.goto"
+           defaultHandler="com.excelsior.xds.xbookmarks.commands.GotoXBookmarkHandler">
+        <commandParameter
+              id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+              name="%commandParameter.xbmNumber"
+              optional="false"
+              values="com.excelsior.xds.xbookmarks.commands.xBookmarkParameter"> 
+        </commandParameter>
+    </command>
+<!-- toggle commands  -->
+    <command
+           name="%command.toggleXbm"
+           description="%command.toggleXbm.desc2"
+           categoryId="org.eclipse.ui.category.navigate"
+           id="com.excelsior.xds.xbookmarks.commands.toggle"
+           defaultHandler="com.excelsior.xds.xbookmarks.commands.ToggleXBookmarkHandler">
+        <commandParameter 
+                id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber" 
+                name="%commandParameter.xbmNumber"
+                optional="false" 
+                values="com.excelsior.xds.xbookmarks.commands.xBookmarkParameter"> 
+        </commandParameter>
+    </command>
+</extension>
+
+<extension
+      point="org.eclipse.ui.bindings">
+   <scheme
+         id="com.excelsior.xds.command.keybinding"
+         name="%xds.keybinding.scheme.name"
+         parentId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </scheme>
+<!-- menu commands  -->
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.showGotoDialog"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+="
+        schemeId="com.excelsior.xds.command.keybinding">
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.showToggleDialog"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+="
+        schemeId="com.excelsior.xds.command.keybinding">
+    </key>  
+<!-- go to commands  -->
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+0"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="0">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+1"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="1">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+2"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="2">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+3"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="3">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+4"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="4">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+5"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="5">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+6"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="6">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+7"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="7">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+8"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="8">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.goto"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+9"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="9">
+       </parameter>
+    </key>  
+<!-- toggle commands  -->
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+0"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="0">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+1"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="1">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+2"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="2">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+3"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="3">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+4"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="4">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+5"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="5">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+6"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="6">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+7"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="7">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+8"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="8">
+       </parameter>
+    </key>  
+    <key
+        commandId="com.excelsior.xds.xbookmarks.commands.toggle"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="Ctrl+Shift+9"
+        schemeId="com.excelsior.xds.command.keybinding">
+       <parameter
+             id="com.excelsior.xds.xbookmarks.commands.xBookmarkNumber"
+             value="9">
+       </parameter>
+    </key>  
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.handlers">
+<!-- menu commands  -->
+   <handler
+         class="com.excelsior.xds.xbookmarks.commands.ShowGotoDialogHandler"
+         commandId="com.excelsior.xds.xbookmarks.commands.showGotoDialog">
+   </handler>
+   <handler
+         class="com.excelsior.xds.xbookmarks.commands.ShowToggleDialogHandler"
+         commandId="com.excelsior.xds.xbookmarks.commands.showToggleDialog">
+   </handler>
+   <handler
+         class="com.excelsior.xds.xbookmarks.commands.RemoveAllXBookmarksHandler"
+         commandId="com.excelsior.xds.xbookmarks.commands.removeAllBookmarks">
+<!--         
+      <activeWhen>
+         <test
+               property="com.excelsior.xds.xbookmarks.exist"
+               value="true">
+         </test>
+      </activeWhen>
+-->      
+      <activeWhen>
+           <with
+                 variable="com.excelsior.xds.xbookmarks.exist">
+              <equals
+                    value="TRUE">
+              </equals>
+           </with>
+      </activeWhen>
+   </handler>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         allPopups="true"
+         locationURI="menu:navigate?after=additions">
+      <menu
+            icon="icons/xBookmark_ant.gif"
+            id="com.excelsior.xds.xbookmarks.menu"
+            label="%menu.navigate.xBoomarksLabel">
+         <command
+               commandId="com.excelsior.xds.xbookmarks.commands.showGotoDialog"
+               label="%menu.navigate.xBoomarks.showGotoDialogLabel">
+               style="push">
+         </command>
+         <command
+               commandId="com.excelsior.xds.xbookmarks.commands.showToggleDialog"
+               label="%menu.navigate.xBoomarks.showToggleDialogLabel">
+               style="push">
+         </command>
+         <separator
+               name="com.excelsior.xds.xbookmarks.menu.separator"
+               visible="true">
+         </separator>
+         <command
+               commandId="com.excelsior.xds.xbookmarks.commands.removeAllBookmarks"
+               style="push">
+         </command>
+      </menu>
+   </menuContribution>
+</extension>
+
+
+<extension
+    point="org.eclipse.core.resources.markers"
+    name="%markers.NumberedBookmark"
+    id="bookmark">
+    <super type="org.eclipse.core.resources.textmarker" />
+    <super type="org.eclipse.core.resources.bookmark" />
+        <persistent     value="true" />
+        <attribute name="number" />
+</extension>
+
+<extension
+    point="org.eclipse.ui.workbench.texteditor.rulerColumns">
+    <column
+        id="com.excelsior.xds.xBookmarks.bookmarkColumn"
+        name="%rulerColumns.xbmNumbers"
+        class="com.excelsior.xds.xbookmarks.BookmarkColumn"
+        enabled="true"
+        global="true"
+        includeInMenu="false">
+        <placement
+            gravity="0.9">
+            <after id="org.eclipse.ui.editors.columns.annotations"/>
+        </placement>
+        <targetClass
+            class="org.eclipse.ui.texteditor.AbstractDecoratedTextEditor">
+        </targetClass>
+    </column>
+</extension>
+
+
+<!-- http://stackoverflow.com/questions/2888207/eclipse-plugin-custom-icon-for-a-marker -->
+
+ <extension point="org.eclipse.ui.editors.annotationTypes">
+     <type
+        markerType="com.excelsior.texteditor.xbookmarks.bookmark"
+        name="com.excelsior.xds.xBookmarks.annotation"
+        markerSeverity="0"/>
+  </extension>
+  
+  <extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+     <specification
+        annotationType="com.excelsior.xds.xBookmarks.annotation"
+        icon="icons/xBookmark_ant.gif"
+        verticalRulerPreferenceKey="myMarkerIndicationInVerticalRuler"
+        verticalRulerPreferenceValue="false"
+        overviewRulerPreferenceValue="true"
+        colorPreferenceValue="0,0,0"
+        colorPreferenceKey="highlight.color"
+        overviewRulerPreferenceKey="highlight.rulers.overview"
+        highlightPreferenceValue="true"
+        label="%markerAnnotationSpecification.label"
+        textPreferenceValue="true"
+        textStylePreferenceValue="BOX"
+        symbolicIcon="warning"
+        textStylePreferenceKey="highlight.text.style"
+        textPreferenceKey="highlight.text" 
+        highlightPreferenceKey="highlight.background"
+        presentationLayer="4"
+        />
+  </extension>
+  
+  <extension
+     point="org.eclipse.ui.startup">
+     <startup />
+  </extension>
+  
+  <extension
+      point="org.eclipse.ui.preferencePages">
+      <page
+          name="%preferencePages.name"
+          category="org.eclipse.ui.preferencePages.GeneralTextEditor"
+          class="com.excelsior.xds.xbookmarks.XPreferencePage"
+          id="com.excelsior.xds.xbookmarks.xBookmarksPreferencePage">
+      </page>
+  </extension>
+ 
+</plugin>
+

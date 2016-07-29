@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   id="com.excelsior.texteditor.xFind"
+
+<extension
+      point="org.eclipse.ui.commands">
+<!-- xFind activation commands  -->
+   <command
+         name="%commands.open.xfind.name"
+         description="%commands.open.xfind.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.open">
+   </command>
+   <command
+         name="%commands.close.xfind.name"
+         description="%commands.close.xfind.name"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.close">
+   </command>
+   <command
+         name="%commands.show.xfind.history.name"
+         description="%commands.show.xfind.history.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.showHistory">
+   </command>
+<!-- xFind navigation commands  -->
+   <command
+         name="%commands.xfind.previous.match.name"
+         description="%commands.xfind.previous.match.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.prevMatch">
+   </command>
+   <command
+         name="%commands.xfind.next.match.name"
+         description="%commands.xfind.next.match.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.nextMatch">
+   </command>
+
+<!-- xFind quick navigation commands  -->
+   <command
+         name="%commands.xfind.quick.previous.match.name"
+         description="%commands.xfind.quick.previous.match.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.quick.prevOccurrence">
+   </command>
+   <command
+         name="%commands.xfind.quick.next.match.name"
+         description="%commands.xfind.quick.next.match.desc"
+         categoryId="org.eclipse.ui.category.edit"
+         id="com.excelsior.texteditor.xfind.commands.quick.nextOccurrence">
+   </command>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.bindings">
+
+<!-- xFind activation bindings  -->
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.open"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+M3+F"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.close"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="ESC"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.showHistory"
+         contextId="com.excelsior.texteditor.xfind.context"
+         sequence="M1+ARROW_DOWN"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+<!-- xFind navigation bindings  -->
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.prevMatch"
+         contextId="com.excelsior.texteditor.xfind.context"
+         sequence="ARROW_UP"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.prevMatch"
+         contextId="com.excelsior.texteditor.xfind.context"
+         sequence="M2+ENTER"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.nextMatch"
+         contextId="com.excelsior.texteditor.xfind.context"
+         sequence="ARROW_DOWN"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.nextMatch"
+         contextId="com.excelsior.texteditor.xfind.context"
+         sequence="ENTER"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+<!-- xFind quick navigation bindings  -->
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.quick.prevOccurrence"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+ARROW_UP"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.quick.nextOccurrence"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+ARROW_DOWN"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </key>  
+
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.handlers">
+
+<!-- xFind activation handlers  -->
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.OpenXFindPanelHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.open">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.editorPart">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.CloseXFindPanelHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.close">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.editorPart">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.ShowXFindHistoryHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.showHistory">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.xfind.context">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.ShowXFindSettingsHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.open">
+      <activeWhen>
+         <and>
+            <reference
+                  definitionId="com.excelsior.texteditor.xfind.expressions.editorPart">
+            </reference>
+            <reference
+                  definitionId="com.excelsior.texteditor.xfind.expressions.xfind.context">
+            </reference>
+         </and>
+      </activeWhen>
+   </handler>
+
+<!-- xFind navigation handlers  -->
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.FindPreviousMatchHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.prevMatch">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.xfind.context">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.FindNextMatchHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.nextMatch">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.xfind.context">
+         </reference>
+      </activeWhen>
+   </handler>
+
+<!-- xFind quick navigation handlers  -->
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.QuickFindPreviousOccurrenceHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.quick.prevOccurrence">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.editorPart">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.QuickFindNextOccurrenceHandler"
+         commandId="com.excelsior.texteditor.xfind.commands.quick.nextOccurrence">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.editorPart">
+         </reference>
+      </activeWhen>
+   </handler>
+
+<!-- xFind search text handlers  -->
+   <handler
+         class="org.eclipse.ui.internal.handlers.WidgetMethodHandler:copy"
+         commandId="org.eclipse.ui.edit.copy">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="org.eclipse.ui.internal.handlers.WidgetMethodHandler:paste"
+         commandId="org.eclipse.ui.edit.paste">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="org.eclipse.ui.internal.handlers.WidgetMethodHandler:cut"
+         commandId="org.eclipse.ui.edit.cut">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="org.eclipse.ui.internal.handlers.SelectAllHandler"
+         commandId="org.eclipse.ui.edit.selectAll">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.XFindTextGotoStartLineHandler"
+         commandId="org.eclipse.ui.edit.text.goto.lineStart">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.XFindTextGotoEndLineHandler"
+         commandId="org.eclipse.ui.edit.text.goto.lineEnd">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.XFindTextSelectLineStartHandler"
+         commandId="org.eclipse.ui.edit.text.select.lineStart">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+   <handler
+         class="com.excelsior.texteditor.xfind.ui.commands.XFindTextSelectLineEndHandler"
+         commandId="org.eclipse.ui.edit.text.select.lineEnd">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.texteditor.xfind.expressions.focus.text">
+         </reference>
+      </activeWhen>
+   </handler>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.contexts">
+
+   <context
+         id="com.excelsior.texteditor.xfind.context"
+         name="%xfind.context.name"
+         parentId="org.eclipse.ui.textEditorScope">
+   </context>
+
+</extension>
+
+
+<extension
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition
+         id="com.excelsior.texteditor.xfind.expressions.focus.text">
+      <with
+            variable="activeFocusControlId">
+         <equals
+               value="com.excelsior.texteditor.xfind.focus.text">
+         </equals>
+      </with>
+   </definition>
+
+   <definition
+         id="com.excelsior.texteditor.xfind.expressions.xfind.context">
+      <with
+            variable="activeContexts">
+         <iterate
+               ifEmpty="false"
+               operator="or">
+            <equals
+                  value="com.excelsior.texteditor.xfind.context">
+            </equals>
+         </iterate>
+      </with>
+   </definition>
+   
+   <definition
+         id="com.excelsior.texteditor.xfind.expressions.editorPart">
+      <with
+            variable="activePart">
+         <instanceof
+               value="org.eclipse.ui.part.EditorPart">
+         </instanceof>
+      </with>
+   </definition>
+
+</extension>
+
+<extension 
+    point="org.eclipse.ui.preferencePages">
+    <page
+        name="%preferencePages.name"
+        category="org.eclipse.ui.preferencePages.GeneralTextEditor"
+        class="com.excelsior.texteditor.xfind.ui.XFindPreferencePage"
+        id="com.excelsior.texteditor.xfind.ui.XFindPreferencePage_Id">
+    </page>
+</extension>
+
+
+</plugin>

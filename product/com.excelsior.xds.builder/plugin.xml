@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="listener" name="Listener" schema="schema/listener.exsd"/>
+<extension
+      point="org.eclipse.core.resources.builders"
+      id="com.excelsior.xds.builder.compile.XdsSourceBuilder"
+      name="%xds.resources.modulaBuilderName">
+   <builder
+         hasNature="true">
+      <run
+            class="com.excelsior.xds.builder.compile.XdsSourceBuilder">
+      </run>
+   </builder>
+</extension>
+
+
+<!-- Modula-2 Nature  -->
+<extension
+      point="org.eclipse.core.resources.natures"
+      id="com.excelsior.xds.ui.natures.Modula2SourceProjectNature"
+      name="%xds.resources.modulaNatureName">
+   <runtime>
+      <run
+            class="com.excelsior.xds.builder.natures.Modula2SourceProjectNature">
+      </run>
+   </runtime>
+   <builder
+            id="com.excelsior.xds.builder.compile.XdsSourceBuilder">
+   </builder>
+</extension>
+
+
+<!-- Expressions: XDS Modula-2 project nature  -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition 
+         id="com.excelsior.xds.expression.resource.ModulaProject">
+      <adapt type="org.eclipse.core.resources.IProject">
+         <test property="org.eclipse.core.resources.projectNature" 
+               value="com.excelsior.xds.ui.natures.Modula2SourceProjectNature"/>
+      </adapt>
+   </definition>
+   
+   <definition 
+         id="com.excelsior.xds.expression.resource.from.ModulaProject">
+      <adapt type="org.eclipse.core.resources.IResource">
+         <test property="org.eclipse.core.resources.projectNature" 
+               value="com.excelsior.xds.ui.natures.Modula2SourceProjectNature" />
+      </adapt>
+   </definition>
+   
+</extension>
+
+</plugin>

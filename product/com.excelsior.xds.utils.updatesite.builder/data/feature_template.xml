@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="$feature.id"
+	label="$feature.label"
+	image="$feature.image"
+	provider-name="$feature.providerName"
+	version="$feature.version">
+	<copyright>
+		$feature.copyright
+	</copyright>
+	<license url="$feature.licenseURL">
+		$feature.license
+	</license>
+	<description>$feature.description</description>
+#foreach( $featureEntry in $featureEntries )
+	<plugin fragment="true" id="$featureEntry.id" unpack="false" version="$featureEntry.version" download-size="0" install-size="0" /> 
+#end 
+</feature>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="XDS IDE Support tools"
+            id="com.excelsior.xds.utils.procid.commands.category">
+      </category>
+      <command
+            name="Copy Process ID"
+            categoryId="com.excelsior.xds.utils.procid.commands.category"
+            id="com.excelsior.xds.utils.procid.commands.copyProcessIdCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.excelsior.xds.utils.procid.commands.copyProcessIdCommand"
+            class="com.excelsior.xds.utils.procid.ui.handlers.ProcidHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.excelsior.xds.utils.procid.commands.copyProcessIdCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+M2+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.excelsior.xds.utils.procid.toolbars.toolbar">
+            <command
+                  commandId="com.excelsior.xds.utils.procid.commands.copyProcessIdCommand"
+                  tooltip="Copy Process ID"
+                  label="Copy Process ID"
+                  style="push"
+                  id="com.excelsior.xds.utils.procid.toolbars.copyProcessIdCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

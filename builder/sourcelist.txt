@@ -1,0 +1,7 @@
+builder
+docs
+localization
+product
+target-platform
+tools
+.rep_url

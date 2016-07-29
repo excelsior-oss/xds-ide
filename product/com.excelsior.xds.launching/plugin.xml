@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension 
+      point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+          id="com.excelsior.xds.ui.launching.ModulaApplication"
+          name="%common.xdsM2Application"
+          delegate="com.excelsior.xds.launching.internal.LaunchDelegate"
+          modes="run">
+    </launchConfigurationType>
+</extension>
+<!-- Expressions: Modula Application Launch ShortCut (run/profile/debug enablement)  -->
+<extension point="org.eclipse.core.expressions.definitions">
+	<definition id="com.excelsior.xds.expression.launch.shortcut.ModulaApplication.enablement">
+		<with variable="selection">
+			<count value="1" />
+			<iterate>
+				<or>
+					<and>
+						<reference definitionId="com.excelsior.xds.expression.resource.ModulaProject" />
+						<reference definitionId="com.excelsior.xds.expression.file.InCompilationSet" />
+						<adapt type="org.eclipse.core.resources.IFile">
+							<test property="org.eclipse.debug.ui.matchesPattern" value="(?i)*.(mod|ob2|def|prj)" />
+						</adapt>
+					</and>
+					<instanceof value="org.eclipse.core.resources.IProject" />
+				</or>
+			</iterate>
+		</with>
+	</definition>
+</extension>
+</plugin>

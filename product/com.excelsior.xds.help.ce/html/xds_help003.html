@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>Basic concepts</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0009"><A NAME="Concepts">Basic concepts</A></A></H1>
+
+<P>The XDS Modula-2 Integrated Development Environment (XDS Modula-2 IDE) is based on the Eclipse platform. Eclipse is the open-source IDE platform simplifying such tasks as resource management, program launching, editing and debugging. 
+<P>This chapter describes common idioms of the Eclipse platform, leveraged by the XDS Modula-2 IDE. 
+<P><H2>
+<A NAME="0010"><A NAME="Concepts.Workspace">Worspace</A></A></H2>
+
+<P><I>Worspace</I> &ndash; first of all, this is a project container. Besides, it contains settings used by the IDE components and auxilary data. Workspace is the directory containing <A HREF="#0011">project</A> subdirectories. Special <TT>.metadata</TT> subdirectory is used as the common data and settings storage, used by this workspace projects. 
+<P>It is possible to have an arbitrary number of workspaces. However only one workspace can be opened in the IDE at the given moment. 
+<P>On the first launch the workspace is created in the user&lsquo;s home directory. To create new workspaces and switch between them select <B>File &gt; Switch Workspace &gt; Other...</B>. Then select the workspace folder. If the folder selected doesnot contain the workspace it will be created there. 
+<P>On IDE start last opened workspace is loaded by default. It is possible to force workspace selection dialog on IDE start. For this open <B>Preferences</B>, by clicking <B>Window &gt; Preferences</B><B>Preferences</B>, then select in the left pane <B>General &gt; Startup and Shutdown &gt;Workspaces</B> and turn on the option <B>Prompt for workspace on startup</B>. 
+<P>When using several workspaces sometimes it is necessary to synchronize their settings. For this please use <B>File &gt; Export... &gt; General &gt; Preferences</B> in the source workspace and then <B>File &gt; Import... &gt; General &gt; Preferences</B> for the target workspace. 
+<P>It is possible to explicitly specify workspace on IDE startup by using the following command line: 
+<P><TT>-data WorkspacePath</TT> 
+<P>where <TT>WorkspacePath</TT> is the required argument specifying path to the workspace. 
+<P>Another command line parameter turns on the workpace path display in the IDE&lsquo;s main window title: 
+<P><TT>-showlocation [WorkspaceName]</TT> 
+<P>where <TT>WorkspaceName</TT> is the required argument specifying label to be displayed in the main window title instead of the workspace path displayed by default. 
+<P><H2>
+<A NAME="0011"><A NAME="Concepts.Project">Project</A></A></H2>
+
+<P><I>Project</I> &ndash; is the resource container, containing folders and files, their processing rules and other project properties (such as the compiler settings). Physically it is the directory whose files and folders are the project&lsquo;s resources. When creating project it is necessary to specify where to place it on the file system. 
+<P>In the project&lsquo;s directory special file named <TT>.project</TT> is created. This directory also contains <TT>.settings</TT> folder used as project properties storage. Usually, IDE stores other auxilary files and folders with names starting with the &quot;<TT>.</TT>&quot; symbol. 
+<P>There is no one-to-one correspondence between XDS project files (*.prj-files) and IDE projects. XDS project files are just particular kind of the XDS IDE resources. XDS IDE project can contain several prj-files. 
+<P>It is not necessary to place the project inside the workspace. 
+<P>It is recommended to place XDS IDE project in the same folder as the Modula-2 program folder. In particular, this simplfies the transfer of the project between workspaces. 
+<P>In order to import the existing project in to the workspace on can use <B>File &gt; Import... &gt; General &gt; Existing Projects into Workspace</B>. 
+<P>It is assumed by default that all project resources are stored inside the project&lsquo;s folder. 
+<P>To use resources outside the project&lsquo;s folder it is necessary to add them via the so called <I>Linked Resources</I> mechanism. 
+<P><H2>
+<A NAME="0012"><A NAME="Concepts.Resources">Resources</A></A></H2>
+
+<P><I>Resources</I> &ndash; this is general term for projects, folders and files operated by the integrated environment. IDE&lsquo;s files and folders corresponds to the usual files and folders of the file system. Folders can contain files and other foldes but not projects. Folders themselves contained in projects and other folders. 
+<P>Files and folders can be linked to files and folders outside the project&lsquo;s directory. These files and folders are called <I>linked resources</I>. 
+<P>Navigational panels, such as <A HREF="xds_help004.html#0019"><B>Project Explorer</B></A> display hierarchical structure of the resources and facilitates resource opening and editing. Besides files and folders navigational panels can display <I>virtual folders</I> which are not correspond to any real file system directory. 
+<P><B>See also </B>
+<P><A HREF="xds_help006.html#0043">Resource properties</A> <BR>
+ <A HREF="xds_help007.html#0046">New element creation</A> <BR>
+ <A HREF="#0011">Project</A> 
+<P><H2>
+<A NAME="0013"><A NAME="Concepts.Plugin">Plugin</A></A></H2>
+
+<P>The key feature of the Eclipse platform is flexibility and extensibility enabled by the platform modular architecture. Beside the compact runtime core all platform&lsquo;s components and Eclipse-based IDE are <I>Plugins</I>. These plugins are dynamically loaded independently of each other. Certanly, it is possible to specify for the plugin which plugins are dependendant from it - and thus must be loaded before. Platform runtime core locates and integrates plugins in to the running platform. In this regard standard and newly created plugins are functionaly equivalent. 
+</BODY>
+</HTML>

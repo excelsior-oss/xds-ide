@@ -1,0 +1,4 @@
+.metadata
+.class
+.git
+tests

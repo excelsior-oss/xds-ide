@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %fragmentName
+Bundle-SymbolicName: com.excelsior.xds.core.model.nl_ru
+Bundle-Version: 1.7.0.qualifier
+Bundle-Vendor: Excelsior LLC
+Bundle-Localization: fragment
+Fragment-Host: com.excelsior.xds.core.model;bundle-version="1.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

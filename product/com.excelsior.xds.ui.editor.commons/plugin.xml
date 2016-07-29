@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension-point id="lineNumberColumnPainter" name="lineNumberColumnPainter"
+		schema="schema/lineNumberColumnPainter.exsd" />
+ 	<extension-point id="syntaxColoringPreferences" name="syntaxColoringPreferences" schema="schema/syntaxColoringPreferences.exsd"/>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page category="com.excelsior.xds.ui.preferences.editorPageId"
+			class="com.excelsior.xds.ui.editor.commons.internal.preferences.IndentGuidePreferencePage"
+			id="com.excelsior.xds.ui.preferences.indentGuidePageId" name="%preferencePages.indentGuide">
+		</page>
+		<page
+            category="com.excelsior.xds.ui.preferences.editorPageId"
+            class="com.excelsior.xds.ui.editor.commons.internal.preferences.SyntaxColoringPreferencePage"
+            id="com.excelsior.xds.ui.preferences.syntaxColoringPageId"
+            name="%preferencePages.syntaxColoring">
+      	</page>
+	</extension>
+	<!-- Source menu -->
+	<extension point="org.eclipse.ui.menus">
+		<!-- Source menu -->
+		<menuContribution allPopups="true"
+			locationURI="menu:org.eclipse.ui.main.menu?after=edit">
+			<menu label="%menu.Source.label" mnemonic="%menu.Source.mnemonic"
+				id="com.excelsior.xds.ui.menu.source">
+				<separator name="CommentGroup" visible="true">
+				</separator>
+				<separator name="EditGroup" visible="true">
+				</separator>
+				<separator name="additions" visible="true">
+				</separator>
+				<visibleWhen checkEnabled="false">
+					<or>
+						<reference
+							definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+						</reference>
+						<reference definitionId="com.excelsior.xds.expression.active.DbgScriptEditor">
+						</reference>
+						<reference
+							definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+						</reference>
+						<reference
+							definitionId="com.excelsior.xds.expression.selected.only.DbgScriptFiles">
+						</reference>
+					</or>
+				</visibleWhen>
+			</menu>
+		</menuContribution>
+	</extension>
+	<!-- Expressions: Modula-2/Oberon-2 files and editors -->
+	<extension point="org.eclipse.core.expressions.definitions">
+
+		<definition id="com.excelsior.xds.expression.active.ModulaOberonEditor">
+			<or>
+				<with variable="activeEditorId">
+					<equals value="com.excelsior.xds.ui.editor.modula.ProgramModuleEditor">
+					</equals>
+				</with>
+				<with variable="activeEditorId">
+					<equals value="com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor">
+					</equals>
+				</with>
+				<with variable="activeEditorId">
+					<equals value="com.excelsior.xds.ui.editor.oberon.ModuleEditor">
+					</equals>
+				</with>
+				<with variable="activeEditorId">
+					<equals value="com.excelsior.xds.ui.editor.oberon.DefinitionModuleEditor">
+					</equals>
+				</with>
+			</or>
+		</definition>
+
+		<definition id="com.excelsior.xds.expression.selected.only.ModulaFiles">
+			<or>
+				<reference definitionId="com.excelsior.xds.expression.selected.ModulaEditor">
+				</reference>
+				<with variable="selection">
+					<iterate ifEmpty="false" operator="and">
+						<reference definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+						</reference>
+					</iterate>
+				</with>
+			</or>
+		</definition>
+
+		<definition id="com.excelsior.xds.expression.selected.single.ModulaFile">
+			<or>
+				<reference definitionId="com.excelsior.xds.expression.selected.ModulaEditor">
+				</reference>
+				<with variable="selection">
+					<and>
+						<count value="1">
+						</count>
+						<iterate ifEmpty="false" operator="and">
+							<reference definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+							</reference>
+						</iterate>
+					</and>
+				</with>
+			</or>
+		</definition>
+	</extension>
+
+
+	<!-- Expressions: Debug Script files and editors -->
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="com.excelsior.xds.expression.active.DbgScriptEditor">
+			<or>
+				<with variable="activeEditorId">
+					<equals value="com.excelsior.xds.ui.editor.DbgScriptEditor">
+					</equals>
+				</with>
+			</or>
+		</definition>
+
+		<definition
+			id="com.excelsior.xds.expression.selected.only.DbgScriptFiles">
+			<or>
+				<reference definitionId="com.excelsior.xds.expression.selected.DbgScriptEditor">
+				</reference>
+				<with variable="selection">
+					<iterate ifEmpty="false" operator="and">
+						<reference definitionId="com.excelsior.xds.expression.resource.DbgScriptFile">
+						</reference>
+					</iterate>
+				</with>
+			</or>
+		</definition>
+	</extension>
+</plugin>

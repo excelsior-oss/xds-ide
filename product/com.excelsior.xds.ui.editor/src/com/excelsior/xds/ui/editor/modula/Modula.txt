@@ -1,0 +1,26 @@
+<* +M2EXTENSIONS *>
+IMPLEMENTATION MODULE HuffChan;
+
+(*
+ This module shows how to redefine standard IO file functions. 
+ It provides functions for reading and writing packed files
+ opened in Raw mode.
+*)
+
+IMPORT IOChan, IOLink, ChanConsts, IOConsts, SYSTEM, Strings;
+FROM Storage IMPORT ALLOCATE, DEALLOCATE;
+FROM SYSTEM  IMPORT BYTE ;
+
+CONST
+  rbldFrq = 512;  (* means: every 512 bytes rebuild table *)
+  szText  = "The string";
+
+TYPE 
+  charTap = POINTER TO ARRAY [0..MAX(INTEGER)-1] OF CHAR ;
+  smbTp = POINTER TO smbT;
+
+  smbT = RECORD (* Huffman's tree *)
+    ch               : CHAR ;
+    n                : CARDINAL ; -- frequncy of char ch
+    left,right,next  : smbTp;
+  END ;

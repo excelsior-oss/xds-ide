@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.excelsior.xds.jre.feature_1.6.31.jar" id="com.excelsior.xds.jre.feature" version="1.6.31">
+      <category name="com.excelsior.xds.jre"/>
+   </feature>
+   <feature url="features/com.excelsior.xds.feature_1.7.0.qualifier.jar" id="com.excelsior.xds.feature" version="1.7.0.qualifier">
+      <category name="com.excelsior.xds"/>
+   </feature>
+   <feature url="features/com.excelsior.xds.help.feature_1.7.0.qualifier.jar" id="com.excelsior.xds.help.feature" version="1.7.0.qualifier">
+      <category name="com.excelsior.xds"/>
+   </feature>
+   <feature url="features/com.excelsior.xds.nl_ru.feature_1.7.0.qualifier.jar" id="com.excelsior.xds.nl_ru.feature" version="1.7.0.qualifier">
+      <category name="com.excelsior.xds"/>
+   </feature>
+   <feature url="features/com.excelsior.xds.resources.feature_1.7.0.qualifier.jar" id="com.excelsior.xds.resources.feature" version="1.7.0.qualifier">
+      <category name="com.excelsior.xds"/>
+   </feature>
+   <category-def name="com.excelsior.xds" label="XDS Modula-2 Features">
+      <description>
+         This category contains all of the Eclipse IDE for XDS Modula-2 features.
+      </description>
+   </category-def>
+   <category-def name="com.excelsior.xds.jre" label="Java Runtime Environment Features">
+      <description>
+         This category contains all of Java Platform Runtime Enviroment features
+      </description>
+   </category-def>
+</site>

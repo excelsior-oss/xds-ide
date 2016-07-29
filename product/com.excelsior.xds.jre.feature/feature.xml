@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.excelsior.xds.jre.feature"
+      label="Java Runtime Environment"
+      version="1.6.31"
+      provider-name="Oracle">
+
+   <description url="http://www.java.com/">
+      Default Java Platform Runtime Enviroment for Excelsior IDE.  
+   </description>
+
+</feature>

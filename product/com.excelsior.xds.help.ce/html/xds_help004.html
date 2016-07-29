@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>User interface</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0014"><A NAME="UI">User interface</A></A></H1>
+
+<P>Main elements of the user interface are shown in the picture below: 
+<P><IMG ALT="" SRC="pics/userinterfacenum.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Main elements are: 
+<OL>
+ 
+<LI><I>Workbench</I> &ndash; container containing all other windows. It contains main menu, toolbars and child windows. </LI>
+<LI><I>Perspective</I> &ndash; visual container for <I>Views</I> and <I>Editors</I> related to the certain task. The picture shows <B>XDS Modula-2</B> perspective - it is shown in the upper left label atop the 
+<P>toolbar. This perspective is used to develop Modula-2 programs. </LI>
+<LI><I>View</I> &ndash; visual container used to render the current selection. The picture shows the <B>Problems</B> view which renders the problems for the current selection. </LI>
+<LI><I>Short Cut Bar</I> &ndash; shortcuts to access certain perspectives. </LI>
+<LI><I>Menu Bar</I> &ndash; the set of context-dependent actions invoking certain functionality. </LI>
+<LI><I>Tool Bar</I> &ndash; the set of context-dependent actions invoking certain functionality. All toolbar actions are also accessible via the Menu. </LI>
+<LI><I>Editor</I> &ndash; instrument to edit the project resources. Unlike the View the contents of the Editor are defined during the open action, for example, when user double clicks the source file. </LI>
+<LI><I>Project Explorer</I> &ndash; view which for the management of project and resources. This view is described separately. </LI>
+<LI><I>Status Bar</I> &ndash; special workbench element which is used to show extra information, such as: document parameters, hints, etc. The picture shows the Status bar for the active Editor. </LI>
+</OL>
+
+<P>Editors and views are child windows of the Workbench. Child windows can be active and inactive but only one child windows can be active at the given moment. Active window has its title highlighted. The active window contents are usualy the target for the Copy, Cut and Paste operations. It is the active window on which the Status bar is dependent from. Views can show information from the last active editor, if there no any active editor at the moment. 
+<P>One can cycle through the workbench windows using the <TT>Ctrl + ~</TT> hotkey. 
+<P>Lets descrive some main elements in details. 
+<P><H2>
+<A NAME="0015"><A NAME="UI.Workbench">Workbench</A></A></H2>
+
+<P><I>Workbench</I> &ndash; is the main window of the IDE which introduces the framework for managing and navigating <A HREF="xds_help003.html#0010">workspace</A> resources. 
+<P>Workbench can be rearranged using one of the several <A HREF="#0016">perspectives</A>, which are govern the layout of <A HREF="#0018">views</A> and <A HREF="#0017">editors</A>, organizing them in a way most appropriate for the certain task. 
+<P><H2>
+<A NAME="0016"><A NAME="UI.Perspectives">Perspectives</A></A></H2>
+
+<P><I>Perspective</I> (Perspective) defines the set and the layout of views, editors, menu items and other elements visible to user. Perspective can have an arbitrary number of views and editors. There can be any number of perspectives, but workbench can have only one active perspective at a time. To see all available perspectives select <B>Window &gt; Open Perspective &gt; Other...</B> in the main 
+<P>menu. 
+<P>Main purpose of the perspective is to give user the most appropriate set of tools for the particular task, so all necessary tools will be at hand. 
+<P>It is possible to restore the initial layout of the perspective by selecting <B>Window &gt; Reset Perspective...</B> at the main menu.
+<P><H2>
+<A NAME="0017"><A NAME="UI.Editor">Editor</A></A></H2>
+
+<P><I>Editor</I> is used to render and edit the resource (usualy file) contents. For each file the separate instance of editor is created. 
+<P>Changes done in the editor are not commited to underlying file until the save command is invoked. 
+<P>The editor&lsquo;s title contans the <TT>*</TT> symbol in it when the editor contents is modified but is not written to file. 
+<P><IMG ALT="" SRC="pics/editor.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>One can cycle through the editors using the <TT>Ctrl + Tab</TT> hotkey. 
+<P><H2>
+<A NAME="0018"><A NAME="UI.View">Views</A></A></H2>
+
+<P><I>Views</I> usualy provide information about the selected object or element. Some views provide global information, like state of the file system (Project Explorer). 
+<P>Unlike editors, views immediately apply changes to the object being edited. For example, <A HREF="#0019"><B>Project Explorer</B></A> lacks the Save command &ndash; user action 
+<P>like file copy or rename are immediately affect the corresponding resources. However, few views violate this agreement and require explicit save action from user. 
+<P>Every view can be closed and then reopened via the <B>Window &gt; Show View &gt; Others...</B> main menu command.
+<P><H3>
+<A NAME="0019"><A NAME="UI.View.ProjectExplorer">Project Explorer</A></A></H3>
+
+<P><B>Project Explorer</B> renders resources from a project of the current <A HREF="xds_help003.html#0010">Workspace</A> as the tree-like structure. This view allows: 
+<UL>
+ 
+<LI>navigate through files and folders of a project, </LI>
+<LI>open editors for files, </LI>
+<LI>Create new projects, files, folders, </LI>
+<LI>delete, rename or move existent files/folders, </LI>
+<LI>conduct import/export of projects and settings. </LI>
+</UL>
+
+<P>Files selected in the <B>Project Explorer</B> can immediately affect contents of other IDE views. 
+<P>Context menu can be opened for any <B>Project Explorer</B> element by right clicking this element. Context menu allows to view/edit element properties. 
+<P>For Modula-2 prjects only Modula-2 source files and packet files are shown &ndash; that is, files with the following extensions: <TT>*.mod</TT>, <TT>*.def</TT>, <TT>*.prj</TT>, <TT>*.pkt</TT>, <TT>*.res</TT> and <TT>*.ldp</TT>. Other files are filtered out. To see all files select <B>Show All Files</B> action in the Project Explorer action bar. 
+<P><IMG ALT="" SRC="pics/projectexplorer.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Modula-2 files which are included in the project compilation set are marked with green dot in the file icon&lsquo;s upper right corner. Besides, next to the file name used project file or main module name is shown. 
+<P>Modula-2 files which are not children of project directory are included in the <B>External Dependencies</B> virtual folder. 
+<P>If SDK is set to show definition modules then <B>SDK Library</B> virtual folder will show definition module resources. 
+<P><H2>
+<A NAME="0020"><A NAME="UI.Wizard">Wizard</A></A></H2>
+
+<P>Wizards are used for the step by step configuration of various parameters. 
+<P>Typical example of wizard is on the picture below: 
+<P><IMG ALT="" SRC="pics/existingproject.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><H2>
+<A NAME="0021"><A NAME="UI.Navigate">Navigation</A></A></H2>
+
+<P><H3>
+<A NAME="0022"><A NAME="UI.Navigate.xBookmarks">Numbered Bookmarks</A></A></H3>
+
+<P>Numbered bookmarks are used for the quick navigation in editors. 
+<P>To set bookmark in the current line press <TT>Ctrl + Shift + &lt;Number&gt;</TT>, where <TT>&lt;Number&gt;</TT> &ndash; is an arbitrary digit from 0 to 9. So it is possible to set maximum 10 numbered bookmarks. When setting the bookmark, if the digit is already assigned to the other bookmark then the digit will be re-assigned to the new bookmark. If press <TT>Ctrl + Shift + &lt;Number&gt;</TT> once again &ndash; bookmark will be deleted. Press <TT>Ctrl + &lt;Number&gt;</TT> to jump on the particular numbered bookmark. To see all numbered bookmarks press <TT>Ctrl + =</TT>. 
+<P><IMG ALT="" SRC="pics/goToXBookmark.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Select bookmark with the cursor key and press <TT>Enter</TT> to open the bookmark location (new editor may open). 
+<P>The particular bookmark can reassigned or delete with the <TT>Ctrl + Shift + =</TT> hotkey. 
+<P><IMG ALT="" SRC="pics/ToggleXBookmark.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>To remove all bookmarks select <B>Navigate &gt; xBookmarks &gt; Remove All xBookmarks</B> in the main menu.
+<P><H3>
+<A NAME="0023"><A NAME="UI.Navigate.OpenResource">Open resource</A></A></H3>
+
+<P>To quickly open workspace resource use the <TT>Ctrl + Shift + R</TT> combination. 
+<P><IMG ALT="" SRC="pics/OpenResource.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Dialog will show all workspace resources (including filtered out in <B>Project Explorer</B>). 
+<P>Text field atop allows to filter resources by name. Wildcards are supported : <TT>*</TT> stands for the arbitrary string, <TT>?</TT> stands for the single character or emptry string. 
+<P>To select the Modula-2 module use <TT>Ctrl + M</TT> hotkey. 
+<P><IMG ALT="" SRC="pics/OpenModule.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><H3>
+<A NAME="0024"><A NAME="UI.Navigate.XFind">xFind</A></A></H3>
+
+<P>To search through the editor contents use <B>xFind panel</B>. It can be invoked with <TT>Ctrl + F</TT> hotkey. 
+<P>Atop the editor text field will appear, input the search pattern there. It is possible to change the panel placement in the <A HREF="#0025">settings</A>. 
+<P><IMG ALT="" SRC="pics/xFindPanel.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Default Eclipse search dialog can be opened with the <TT>Ctrl+Alt+F</TT> combination. 
+<P>Press <TT>Esc</TT> to close the panel. 
+<P>For now, <B>xFind panel</B> only supports search, to replace use the standard <B>Find/Replace</B> dialog, invoked by the <TT>Ctrl + Alt + F</TT> hotkey or via the Eclipse main menu. 
+<P>After typing the search text use <TT>Up/Down</TT> or <TT>Shift+Enter/Enter</TT> to navigate through the occurences. 
+<P>If the <B>xFind panel</B> has input focus then <TT>Ctrl + Down</TT> will show the search history. <TT>Shift+Down</TT> hotkey will put the next item from the search history in to the text field. 
+<P><B>xFind panel</B> supports all modes of the standard <B>Find/Replace</B> dialog, you can set them in search settings menu: 
+<P><IMG ALT="" SRC="pics/xFindPoupMenu.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Besides the <B>xFind panel</B> it is possible to quick find the word. For this just place cursor on the word in the editor and press <TT>Ctrl+Up</TT> or <TT>Ctrl+Down</TT>. 
+<P><H4>
+<A NAME="0025"><A NAME="UI.Navigate.XFind.Preferences">xFind preferences</A></A></H4>
+
+<P>One can access the <B>xFind panel</B> settings using the <B>Preferences</B> dialog on the<B>General &gt; Editors &gt; Text Editors &gt; xFind</B> page.
+<P><IMG ALT="" SRC="pics/xFindPreferences.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Here you can select the <A HREF="#0024">xFind panel</A> placement in the editor. 
+</BODY>
+</HTML>

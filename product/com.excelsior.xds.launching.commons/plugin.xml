@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+      point="com.excelsior.xds.builder.listener">
+   <listener
+         class="com.excelsior.xds.launching.commons.internal.delegate.BuildListener">
+   </listener>
+</extension>
+<extension point="org.eclipse.debug.ui.consoleColorProviders">
+   <consoleColorProvider 
+      id="com.excelsior.xds.launching.ProcessConsoleColorProvider"
+      class="com.excelsior.xds.launching.commons.internal.console.ProcessConsoleColorProvider"
+      processType="com.excelsior.xds.process.app">
+   </consoleColorProvider>
+ </extension>
+</plugin>

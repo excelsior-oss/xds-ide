@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+           point="com.excelsior.xds.ui.editor.modulaEditorHover">
+           <hover class="com.excelsior.xds.ui.editor.modula.spellcheck.internal.ModulaSpellingHover">
+           </hover>
+     </extension>
+<extension
+      point="com.excelsior.xds.ui.editor.modulaEditorReconcilingStrategyContribution">
+      <reconcilingStrategyProvider class="com.excelsior.xds.ui.editor.modula.spellcheck.internal.SourceCodeSpellingReconcileStrategyProvider">
+      </reconcilingStrategyProvider>
+</extension>
+<extension point="org.eclipse.ui.workbench.texteditor.spellingEngine">
+        <engine
+              preferencesClass="com.excelsior.xds.ui.editor.modula.spellcheck.internal.SpellingPreferenceBlock"
+              label="%spelling.default_engine_label"
+              class="com.excelsior.xds.ui.editor.modula.spellcheck.internal.DefaultSpellingEngine"
+              default="true"
+              id="com.excelsior.xds.ui.editor.modula.spelling.DefaultSpellingEngine">
+        </engine>
+</extension>
+</plugin>

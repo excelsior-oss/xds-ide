@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="CP866"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="User Guide" link_to="toc.xml#xds_help">
+    <topic label="Getting started"  href="html/xds_help001.html" >
+        <topic label="IDE installation and start"  href="html/xds_help001.html#0001" />
+        <topic label="Add SDK"  href="html/xds_help001.html#0002" />
+    </topic>
+    <topic label="First steps"  href="html/xds_help002.html" >
+        <topic label="Create new project"  href="html/xds_help002.html#0004" />
+        <topic label="Create project from existing sources"  href="html/xds_help002.html#0005" />
+        <topic label="Build project"  href="html/xds_help002.html#0006" />
+        <topic label="Run program"  href="html/xds_help002.html#0007" />
+        <topic label="Debug program"  href="html/xds_help002.html#0008" />
+    </topic>
+    <topic label="Basic concepts"  href="html/xds_help003.html" >
+        <topic label="Worspace"  href="html/xds_help003.html#0010" />
+        <topic label="Project"  href="html/xds_help003.html#0011" />
+        <topic label="Resources"  href="html/xds_help003.html#0012" />
+        <topic label="Plugin"  href="html/xds_help003.html#0013" />
+    </topic>
+    <topic label="User interface"  href="html/xds_help004.html" >
+        <topic label="Workbench"  href="html/xds_help004.html#0015" />
+        <topic label="Perspectives"  href="html/xds_help004.html#0016" />
+        <topic label="Editor"  href="html/xds_help004.html#0017" />
+        <topic label="Views"  href="html/xds_help004.html#0018" >
+            <topic label="Project Explorer"  href="html/xds_help004.html#0019" />
+        </topic>
+        <topic label="Wizard"  href="html/xds_help004.html#0020" />
+        <topic label="Navigation"  href="html/xds_help004.html#0021" >
+            <topic label="Numbered Bookmarks"  href="html/xds_help004.html#0022" />
+            <topic label="Open resource"  href="html/xds_help004.html#0023" />
+            <topic label="xFind"  href="html/xds_help004.html#0024" >
+                <topic label="xFind preferences"  href="html/xds_help004.html#0025" />
+            </topic>
+        </topic>
+    </topic>
+    <topic label="Parameters"  href="html/xds_help005.html" >
+        <topic label="XDS Modula-2"  href="html/xds_help005.html#0027" >
+            <topic label="Console"  href="html/xds_help005.html#0028" />
+            <topic label="Editor"  href="html/xds_help005.html#0029" >
+                <topic label="Indent Guides"  href="html/xds_help005.html#0030" />
+                <topic label="Syntax Coloring"  href="html/xds_help005.html#0031" />
+                <topic label="Templates"  href="html/xds_help005.html#0032" />
+            </topic>
+            <topic label="Registered SDKs"  href="html/xds_help005.html#0033" />
+            <topic label="Code style"  href="html/xds_help005.html#0034" />
+            <topic label="Formatter"  href="html/xds_help005.html#0035" >
+                <topic label="Formatting profile edit dialog"  href="html/xds_help005.html#0036" >
+                    <topic label="Indent formatting settings"  href="html/xds_help005.html#0037" />
+                    <topic label="Whitespace formatting settings"  href="html/xds_help005.html#0038" />
+                    <topic label="Newline formatting settings"  href="html/xds_help005.html#0039" />
+                    <topic label="Line wrap formatting settings"  href="html/xds_help005.html#0040" />
+                </topic>
+            </topic>
+        </topic>
+        <topic label="General"  href="html/xds_help005.html#0041" >
+            <topic label="Spelling"  href="html/xds_help005.html#0042" />
+        </topic>
+    </topic>
+    <topic label="Resource properties"  href="html/xds_help006.html" >
+        <topic label="Modula-2 project properties"  href="html/xds_help006.html#0044" />
+    </topic>
+    <topic label="Usage"  href="html/xds_help007.html" >
+        <topic label="Create new elements"  href="html/xds_help007.html#0046" >
+            <topic label="New project from scratch"  href="html/xds_help007.html#0047" />
+            <topic label="Create project from existing sources"  href="html/xds_help007.html#0048" />
+            <topic label="New Modula-2 module"  href="html/xds_help007.html#0049" />
+        </topic>
+        <topic label="Edit SDK"  href="html/xds_help007.html#0050" >
+            <topic label="Edit SDK wizard"  href="html/xds_help007.html#0051" >
+                <topic label="Components"  href="html/xds_help007.html#0052" >
+                    <topic label="Base tools"  href="html/xds_help007.html#0053" />
+                    <topic label="Extra tools"  href="html/xds_help007.html#0054" />
+                </topic>
+                <topic label="Templates"  href="html/xds_help007.html#0055" >
+                    <topic label="Files types"  href="html/xds_help007.html#0056" />
+                    <topic label="Templates files"  href="html/xds_help007.html#0057" />
+                    <topic label="Folders layout"  href="html/xds_help007.html#0058" />
+                </topic>
+                <topic label="Environment"  href="html/xds_help007.html#0059" />
+            </topic>
+            <topic label="Edit tool dialog"  href="html/xds_help007.html#0060" >
+                <topic label="Tool settings"  href="html/xds_help007.html#0061" />
+                <topic label="Tool menu"  href="html/xds_help007.html#0062" />
+                <topic label="Tool launch settings"  href="html/xds_help007.html#0063" >
+                    <topic label="Arguments"  href="html/xds_help007.html#0064" />
+                    <topic label="Working directory"  href="html/xds_help007.html#0065" />
+                </topic>
+            </topic>
+        </topic>
+        <topic label="Launch configurations"  href="html/xds_help007.html#0066" >
+            <topic label="Edit launch configurations"  href="html/xds_help007.html#0067" />
+        </topic>
+        <topic label="Select folder or file"  href="html/xds_help007.html#0073" />
+        <topic label="Working with variables"  href="html/xds_help007.html#0074" >
+            <topic label="Configure arguments "  href="html/xds_help007.html#0075" />
+            <topic label="Edit variables"  href="html/xds_help007.html#0076" />
+        </topic>
+        <topic label="Keyboard map"  href="html/xds_help007.html#0077" />
+    </topic>
+</toc>

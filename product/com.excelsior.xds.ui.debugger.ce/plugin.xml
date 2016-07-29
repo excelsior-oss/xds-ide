@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<!-- you need to declare model element as adaptable to org.eclipse.debug.ui.actions.ILaunchable in order to enable Launch shortcut from it, see #KIDE-5-->
+	<extension point="org.eclipse.core.runtime.adapters">
+          <factory class="org.eclipse.core.runtime.IAdaptable" adaptableType="com.excelsior.xds.core.model.IXdsDbgScriptBundleFile">
+                  <adapter type="org.eclipse.debug.ui.actions.ILaunchable"/>
+          </factory>
+           <factory class="org.eclipse.core.runtime.IAdaptable" adaptableType="com.excelsior.xds.core.model.IXdsDdgScriptUnitFile">
+                  <adapter type="org.eclipse.debug.ui.actions.ILaunchable"/>
+          </factory>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup
+			class="com.excelsior.xds.ui.launcher.LauncherTabGroup"
+			id="com.excelsior.xds.ui.debugger.launching.ModulaProject.TabGroup"
+			type="com.excelsior.xds.ui.launching.ModulaApplication"
+			helpContextId="com.excelsior.xds.help.launch_configuration_editor">
+			<launchMode mode="debug"
+				description="%launchConfigurationTabGroups.createDbgConfig">
+			</launchMode>
+		</launchConfigurationTabGroup>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+		<shortcut label="%common.xdsM2Application" icon="icons/xds16x16.gif"
+			class="com.excelsior.xds.ui.debugger.ce.internal.launch.DebugModulaLaunchShortcut"
+			modes="debug"
+			id="com.excelsior.xds.ui.launching.debugger.ce.ModulaProject.TabGroup.launchShortcut">
+			<contextualLaunch>
+				<enablement>
+					<reference definitionId="com.excelsior.xds.expression.launch.shortcut.ModulaApplication.enablement" />
+				</enablement>			
+			</contextualLaunch>
+			<configurationType id="com.excelsior.xds.ui.launching.ModulaApplication">
+			</configurationType>
+		</shortcut>
+	</extension>
+</plugin>

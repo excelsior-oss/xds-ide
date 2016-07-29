@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.excelsior.xds.ui.editor.spellcheck;singleton:=true
+Bundle-Version: 1.7.0.qualifier
+Bundle-Activator: com.excelsior.xds.ui.editor.spellcheck.internal.plugin.SpellcheckPlugin
+Bundle-Vendor: Excelsior LLC
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text;bundle-version="3.9.2",
+ org.eclipse.ui.workbench.texteditor;bundle-version="3.9.0",
+ com.excelsior.xds.core;bundle-version="1.7.0",
+ com.excelsior.xds.ui.commons;bundle-version="1.7.0",
+ com.excelsior.xds.ui;bundle-version="1.7.0",
+ org.eclipse.ui.editors;bundle-version="3.8.200",
+ com.excelsior.xds.ui.editor.commons;bundle-version="1.7.0",
+ com.excelsior.xds.ui.editor;bundle-version="1.7.0",
+ org.eclipse.core.variables;bundle-version="3.2.800",
+ org.eclipse.core.resources;bundle-version="3.9.1",
+ org.eclipse.ui.ide,
+ org.eclipse.debug.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

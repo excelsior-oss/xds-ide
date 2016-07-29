@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="CP866"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="XDS Modula-2">
+   <!-- label="Дополнительные разделы перед основными" -->
+   <anchor id="top"/>
+
+   <topic label="XDS Modula-2 IDE User Guide" href="html/xds_help000.html">
+      <link toc="xds_help_toc.xml"/>
+   </topic>
+
+   <!-- label="Описание языка Модула-2" -->
+   <anchor id="modula2"/>
+
+   <!-- label="Дополнительные разделы после основных" -->
+   <anchor id="bottom"/>
+</toc>

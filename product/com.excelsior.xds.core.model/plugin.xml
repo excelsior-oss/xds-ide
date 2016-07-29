@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<!-- Expressions: XDS Model elements  -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition 
+         id="com.excelsior.xds.expression.model.NotExternalElement">
+      <not>
+            <instanceof value="com.excelsior.xds.core.model.IXdsExternalCompilationUnit"/>
+      </not>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.model.XdsFolder">
+      <instanceof value="com.excelsior.xds.core.model.internal.XdsFolderContainer"/>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.selected.XdsFolders">
+      <with variable="selection">
+         <iterate ifEmpty="false" operator="and">
+            <reference
+                  definitionId="com.excelsior.xds.expression.model.XdsFolder">
+            </reference>
+         </iterate>
+      </with>
+   </definition>
+
+</extension>
+<extension
+      point="com.excelsior.xds.builder.listener">
+   <listener
+         class="com.excelsior.xds.core.model.internal.buildlistener.BuildListener">
+   </listener>
+</extension>
+</plugin>

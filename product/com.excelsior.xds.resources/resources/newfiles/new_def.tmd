@@ -1,0 +1,3 @@
+DEFINITION MODULE ${eclipse.ide.modulename};
+
+END ${eclipse.ide.modulename}.

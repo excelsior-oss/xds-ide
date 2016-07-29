@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>XDS Модула-2 IDE: Интегрированная среда разработки</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="title">&nbsp;</A>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P ALIGN=CENTER><FONT SIZE=4><B>Программные Продукты Серии XDS </B></FONT>
+<P>
+<P ALIGN=CENTER><FONT SIZE=4><B>Система программирования на языке Модула-2</B></FONT>
+<P ALIGN=CENTER>
+<P ALIGN=CENTER><FONT SIZE=4><B>Интегрированная среда разработки</B></FONT> 
+<P ALIGN=CENTER><FONT SIZE=4>Руководство пользователя</FONT> 
+<P ALIGN=CENTER><FONT SIZE=5>Excelsior, LLC</FONT> 
+<P ALIGN=CENTER><A HREF="http://www.excelsior-usa.com">http://www.excelsior-usa.com</A> 
+<P><FONT SIZE=2>
+<P>Программное обеспечение и документация Excelsior copyright &copy; 2001-2014 Excelsior, LLC. 
+<P>Все права защищены. Вы можете использовать прилагаемое программное обеспечение на одном компьютере; переносить его с одного компьютера на другой, при условии, что программное обеспечение используется единовременно только на одном компьютере и что вы удаляете все копии данного программного обеспечения с компьютера, с которого произведено копирование; создавать резервные копии программного обеспечения. 
+<P>Информация в данном документе может быть изменена без оповещения и не является обязательством со стороны Excelsior, LLC. 
+<P>Программное обеспечение и документация Excelsior были протестированы и просмотрены. Тем не менее, Excelsior не дает никаких гарантий и обязательств, как явных, так и подразумеваемых, относительно программного обеспечения и документации, входящих в состав продукта серии XDS. Ни при каких обстоятельствах Excelsior не может быть привлечена к ответственности за прямые, косвенные, особые, случайные или последовательные повреждения и потери, явившиеся результатом любого недостатка в программном обеспечении или документации, входящих в состав данного продукта. В частности, Excelsior не несет ответственности за любые программы и данные, используемые совместно с этим продуктом, включая стоимость восстановления программ или данных. 
+<P>XDS торговая марка Excelsior, LLC. 
+<P>Microsoft, Windows 95, Windows NT - торговые марки или зарегистрированные торговые марки Microsoft Corporation. 
+<P>Все торговые марки и авторские права, упомянутые в данном документе, являются собственностью сответствующих владельцев. 
+<P></FONT>  
+<P>
+<P>
+<HR>
+<TABLE BORDER=0 CELLSPACING=3 CELLPADDING=0>
+<TR>
+<TD WIDTH=32><FONT COLOR="#FFFFFF">00</FONT></TD>
+<TD WIDTH=32><FONT COLOR="#FFFFFF">00</FONT></TD>
+<TD WIDTH=32><FONT COLOR="#FFFFFF">00</FONT></TD>
+<TD><FONT COLOR="#FFFFFF">0000000000000000000000</FONT></TD>
+</TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help001.html#0000">Начало работы</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help001.html#0001">Установка и запуск среды</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help001.html#0002">Подключение КСП</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help002.html#0003">Первые шаги</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help002.html#0004">Создание нового проекта</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help002.html#0005">Создание проекта для существующего кода</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help002.html#0006">Компиляция проекта</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help002.html#0007">Запуск программы</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help002.html#0008">Отладка программы</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help003.html#0009">Основные концепции</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help003.html#0010">Рабочая область</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help003.html#0011">Проект</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help003.html#0012">Ресурсы</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help003.html#0013">Подключаемый модуль</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help004.html#0014">Пользовательский интерфейс</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0015">Рабочий стол</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0016">Проекции</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0017">Редактор</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0018">Панели</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help004.html#0019">Структура проекта</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0020">Мастер настройки</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help004.html#0021">Навигация</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help004.html#0022">Цифровые закладки</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help004.html#0023">Открытие ресурса</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help004.html#0024">Панель быстрого поиска</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help005.html#0026">Параметры</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help005.html#0027">XDS Модула-2</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0028">Консоль</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0029">Редактор</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0033">Системы разработки</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0034">Стиль кода</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0035">Форматирование</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help005.html#0041">Общие</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help005.html#0042">Орфография</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help006.html#0043">Свойства ресурсов</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help006.html#0044">Modula-2 свойства проекта</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=4><B><A HREF="xds_help007.html#0045">Использование</A></B>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0046">Создание новых элементов</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0047">Новый проект</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0048">Проект для существующего кода</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0049">Новый Модула-2 модуль</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0050">Управление параметрами КСП</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0051">Мастер настройки КСП</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0060">Мастер настройки инструмента КСП</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0066">Конфигурации запуска</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0067">Конфигурации запуска приложения</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0073">Конфигурации запуска пакета отладки</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0079">Выбор каталога или файла</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0080">Работа с переменными</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0081">Конфигурация аргументов</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=2></TD><TD COLSPAN=2><FONT SIZE=2><A HREF="xds_help007.html#0082">Редактирование списка переменных</A></FONT>
+</TD></TR>
+<TR><TD COLSPAN=1></TD><TD COLSPAN=3><FONT SIZE=2><A HREF="xds_help007.html#0083">Основные управляющие клавиши</A></FONT>
+</TD></TR>
+</TABLE>
+<HR>
+</BODY>
+</HTML>

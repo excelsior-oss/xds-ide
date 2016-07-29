@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="templates" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="templates">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="template" nillable="true">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:string" />
+                <xs:attribute name="autoinsert" type="xs:string" />
+                <xs:attribute name="context" type="xs:string" />
+                <xs:attribute name="deleted" type="xs:string" />
+                <xs:attribute name="description" type="xs:string" />
+                <xs:attribute name="enabled" type="xs:string" />
+                <xs:attribute name="name" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

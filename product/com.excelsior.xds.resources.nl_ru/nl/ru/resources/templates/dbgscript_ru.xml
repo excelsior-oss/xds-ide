@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="CP1251"?>
+<templates>
+<template id="xds.template.dbgscript.test.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Тестовый прогон программы" enabled="true" name="НАЧАЛО-КОНЕЦ">
+НАЧАЛО_ВАРИАНТА ${имя_варианта}
+${line_selection}${cursor}
+КОНЕЦ_ВАРИАНТА ${имя_варианта}
+</template>
+
+<template id="xds.template.dbgscript.go.ru"  autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Запустить исполнение программы" enabled="true" name="ВЫПОЛНИТЬ">ВЫПОЛНИТЬ ${aдpес_запуска}</template>
+
+<template id="xds.template.dbgscript.put.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Печать сообщений в протокол" enabled="true" name="ПЕЧАТЬ">ПЕЧАТЬ "${строка_формата}", ${выражение}</template>
+
+<template id="xds.template.dbgscript.break_line.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Останов по номеру строки модуля" enabled="true" name="ОСТАНОВ_СТРОКА">ОСТАНОВ ${номер_останова}, LINE, ${имя_модуля}, ${номер_строки}, ${метка_обработчика}${cursor}</template>
+<template id="xds.template.dbgscript.break_call.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Останов по вызову процедуры"     enabled="true" name="ОСТАНОВ_ВЫЗОВ">ОСТАНОВ ${номер_останова}, CALL, ${имя_процедуры}, ${метка_обработчикаl}${cursor}</template>
+
+<template id="xds.template.dbgscript.break_begin_p.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Основнов на прологе процедуры"     enabled="true" name="ОСТАНОВ_НАЧАЛО_P">ОСТАНОВ ${номер_останова}, BEGIN, ${имя_процедуры}, P, ${метка_обработчика}</template>
+<template id="xds.template.dbgscript.break_begin_b.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Основнов на начале тела процедуры" enabled="true" name="ОСТАНОВ_НАЧАЛО_B">ОСТАНОВ ${номер_останова}, BEGIN, ${имя_процедуры}, B, ${метка_обработчика}</template>
+<template id="xds.template.dbgscript.break_begin_e.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Основнов на эпилоге процедуры"     enabled="true" name="ОСТАНОВ_НАЧАЛО_E">ОСТАНОВ ${номер_останова}, BEGIN, ${имя_процедуры}, E, ${метка_обработчика}</template>
+<template id="xds.template.dbgscript.break_begin_r.ru" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.dbgscript" deleted="false" description="Основнов на возврате из процедуры" enabled="true" name="ОСТАНОВ_НАЧАЛО_R">ОСТАНОВ ${номер_останова}, BEGIN, ${имя_процедуры}, R, ${метка_обработчика}</template>
+</templates>

@@ -1,0 +1,177 @@
+<project name="Excelsuior IDE build launcher" default="nightbuild" basedir=".">
+    <copy todir="./tools" overwrite="true">
+                <fileset dir="../tools/">
+                    <include name="groovy/**"/>
+                </fileset>
+    </copy>    
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>   
+    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy" classpath="./tools/groovy/groovy-all-2.0.5.jar;./tools/groovy/commons-cli-1.2.jar"/>
+    
+    <!-- Create build.properties file  -->      
+    <copy file="build.config" tofile="build.properties" overwrite="true" />    
+        
+    <exec executable="hostname" outputproperty="computer.hostname"/>
+    <property environment="env"/>
+    <property name="host.properties" value="config/${computer.hostname}.properties" />
+    <replace file="build.properties" replacefilterfile="${host.properties}"/>
+
+    <!-- Read build.properties file  -->      
+    <var file="./build.properties" />
+         
+    <target name="init">
+        <buildnumber/>        
+        <tstamp>
+            <format property="TODAY"   pattern="yyyy-MM-dd"/>
+            <format property="TIMENOW" pattern="HHmmss"/>
+        </tstamp>
+        <property name="output"   value="${pResultOutputDir}/${TODAY}"/>
+        <property name="revision" value="1.7.0"/> 
+        <property name="bnumber"  value="1"/>             
+        
+        <mkdir dir="${output}" />
+    </target>
+
+    <target name="applyLocalization"> 
+        <!-- START Get from babel only relevant fragments -->        
+        <property name="updateSiteBuilder_instance" location="./temp/xds-ide"/>
+	<delete dir="./temp/" />
+        <unzip src="./build/I.xds-ide/xds-ide.${revision}-win32.zip" dest="./temp/">
+            <patternset>
+                <include name="**/*.*"/>
+            </patternset>           
+        </unzip>
+                                
+        <property name="updateSiteBuilder_resultUpdateSitePath" location="./temp/localization-site"/>
+        <!-- create a localization update site containing only relevant babel fragments -->
+        <java jar="./tools/updateSiteBuilder/builder.jar"
+           fork="true"
+           failonerror="true"
+           maxmemory="128m"
+           dir="./tools/updateSiteBuilder/"
+           >
+         <arg line="--repo ${pLocalizationPluginsBase}/${xds-locale} --instance ${updateSiteBuilder_instance} --l10n_postfix nl_ru --site ${updateSiteBuilder_resultUpdateSitePath}"/>
+        
+         <classpath>
+           <pathelement location="./tools/updateSiteBuilder/builder.jar"/>
+         </classpath>
+       </java>       
+       <!-- copy *excelsior* plugin localization fragments to the localization update site (features and plugins subdirectories)-->
+       <for list="features,plugins" param="folder">  
+           <sequential>             
+           <copy todir="${updateSiteBuilder_resultUpdateSitePath}/@{folder}">     
+           <fileset dir="${updateSiteBuilder_instance}/@{folder}" defaultexcludes="false">
+           <include name="**/*excelsior*nl_ru*/**" />
+           </fileset>
+           </copy>
+           </sequential>  
+       </for>
+        
+        <!-- END Get from babel only relevant fragments -->
+
+        <!-- Put localization plugins into the IDE -->
+        <zip destfile="./build/I.xds-ide/xds-ide.${revision}-win32.zip" update="true">
+            <zipfileset dir="${updateSiteBuilder_resultUpdateSitePath}/features"  prefix="xds-ide/features" />
+            <zipfileset dir="${updateSiteBuilder_resultUpdateSitePath}/plugins"   prefix="xds-ide/plugins" />
+        </zip>    
+
+        <!-- BEGIN create category.xml --> 
+        <property name="repo" location="./repo" />
+        <property name="categoryXml" location="./temp/category.xml" />
+        <groovy src="./scripts/createCategoryXml.groovy">
+            <arg line="--repo ${repo} --categoryXml ${categoryXml}" />
+        </groovy>   
+        <!-- END create category.xml -->
+
+        <groovy>
+            properties.put('repoUri', new File(properties["repo"]).toURI());
+            properties.put('categoryXmlUri', new File(properties["categoryXml"]).toURI());
+        </groovy>
+
+        <!-- BEGIN apply category.xml to the repo -->
+        <java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+           <arg value="-application" />
+           <arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+           <arg value="-metadataRepository" />
+           <arg value="${repoUri}" />
+           <arg value="-categoryDefinition" />
+           <arg value="${categoryXmlUri}" />            
+           <arg value="-compress" />
+           <classpath>
+             <pathelement location="${eclipseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+           </classpath>
+        </java>
+        <!-- END apply category.xml to the repo -->
+    </target>
+   
+    <target name="nightbuild" depends="init">      
+         <var name="xds-locale" value="ru"/>
+
+        <!--BEGIN build general purpose distrib -->
+
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="./temp/xds-ide" includes="**/*"/>
+        </delete> 
+
+        <copy todir="../product/com.excelsior.xds.feature/rootfiles/docs">
+            <fileset dir="../docs/UserGuides/en" includes="*.pdf,*.doc"/>
+        </copy> 
+        
+        <property name="tmpProductDir1" location="../product"/>
+        <var name="productDir" value="${tmpProductDir1}"/>
+              
+        <ant antfile="build.xml">
+        </ant>
+
+        <antcall target="applyLocalization" />
+
+        <!-- Put XDS-x86 sdk to distrib -->
+        <zip destfile="./build/I.xds-ide/xds-ide.${revision}-win32.zip" update="true">
+            <zipfileset dir="${xdsSdk}"  prefix="xds-ide/sdks/XDS-x86" />           
+        </zip> 
+
+        <copy file="./build/I.xds-ide/xds-ide.${revision}-win32.zip" toFile="${output}/xds-ide-${revision}-${TIMENOW}-${bnumber}-win32.zip">
+        </copy> 
+        <!--END build general purpose distrib --> 
+        
+        <!--BEGIN build K26 distrib --> 
+
+        <if>
+            <equals arg1="${env.BUILD_K26_VERSION}" arg2="ON" />
+            <then>
+                <delete includeemptydirs="true" quiet="true">
+                    <fileset dir="./temp/xds-ide" includes="**/*"/>
+                </delete>
+
+                <!-- build distrib with RU locale-->        
+                <copy file="build_k26.config" tofile="build.properties" overwrite="true" />
+                <replace file="build.properties" replacefilterfile="${host.properties}"/>
+                <var file="./build.properties" />
+
+                <delete>
+                    <fileset dir="../product/com.excelsior.xds.feature/rootfiles/docs" includes="*.pdf,*.doc"/>
+                </delete> 
+                <copy todir="../product/com.excelsior.xds.feature/rootfiles/docs">
+                    <fileset dir="../docs/UserGuides/ru"/>
+                </copy>                 
+                      
+                <property name="tmpProductDir2" location="../product"/>
+                <var name="productDir" value="${tmpProductDir2}"/>     
+
+                <concat append="true" destfile="../product/com.excelsior.xds.ide/plugin_customization.ini">
+                    org.eclipse.help/HELP_DATA=PLUGINS_ROOT/com.excelsior.xds.ide/helpData.xml
+                    org.eclipse.help.base/help_home=/com.excelsior.xds.help.nl_ru/nl/ru/html/help_home.html
+                </concat>
+                <ant antfile="build.xml">            
+                </ant>
+
+                <antcall target="applyLocalization" />        
+
+                <copy file="./build/I.xds-ide/xds-ide.${revision}-win32.zip" toFile="${output}/xds-ide-k26-${revision}-${TIMENOW}-${bnumber}-win32.zip">
+                </copy>                                                
+            </then>
+            <else>                
+            </else>
+        </if>
+        <!--END build K26 distrib --> 
+    </target>    
+</project>

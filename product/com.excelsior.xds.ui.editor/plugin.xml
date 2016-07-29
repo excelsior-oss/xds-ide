@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension-point id="modulaEditorHover" name="modulaEditorHover" schema="schema/modulaEditorHover.exsd"/>
+<extension-point id="modulaEditorReconcilingStrategyContribution" name="modulaEditorReconcilingStrategyContribution" schema="schema/modulaEditorReconcilingStrategyContribution.exsd"/>
+<extension
+        point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            class="com.excelsior.xds.ui.editor.internal.preferences.EditorPreferencePage"
+            id="com.excelsior.xds.ui.preferences.editorPageId"
+            name="%preferencePages.editor">
+      </page>
+      <page
+            category="com.excelsior.xds.ui.preferences.editorPageId"
+            class="com.excelsior.xds.ui.editor.internal.preferences.Modula2TemplatesPreferencePage"
+            id="com.excelsior.xds.ui.preferences.templatePageId"
+            name="%preferencePages.templates">
+      </page> 
+      <page
+            category="com.excelsior.xds.ui.preferences.editorPageId"
+            class="com.excelsior.xds.ui.editor.internal.preferences.MarkOccurrencesPreferencePage"
+            id="com.excelsior.xds.ui.preferences.markOccurrenciesPageId"
+            name="%preferencePages.markOccurrences">
+      </page>
+
+      <page
+            category="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            class="com.excelsior.xds.ui.editor.internal.preferences.CodeStylePreferencePage"
+            id="com.excelsior.xds.ui.preferences.codeStylePageId"
+            name="%preferencePages.codeStyle">
+      </page>
+      <page
+            category="com.excelsior.xds.ui.preferences.codeStylePageId"
+            class="com.excelsior.xds.ui.editor.internal.preferences.formatter.FormatterPreferencePage"
+            id="com.excelsior.xds.ui.preferences.formatterPageId"
+            name="%preferencePages.formatter">
+      </page>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.editors">
+   <editor
+         default="false"
+         extensions="mod,MOD,Mod"
+         icon="icons/m2_mod_file.gif"
+         class="com.excelsior.xds.ui.editor.modula.ModulaEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.modula.ProgramModuleEditor"
+         name="%editors.modEditor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.modulaProgramModule"/>
+   </editor>
+   <editor
+         default="false"
+         extensions="def,DEF,Def"
+         icon="icons/m2_def_file.gif"
+         class="com.excelsior.xds.ui.editor.modula.ModulaEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor"
+         name="%editors.defEditor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.modulaDefinitionModule"/>
+   </editor>
+   
+   <editor
+         default="false"
+         extensions="ob2,OB2,Ob2"
+         icon="icons/m2_mod_file.gif"
+         class="com.excelsior.xds.ui.editor.modula.ModulaEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.oberon.ModuleEditor"
+         name="%editors.ob2Editor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.oberonModule"/>
+   </editor>
+   <editor
+         default="false"
+         extensions="odf,ODF,Odf"
+         icon="icons/m2_def_file.gif"
+         class="com.excelsior.xds.ui.editor.modula.ModulaEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.oberon.DefinitionModuleEditor"
+         name="%editors.odfEditor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.oberonDefinitionModule"/>
+   </editor>
+   <editor
+         default="false"
+         extensions="sym,SYM,Sym"
+         icon="icons/m2_sym_file.gif"
+         class="com.excelsior.xds.ui.editor.symfile.XdsSymfileEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.SymFileEditor"
+         name="%editors.symFileEditor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.symFile"/>
+   </editor>
+             
+   <editor 
+         default="false"
+         extensions="prj,PRJ"
+         class="org.eclipse.ui.editors.text.TextEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.ProjectFileEditor"
+         name="%editors.prjFile">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.prjFile"/>
+   </editor>
+   <editor 
+         default="false"
+         extensions="cfg,CFG,Cfg,cha,CHA,Cha,lnk,LNK,Lnk,lst,LST,Lst,map,MAP,Map,mar,MAR,Mar,mkf,MKF,Mkf,old,OLD,Old,s,S,sts,STS,Sts"
+         class="org.eclipse.ui.editors.text.TextEditor"
+         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+         id="com.excelsior.xds.ui.editor.TextFileEditor"
+         name="%editors.txtTextFile">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.textFile"/>
+   </editor>
+   <editor 
+         default="false"
+         extensions="htm,html,shtml,HTM,HTML,SHTML"
+         class="org.eclipse.ui.internal.browser.WebBrowserEditor"
+         contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
+         id="com.excelsior.xds.ui.editor.WebBrowserEditor"
+         name="%editors.htmlEditor">
+         <contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.htmlFile"/>
+   </editor>
+</extension>
+
+
+<extension
+       point="org.eclipse.core.filebuffers.documentSetup"
+       id="com.excelsior.xds.ui.editor.modula.ImplementationModuleDocumentSetupParticipant"
+       name="Modula-2 Implementation Module Document Setup Participant">
+    <participant
+            class="com.excelsior.xds.ui.editor.modula.ModulaDocumentSetupParticipant"
+            contentTypeId="com.excelsior.xds.contenttype.modulaProgramModule"
+            extensions="mod,MOD,Mod">
+    </participant>
+</extension>
+<extension
+        point="org.eclipse.core.filebuffers.documentSetup"
+        id="com.excelsior.xds.ui.editor.modula.DefinitionModuleDocumentSetupParticipant"
+        name="Modula-2 Definition Module Document Setup Participant">
+    <participant
+            class="com.excelsior.xds.ui.editor.modula.ModulaDocumentSetupParticipant"
+            contentTypeId="com.excelsior.xds.contenttype.modulaDefinitionModule"
+            extensions="def,DEF,Def">
+    </participant>
+</extension>
+
+<extension
+       point="org.eclipse.core.filebuffers.documentSetup"
+       id="com.excelsior.xds.ui.editor.oberon.ModuleDocumentSetupParticipant"
+       name="Oberon-2 Module Document Setup Participant">
+    <participant
+            class="com.excelsior.xds.ui.editor.oberon.OberonDocumentSetupParticipant"
+            contentTypeId="com.excelsior.xds.contenttype.oberonModule"
+            extensions="ob2,OB2,Ob2">
+    </participant>
+</extension>
+<extension
+        point="org.eclipse.core.filebuffers.documentSetup"
+        id="com.excelsior.xds.ui.editor.oberon.DefinitionModuleDocumentSetupParticipant"
+        name="Oberon-2 Pseudo Definition Module Document Setup Participant">
+    <participant
+            class="com.excelsior.xds.ui.editor.oberon.OberonDocumentSetupParticipant"
+            contentTypeId="com.excelsior.xds.contenttype.oberonDefinitionModule"
+            extensions="odf,ODF,Odf">
+    </participant>
+</extension>
+<extension
+        point="org.eclipse.core.filebuffers.documentSetup"
+        id="com.excelsior.xds.ui.editor.SymFileDocumentSetupParticipant"
+        name="XDS Symbol File Setup Participant">
+    <participant
+            class="com.excelsior.xds.ui.editor.oberon.OberonDocumentSetupParticipant"
+            contentTypeId="com.excelsior.xds.contenttype.oberonDefinitionModule"
+            extensions="sym,SYM,Sym">
+    </participant>
+</extension>
+
+<extension
+         point="org.eclipse.ui.editors.templates">
+      <contextType
+            class="com.excelsior.xds.ui.editor.modula.template.SourceCodeTemplateContextType"
+            id="com.excelsior.xds.ui.editor.templates.context.type.modula"
+            name="%templates.context.type.modula"/>
+</extension>
+
+<extension
+      point="org.eclipse.ui.bindings">
+   <scheme
+         id="com.excelsior.xds.command.keybinding"
+         name="%xds.keybinding.scheme.name"
+         parentId="org.eclipse.ui.defaultAcceleratorConfiguration">
+   </scheme>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.toggle.comment"
+         contextId="com.excelsior.xds.ui.modulaEditorScope" 
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+/">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.add.block.comment"
+         contextId="com.excelsior.xds.ui.modulaEditorScope" 
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+SHIFT+/">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.remove.block.comment"
+         contextId="com.excelsior.xds.ui.modulaEditorScope" 
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+SHIFT+\">
+   </key>
+   <key
+         commandId="com.excelsior.xds.commands.modula.context.f1.help"
+         contextId="com.excelsior.xds.ui.modulaEditorScope" 
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="F12">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+O">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.indent"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+I">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.format"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+SHIFT+F">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.toggleMarkOccurrences"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="M2+M3+O">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.selectEnclosingElement"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="M2+M3+ARROW_UP">
+   </key>
+   <key
+         commandId="com.excelsior.xds.ui.commands.restoreLastSelection"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="M2+M3+ARROW_DOWN">
+   </key>
+
+   <key
+         commandId="com.excelsior.xds.ui.commands.modula.openCoupledModule"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding"
+         sequence="CTRL+P">
+   </key>
+   <key
+                 commandId="com.excelsior.xds.ui.editor.modula.opendecl"
+         sequence="F3"
+                 contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>
+    <key
+                 commandId="com.excelsior.xds.ui.editor.modula.finddecl"
+         sequence="CTRL+G"
+                 contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>
+    <key
+                 commandId="com.excelsior.xds.ui.editor.modula.findrefs"
+         sequence="CTRL+SHIFT+G"
+                 contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>
+    <key
+         commandId="org.eclipse.ui.edit.text.showInformation"
+         sequence="F2"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>
+    <key
+         commandId="com.excelsior.xds.ui.commands.modula.refactoring.rename"
+         sequence="CTRL+R"
+         contextId="com.excelsior.xds.ui.modulaEditorScope"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>
+</extension>
+
+<!-- xFind bindings  -->
+<extension
+      point="org.eclipse.ui.bindings">
+   <scheme
+         id="com.excelsior.xds.command.keybinding"
+         name="%xds.keybinding.scheme.name"
+         parentId="org.eclipse.ui.defaultAcceleratorConfiguration">
+   </scheme>
+<!-- xFind activation bindings  -->
+    <key
+         commandId="com.excelsior.texteditor.xfind.commands.open"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+F"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>  
+    <key
+         commandId="org.eclipse.ui.edit.findReplace"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+M3+F"
+         schemeId="com.excelsior.xds.command.keybinding">
+    </key>  
+<!-- xFind quick navigation bindings  -->
+   <key
+         commandId="com.excelsior.texteditor.xfind.commands.quick.prevOccurrence"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+ARROW_UP"
+         schemeId="com.excelsior.xds.command.keybinding">
+   </key>  
+   <key
+         commandId="com.excelsior.texteditor.xfind.commands.quick.nextOccurrence"
+         contextId="org.eclipse.ui.textEditorScope"
+         sequence="M1+ARROW_DOWN"
+         schemeId="com.excelsior.xds.command.keybinding">
+   </key>  
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.contexts">
+   <context
+         name="%contexts.m2sources"
+         description="%contexts.m2sources.desc"
+         parentId="org.eclipse.ui.textEditorScope"
+         id="com.excelsior.xds.ui.modulaEditorScope">
+   </context>
+</extension>
+
+<extension
+     point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectorTargets">
+   <target
+         id="com.excelsior.xds.ui.ModulaCode"
+         name="%hyperlink.target.ModulaCode">
+         <context type="org.eclipse.ui.texteditor.ITextEditor"/>
+   </target>
+</extension>
+
+<extension
+     point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+   <hyperlinkDetector
+         class="com.excelsior.xds.ui.editor.modula.hyperlink.ModulaDeclarationHyperlinkDetector"
+         id="com.excelsior.xds.ui.editor.modula.ModulaDeclarationHyperlinkDetector"
+         name="%hyperlink.detector.ModulaDeclaration"
+         targetId="com.excelsior.xds.ui.ModulaCode">
+   </hyperlinkDetector>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.commands">
+<!-- categories -->
+   <category
+         name="%commands.source.name"
+         description="%commands.source.desc"
+         id="com.excelsior.xds.ui.category.source">
+   </category>
+
+<!-- source -->
+   <command
+         name="%commands.toggleComment.name"
+         description="%commands.toggleComment.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.toggle.comment">
+   </command>
+   <command
+         name="%commands.AddBlockComment.name"
+         description="%commands.AddBlockComment.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.add.block.comment">
+   </command>
+   <command
+         name="%commands.RemoveBlockComment.name"
+         description="%commands.RemoveBlockComment.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.remove.block.comment">
+   </command>
+   <command
+         name="%commands.modula.indent.name"
+         description="%commands.modula.indent.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.indent">
+   </command>   
+   <command
+         name="%commands.modula.format.name"
+         description="%commands.modula.format.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.format">
+   </command>   
+   <command
+         name="%commands.modula.toggleMarkOccurrences.name"
+         description="%commands.modula.toggleMarkOccurrences.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.toggleMarkOccurrences">
+   </command>   
+   <command
+         name="%commands.modula.selectEnclosingElement.name"
+         description="%commands.modula.selectEnclosingElement.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.selectEnclosingElement">
+   </command>
+   <command
+         name="%commands.modula.restoreLastSelection.name"
+         description="%commands.modula.restoreLastSelection.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.restoreLastSelection">
+   </command>
+
+<!-- navigate -->
+   <command
+         name="%commands.openDeclaration.name"
+         description="%commands.openDeclaration.desc"
+         categoryId="org.eclipse.ui.category.navigate"
+         id="com.excelsior.xds.ui.editor.modula.opendecl">
+   </command>
+   <command
+         name="%commands.openCoupledModule.name"
+         description="%commands.openCoupledModule.desc"
+         categoryId="org.eclipse.ui.category.navigate"
+         id="com.excelsior.xds.ui.commands.modula.openCoupledModule">
+   </command>
+   <command
+         name="%commands.showQuickOutline.name"
+         description="%commands.showQuickOutline.desc"
+         categoryId="org.eclipse.ui.category.navigate"
+         id="com.excelsior.xds.ui.commands.modula.quick.outline">
+   </command>
+
+<!-- search -->
+   <command
+         name="%commands.findDeclarations.name"
+         description="%commands.findDeclarations.desc"
+         categoryId="org.eclipse.search.ui.category.search"
+         id="com.excelsior.xds.ui.editor.modula.finddecl">
+   </command>
+   <command
+         name="%commands.findReferences.name"
+         description="%commands.findReferences.desc"
+         categoryId="org.eclipse.search.ui.category.search"
+         id="com.excelsior.xds.ui.editor.modula.findrefs">
+   </command>
+
+<!-- help -->
+   <command
+         name="%commands.showHelp.name"
+         description="%commands.showHelp.desc"
+         categoryId="org.eclipse.ui.category.help"
+         id="com.excelsior.xds.commands.modula.context.f1.help">
+   </command>
+<!-- refactor -->  
+   <command
+         name="%commands.refactoring.rename.name"
+         description="%commands.refactoring.rename.desc"
+         categoryId="com.excelsior.xds.ui.category.source"
+         id="com.excelsior.xds.ui.commands.modula.refactoring.rename">
+   </command>
+     
+</extension>
+
+<!-- Modula-2/Oberon-2 commands' handlers -->
+<extension
+      point="org.eclipse.ui.handlers"
+      name="Modula-2 commands handlers">
+
+   <handler
+         class="com.excelsior.xds.ui.editor.commons.commands.ToggleCommentHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.toggle.comment">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.AddBlockCommentHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.add.block.comment">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.RemoveBlockCommentHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.remove.block.comment">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.ModulaContextHelpHandler"
+         commandId="com.excelsior.xds.commands.modula.context.f1.help">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaEditor">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.QuickOutlineHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.quick.outline">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.StructuredFiles">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.StructuredEditor">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.IndentModulaTextHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.indent">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.FormatModulaTextHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.format">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.ToggleMarkOccurrencesHandler"
+         commandId="com.excelsior.xds.ui.commands.toggleMarkOccurrences">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.StructuredFiles">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.SelectEnclosingElementHandler"
+         commandId="com.excelsior.xds.ui.commands.selectEnclosingElement">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.StructuredFiles">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.RestoreLastSelectionHandler"
+         commandId="com.excelsior.xds.ui.commands.restoreLastSelection">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.StructuredFiles">
+         </reference>
+      </activeWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.OpenCoupledModuleHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.openCoupledModule">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.only.ModulaFiles">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.single.ModulaFile">
+         </reference>
+      </enabledWhen>
+   </handler>
+   
+   <handler
+         class="com.excelsior.xds.ui.editor.modula.commands.refactoring.RenameRefactoringHandler"
+         commandId="com.excelsior.xds.ui.commands.modula.refactoring.rename">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+</extension>
+
+<extension
+      point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Modula Open Actions"
+            description="Modula Open Actions"
+            visible="false" 
+            id="com.excelsior.xds.ui.editor.modula.OpenActionSet">
+         <action
+               definitionId="com.excelsior.xds.ui.editor.modula.opendecl"
+               label="%OpenDeclarations_label"
+               tooltip="%OpenDeclarations_tooltip"
+               retarget="true"
+               menubarPath="navigate/open.ext"
+               id="com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+         </action>
+          </actionSet>            
+</extension>
+
+
+<!-- Modula-2 Editor popup menu -->
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.modula.ProgramModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.openCoupledModule"
+            style="push">
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+            style="push">
+      </command>
+   </menuContribution>
+   
+   <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.openCoupledModule"
+            style="push">
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+            style="push">
+      </command>
+   </menuContribution>
+   
+   <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.modula.ProgramModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.refactoring.rename"
+            style="push">
+      </command>
+    </menuContribution>
+    <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.refactoring.rename"
+            style="push">
+      </command>
+    </menuContribution>
+    <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.oberon.ModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.refactoring.rename"
+            style="push">
+      </command>
+    </menuContribution>
+</extension>
+
+<!-- Oberon-2 Editor popup menu -->
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.oberon.ModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+            style="push">
+      </command>
+   </menuContribution>
+
+   <menuContribution
+         allPopups="true"
+         locationURI="popup:com.excelsior.xds.ui.editor.oberon.DefinitionModuleEditor.EditorContext?after=com.excelsior.xds.ui.editor.actions.modula.OpenDeclaration">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+            style="push">
+      </command>
+   </menuContribution>
+<!-- Modula-2/Oberon-2 Source.CommentGroup menu items -->
+   <menuContribution
+         allPopups="true"
+         locationURI="menu:com.excelsior.xds.ui.menu.source?before=CommentGroup">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.toggle.comment"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+               <reference
+                     definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+               </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.add.block.comment"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+               <reference
+                     definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+               </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.remove.block.comment"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+               <reference
+                     definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+               </reference>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+
+<!-- Source.EditGroup menu items -->
+   <menuContribution
+         allPopups="true"
+         locationURI="menu:com.excelsior.xds.ui.menu.source?before=EditGroup">
+      <command
+            commandId="org.eclipse.ui.edit.text.shiftRight"
+            style="push">
+      </command>
+      <command
+            commandId="org.eclipse.ui.edit.text.shiftLeft"
+            style="push">
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.indent"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <reference
+                  definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+            </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.format"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <reference
+                  definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+            </reference>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+</extension>
+
+
+<!-- Navigate menu -->
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         allPopups="true"
+         locationURI="menu:navigate?endof=open.ext">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.openCoupledModule"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <reference
+                  definitionId="com.excelsior.xds.expression.selected.only.ModulaFiles">
+            </reference>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+   <menuContribution
+         allPopups="true"
+         locationURI="menu:navigate?endof=show.ext">
+      <command
+            commandId="com.excelsior.xds.ui.commands.modula.quick.outline"
+            style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <reference
+                  definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+            </reference>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+</extension>
+
+
+<!-- XDS editors presentation toolbar -->
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+      <toolbar
+            id="org.eclipse.ui.edit.text.actionSet.presentation">
+         <command
+               commandId="com.excelsior.xds.ui.commands.toggleMarkOccurrences"
+               icon="icons/mark_occurrences.gif"
+               style="toggle"
+               tooltip="%commands.modula.toggleMarkOccurrences.tooltip">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+               </reference>
+            </visibleWhen>
+         </command>
+      </toolbar>
+   </menuContribution>
+</extension>
+
+
+<!-- Expressions: XDS Structured files and editors -->
+<extension
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition
+         id="com.excelsior.xds.expression.active.StructuredEditor">
+      <or>    
+         <reference
+               definitionId="com.excelsior.xds.expression.active.ModulaOberonEditor">
+         </reference>
+         <with variable="activeEditorId">
+            <equals
+                  value="com.excelsior.xds.ui.editor.SymFileEditor">
+            </equals>
+         </with>
+      </or>   
+   </definition>
+
+</extension>
+
+<extension point="org.eclipse.core.resources.markers" 
+    id="com.excelsior.xds.ui.editor.occurrenceMarker" 
+    name="Occurrences">
+    <super type="org.eclipse.core.resources.textmarker"/>
+    <persistent value="false"/>
+</extension>
+
+<extension point="org.eclipse.core.resources.markers" 
+    id="com.excelsior.xds.ui.editor.constructionMarker" 
+    name="Language constructions">
+    <super type="org.eclipse.core.resources.textmarker"/>
+    <persistent value="false"/>
+</extension>
+
+<extension
+      point="org.eclipse.ui.editors.annotationTypes">
+   <type
+         markerType="com.excelsior.xds.ui.editor.occurrenceMarker"
+         name="com.excelsior.xds.ui.editor.occurrenceMarkerAnnotation">
+   </type>
+   <type
+         markerType="com.excelsior.xds.ui.editor.constructionMarker"
+         name="com.excelsior.xds.ui.editor.constructionMarkerAnnotation">
+   </type>
+<!--
+   <type
+         markerType="com.excelsior.xds.ui.editor.occurrenceMarker"
+         name="com.excelsior.xds.ui.editor.writeOccurrenceMarkerAnnotation">
+   </type>
+-->
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.editors.markerAnnotationSpecification">
+   <specification
+         annotationType="com.excelsior.xds.ui.editor.occurrenceMarkerAnnotation"
+         colorPreferenceKey="com.excelsior.xds.ui.editor.occurrenceMarker.color"
+         colorPreferenceValue="212, 212, 212"
+         contributesToHeader="false"
+         highlightPreferenceKey="com.excelsior.xds.ui.editor.occurrenceMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="%annotation.occurrence"
+         overviewRulerPreferenceKey="com.excelsior.xds.ui.editor.occurrenceMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="4"
+         textPreferenceKey="com.excelsior.xds.ui.editor.occurrenceMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="com.excelsior.xds.ui.editor.occurrenceMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+
+   <specification
+         annotationType="com.excelsior.xds.ui.editor.constructionMarkerAnnotation"
+         colorPreferenceKey="com.excelsior.xds.ui.editor.constructionMarker.color"
+         colorPreferenceValue="204, 230, 255"
+         contributesToHeader="false"
+         highlightPreferenceKey="com.excelsior.xds.ui.editor.constructionMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="%annotation.construction"
+         overviewRulerPreferenceKey="com.excelsior.xds.ui.editor.constructionMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="4"
+         textPreferenceKey="com.excelsior.xds.ui.editor.constructionMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="com.excelsior.xds.ui.editor.constructionMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+
+<!--
+   <specification
+         annotationType="com.excelsior.xds.ui.editor.writeOccurrenceMarkerAnnotation"
+         colorPreferenceKey="com.excelsior.xds.ui.editor.writeOccurrenceMarker.color"
+         colorPreferenceValue="232,196,121"
+         contributesToHeader="false"
+         highlightPreferenceKey="com.excelsior.xds.ui.editor.writeOccurrenceMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="%annotation.writeOccurrence"
+         overviewRulerPreferenceKey="com.excelsior.xds.ui.editor.writeOccurrenceMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="0"
+         textPreferenceKey="com.excelsior.xds.ui.editor.writeOccurrenceMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="com.excelsior.xds.ui.editor.writeOccurrenceMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+-->
+</extension>
+
+<extension point="org.eclipse.compare.contentMergeViewers">
+	<viewer class="com.excelsior.xds.ui.editor.modula.compare.ModulaContentViewerCreator" extensions="mod,def,ob2,odf" id="com.excelsior.xds.ui.editor.modula.compare.ModulaContentViewerCreator">
+	</viewer>
+	<contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.modulaDefinitionModule" contentMergeViewerId="com.excelsior.xds.ui.editor.modula.compare.ModulaContentViewerCreator">
+	</contentTypeBinding>
+	<contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.modulaProgramModule" contentMergeViewerId="com.excelsior.xds.ui.editor.modula.compare.ModulaContentViewerCreator">
+	</contentTypeBinding>
+	<contentTypeBinding contentTypeId="com.excelsior.xds.contenttype.oberonModule" contentMergeViewerId="com.excelsior.xds.ui.editor.modula.compare.ModulaContentViewerCreator">
+	</contentTypeBinding>
+</extension>
+<extension
+      point="com.excelsior.xds.ui.editor.commons.syntaxColoringPreferences">
+   <syntaxColoring class="com.excelsior.xds.ui.editor.modula.ModulaSyntaxColoringPreferences" />
+</extension>
+</plugin>

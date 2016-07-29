@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="CP866"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="XDS Модула-2 IDE: Интегрированная среда разработки" link_to="toc.xml#xds_help">
+    <topic label="Начало работы"  href="html/xds_help001.html" >
+        <topic label="Установка и запуск среды"  href="html/xds_help001.html#0001" />
+        <topic label="Подключение КСП"  href="html/xds_help001.html#0002" />
+    </topic>
+    <topic label="Первые шаги"  href="html/xds_help002.html" >
+        <topic label="Создание нового проекта"  href="html/xds_help002.html#0004" />
+        <topic label="Создание проекта для существующего кода"  href="html/xds_help002.html#0005" />
+        <topic label="Компиляция проекта"  href="html/xds_help002.html#0006" />
+        <topic label="Запуск программы"  href="html/xds_help002.html#0007" />
+        <topic label="Отладка программы"  href="html/xds_help002.html#0008" />
+    </topic>
+    <topic label="Основные концепции"  href="html/xds_help003.html" >
+        <topic label="Рабочая область"  href="html/xds_help003.html#0010" />
+        <topic label="Проект"  href="html/xds_help003.html#0011" />
+        <topic label="Ресурсы"  href="html/xds_help003.html#0012" />
+        <topic label="Подключаемый модуль"  href="html/xds_help003.html#0013" />
+    </topic>
+    <topic label="Пользовательский интерфейс"  href="html/xds_help004.html" >
+        <topic label="Рабочий стол"  href="html/xds_help004.html#0015" />
+        <topic label="Проекции"  href="html/xds_help004.html#0016" />
+        <topic label="Редактор"  href="html/xds_help004.html#0017" />
+        <topic label="Панели"  href="html/xds_help004.html#0018" >
+            <topic label="Структура проекта"  href="html/xds_help004.html#0019" />
+        </topic>
+        <topic label="Мастер настройки"  href="html/xds_help004.html#0020" />
+        <topic label="Навигация"  href="html/xds_help004.html#0021" >
+            <topic label="Цифровые закладки"  href="html/xds_help004.html#0022" />
+            <topic label="Открытие ресурса"  href="html/xds_help004.html#0023" />
+            <topic label="Панель быстрого поиска"  href="html/xds_help004.html#0024" >
+                <topic label="Настройки панели быстрого поиска"  href="html/xds_help004.html#0025" />
+            </topic>
+        </topic>
+    </topic>
+    <topic label="Параметры"  href="html/xds_help005.html" >
+        <topic label="XDS Модула-2"  href="html/xds_help005.html#0027" >
+            <topic label="Консоль"  href="html/xds_help005.html#0028" />
+            <topic label="Редактор"  href="html/xds_help005.html#0029" >
+                <topic label="Ориентиры отступов"  href="html/xds_help005.html#0030" />
+                <topic label="Раскраска синтаксиса"  href="html/xds_help005.html#0031" />
+                <topic label="Шаблоны"  href="html/xds_help005.html#0032" />
+            </topic>
+            <topic label="Системы разработки"  href="html/xds_help005.html#0033" />
+            <topic label="Стиль кода"  href="html/xds_help005.html#0034" />
+            <topic label="Форматирование"  href="html/xds_help005.html#0035" >
+                <topic label="Диалог редактирования профиля форматирования"  href="html/xds_help005.html#0036" >
+                    <topic label="Настройки форматирования отступов"  href="html/xds_help005.html#0037" />
+                    <topic label="Настройки форматирования пробелов"  href="html/xds_help005.html#0038" />
+                    <topic label="Настройки форматирования переводов строк"  href="html/xds_help005.html#0039" />
+                    <topic label="Настройки форматирования переноса строк"  href="html/xds_help005.html#0040" />
+                </topic>
+            </topic>
+        </topic>
+        <topic label="Общие"  href="html/xds_help005.html#0041" >
+            <topic label="Орфография"  href="html/xds_help005.html#0042" />
+        </topic>
+    </topic>
+    <topic label="Свойства ресурсов"  href="html/xds_help006.html" >
+        <topic label="Modula-2 свойства проекта"  href="html/xds_help006.html#0044" />
+    </topic>
+    <topic label="Использование"  href="html/xds_help007.html" >
+        <topic label="Создание новых элементов"  href="html/xds_help007.html#0046" >
+            <topic label="Новый проект"  href="html/xds_help007.html#0047" />
+            <topic label="Проект для существующего кода"  href="html/xds_help007.html#0048" />
+            <topic label="Новый Модула-2 модуль"  href="html/xds_help007.html#0049" />
+        </topic>
+        <topic label="Управление параметрами КСП"  href="html/xds_help007.html#0050" >
+            <topic label="Мастер настройки КСП"  href="html/xds_help007.html#0051" >
+                <topic label="Закладка Компоненты"  href="html/xds_help007.html#0052" >
+                    <topic label="Основные инструменты"  href="html/xds_help007.html#0053" />
+                    <topic label="Дополнительные инструменты"  href="html/xds_help007.html#0054" />
+                </topic>
+                <topic label="Закладка Шаблоны"  href="html/xds_help007.html#0055" >
+                    <topic label="Типы файлов"  href="html/xds_help007.html#0056" />
+                    <topic label="Шаблоны файлов"  href="html/xds_help007.html#0057" />
+                    <topic label="Структура папок"  href="html/xds_help007.html#0058" />
+                </topic>
+                <topic label="Закладка Среда"  href="html/xds_help007.html#0059" />
+            </topic>
+            <topic label="Мастер настройки инструмента КСП"  href="html/xds_help007.html#0060" >
+                <topic label="Основные настройки"  href="html/xds_help007.html#0061" />
+                <topic label="Параметры меню"  href="html/xds_help007.html#0062" />
+                <topic label="Параметры запуска"  href="html/xds_help007.html#0063" >
+                    <topic label="Аргументы"  href="html/xds_help007.html#0064" />
+                    <topic label="Рабочий каталог"  href="html/xds_help007.html#0065" />
+                </topic>
+            </topic>
+        </topic>
+        <topic label="Конфигурации запуска"  href="html/xds_help007.html#0066" >
+            <topic label="Конфигурации запуска приложения"  href="html/xds_help007.html#0067" />
+            <topic label="Конфигурации запуска пакета отладки"  href="html/xds_help007.html#0073" />
+        </topic>
+        <topic label="Выбор каталога или файла"  href="html/xds_help007.html#0079" />
+        <topic label="Работа с переменными"  href="html/xds_help007.html#0080" >
+            <topic label="Конфигурация аргументов"  href="html/xds_help007.html#0081" />
+            <topic label="Редактирование списка переменных"  href="html/xds_help007.html#0082" />
+        </topic>
+        <topic label="Основные управляющие клавиши"  href="html/xds_help007.html#0083" />
+    </topic>
+</toc>

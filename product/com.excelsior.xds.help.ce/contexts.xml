@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="CP866"?>
+<!--
+NOTE: Context ids from this file must be synchronized with constants defined in  
+the interface "com.excelsior.xds.ui.help.IXdsHelpContextIds" which is located 
+in the "com.excelsior.xds.ui" plug-in.   
+-->
+<contexts>
+	<!-- New -->
+   <context id="ui_View">
+      <description>Панели предназначены для предоставления информации об объекте, с которым пользователь работает в данный момент, и изменении его свойств.</description>
+      <topic href="html/xds_help004.html#UI.View" 
+             label="Панели">
+      </topic>
+   </context>      
+   
+   <context id="ui_view_ProjectExplorer">
+      <description>Панель Project Explorer позволяет управлять содержимым текущей рабочей области.</description>
+      <topic href="html/xds_help004.html#UI.View.ProjectExplorer" 
+             label="Структура проекта">
+      </topic>
+   </context>
+   
+	<!-- New -->
+   <context id="ui_Editor">
+      <description>Редактор представляет собой инструмент для просмотра и редактирования файлов проекта. Для каждого файла создается свой экземпляр редактора.</description>
+      <topic href="html/xds_help004.html#UI.Editor" 
+             label="Редактор">
+      </topic>
+   </context>
+
+   
+   <context id="preferences_modula2">
+      <description>Этот диалог позволяет управлять параметрами поддержки языка Модула-2.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2" 
+             label="Параметры: XDS Modula-2">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>
+
+   <context id="preferences_modula2_console">
+      <description>Диалог управления параметрами Модула-2 консоли.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.Console" 
+             label="Параметры Модула-2 консоли">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>
+
+   <context id="preferences_modula2_editor">
+      <description>Диалог управления параметрами Модула-2 редактора.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.Editor" 
+             label="Параметры Модула-2 редактора">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+      <topic href="html/xds_help004.html#UI.Editor" 
+             label="Редактор">
+      </topic>
+   </context>
+
+   <context id="preferences_modula2_syntax_coloring">
+      <description>Диалог управления раскраской текста Модула-2 редактора.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.Editor.SyntaxColoring" 
+             label="Параметры раскраски">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>
+
+   <context id="preferences_modula2_templates">
+      <description>Диалог управления шаблонами Модула-2 редактора.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.Editor.Templates" 
+             label="Управление шаблонами">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>
+
+	<!-- New -->
+   <context id="preferences_modula2_templates_edit">
+      <description>Диалог редактирования синтаксических конструкций.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.Editor.Templates" 
+             label="Управление шаблонами">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>   
+   
+   <context id="preferences_modula2_sdks">
+      <description>Диалог управления списком установленных SDK и их свойствами.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.SDK" 
+             label="Управление установленными SDK">
+      </topic>
+      <topic href="html/xds_help005.html#Preferences" 
+             label="Диалог управления параметрами">
+      </topic>
+   </context>
+
+   <context id="preferences_modula2_codestyle_formatter">
+      <description>Настройка форматирования.</description>
+      <topic href="html/xds_help005.html#Preferences.Modula2.CodeStyle:Formatter" 
+             label="Форматирование">
+      </topic>
+   </context>
+
+   <context id="preferences_xfind_panel">
+      <description>Настройка панели быстрого поиска.</description>
+      <topic href="html/xds_help004.html#UI.Navigate.XFind.Preferences" 
+             label="Панель поиска">
+      </topic>
+   </context>
+
+
+   <context id="edit_sdk_dlg">
+      <description>Мастер настройки КСП.</description>
+      <topic href="html/xds_help007.html#Usage.Edit.EditSdkDialog" 
+             label="Мастер настройки КСП">
+      </topic>
+   </context>
+
+	<!-- New -->
+   <context id="edit_sdk_dlg_env">
+      <description>Мастер настройки КСП. Закладка Среда. Добавление переменной среды.</description>
+      <topic href="html/xds_help007.html#Usage.Edit.EditSdkDialog.Environment" 
+             label="Мастер настройки КСП. Закладка Среда">
+      </topic>
+   </context>
+   
+	<!-- New -->
+   <context id="variables">
+      <description>Работа с переменными.</description>
+      <topic href="html/xds_help007.html#Usage.Variables" 
+             label="Работа с переменными">
+      </topic>
+   </context>
+
+   <!-- New -->
+   <context id="edit_variables">
+      <description>Редактирование списка переменных.</description>
+      <topic href="html/xds_help007.html#Usage.Variables.EditVariables" 
+             label="Редактирование списка переменных">
+      </topic>
+   </context>
+
+   <!-- New -->
+   <context id="argument_configure">
+      <description>Конфигурация аргументов.</description>
+      <topic href="html/xds_help007.html#Usage.Variables.ArgumentConfigure" 
+             label="Конфигурация аргументов">
+      </topic>
+   </context>
+   
+   <context id="edit_sdk_tool_dlg">
+      <description>Мастер настройки инструмента КСП.</description>
+      <topic href="html/xds_help007.html#Usage.Edit.EditToolDialog" 
+             label="Мастер настройки инструмента КСП">
+      </topic>
+   </context>   
+
+
+   <context id="properties_modula2">
+      <description>Редактирование свойств проекта.
+      </description>
+      <topic href="html/xds_help006.html#Properties.Modula2" 
+             label="Modula-2 свойства проекта">
+      </topic>
+   </context>
+
+
+   <context id="save_and_build_dialog">
+      <description>Этот диалог используется для того чтобы выбрать ресурсы, которые необходимо сохранить перед компоновкой проекта. 
+Отмена этого диалога отменят компоновку проекта.
+      </description>
+      <topic href="html/xds_help003.html#UI.Editor" 
+             label="Редактор">
+      </topic>
+      <topic href="html/xds_help003.html#Concepts.Resources" 
+             label="Ресурсы">
+      </topic>
+   </context>
+
+
+   <context id="launch_configuration_editor">
+      <description>Конфигурациия запуска приложения
+      </description>
+      <topic href="html/xds_help007.html#Usage.Run.EditLaunchConfiguration" 
+             label="Редактирование конфигурации запуска приложения">
+      </topic>
+   </context>
+   
+   <context id="launch_configuration_editor_pkt">
+      <description>Конфигурациия запуска пакета отладки
+      </description>
+      <topic href="html/xds_help007.html#Usage.Run.EditLaunchConfigurationPkt" 
+             label="Редактирование конфигурации запуска пакета отладки">
+      </topic>
+   </context>
+
+	
+   <context id="new_dlg">
+      <description>Диалог создания новых элементов.</description>
+      <topic href="html/xds_help007.html#Usage.New" 
+             label="Создание новых элементов">
+      </topic>
+   </context>
+
+
+   <context id="new_module_dlg">
+      <description>Создание нового Модула-2 модуля
+      </description>
+      <topic href="html/xds_help007.html#Usage.New.M2Module" 
+             label="Создание нового модуля">
+      </topic>
+   </context>
+
+
+
+   <context id="new_project_from_scratch_dlg">
+      <description>Создание нового проекта
+      </description>
+      <topic href="html/xds_help007.html#Usage.New.ProjectFromScratch" 
+             label="Создание нового проекта">
+      </topic>
+   </context>
+
+   <context id="new_project_from_sources_dlg">
+      <description>Создание нового проекта для существующего кода
+      </description>
+      <topic href="html/xds_help007.html#Usage.New.ProjectFromSources" 
+             label="Создание нового проекта для существующего кода">
+      </topic>
+   </context>
+    
+	<!-- New -->
+   <context id="open_resource">
+      <description>Открытие ресурса</description>
+      <topic href="html/xds_help004.html#UI.Navigate.OpenResource" 
+             label="Открытие ресурса">
+      </topic>
+   </context>
+
+   	<!-- New -->
+   <context id="open_module">
+      <description>Открытие модуля</description>
+      <topic href="html/xds_help004.html#UI.Navigate.OpenResource" 
+             label="Открытие модуля">
+      </topic>
+   </context>    
+</contexts>

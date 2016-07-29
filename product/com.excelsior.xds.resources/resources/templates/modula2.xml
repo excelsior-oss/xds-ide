@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+<template id="xds.template.modula.from"    autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Unqualified import clause" enabled="true" name="FROM">FROM ${module} IMPORT ${identifier};</template>
+<template id="xds.template.modula.import"  autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Import clause" enabled="true" name="IMPORT">IMPORT ${module};</template>
+<template id="xds.template.modula.const" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Constant Declaration" enabled="true" name="CONST">CONST ${const_name} = ${value};</template>
+
+<template id="xds.template.modula.until" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="REPEAT-UNTIL loop" enabled="true" name="REPEAT">REPEAT
+  ${line_selection}${cursor};
+UNTIL ${end_condition}; (* repeat *)
+</template>
+
+<template id="xds.template.modula.while" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="WHILE loop" enabled="true" name="WHILE">WHILE ${condition} DO
+  ${line_selection}${cursor};
+END; (* while *)
+</template>
+
+<template id="xds.template.modula.for" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="FOR loop" enabled="true" name="FOR">FOR ${var} := ${from_value} TO ${to_value} DO 
+  ${line_selection}${cursor} ;
+END; (* for *)
+</template>
+
+<template id="xds.template.modula.forby" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="FOR loop with step" enabled="true" name="FOR-BY">FOR ${var} := ${from_value} TO ${to_value} BY ${step} DO 
+  ${line_selection}${cursor};
+END; (* for *)
+</template>
+
+<template id="xds.template.modula.if" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="IF clause" enabled="true" name="IF">IF ${condition} THEN 
+  ${line_selection}${cursor};
+END; (* if *)
+</template>
+
+<template id="xds.template.modula.if_else" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="IF-ELSE clause" enabled="true" name="IF-ELSE">IF ${condition} THEN 
+  ${line_selection}${cursor};
+ELSE 
+  
+END; (* if *)
+</template>
+
+<template id="xds.template.modula.if_elsif" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="IF-ELSIF-ELSE clause" enabled="true" name="IF-ELSIF">IF ${condition1} THEN 
+  ${line_selection}${cursor};
+ELSIF ${condition2} THEN
+  
+ELSE 
+  
+END; (* if *)
+</template>
+
+<template id="xds.template.modula.elsif" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="ELSIF clause" enabled="true" name="ELSIF">ELSIF ${condition} THEN${cursor}</template>
+
+<template id="xds.template.modula.case" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="CASE clause" enabled="true" name="CASE">CASE ${key} OF 
+| ${value1}:
+    ${line_selection}${cursor};
+| ${value2}:
+    
+END; (* case *)
+</template>
+
+<template id="xds.template.modula.caseelse" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="CASE-ELSE clause" enabled="true" name="CASE-ELSE">CASE ${key} OF 
+| ${value}:
+    ${line_selection}${cursor};
+ELSE 
+ 
+END; (* case *)
+</template>
+
+<template id="xds.template.modula.procedure" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Procedure without arguments" enabled="true" name="PROCEDURE">PROCEDURE ${procedure_name} (); 
+BEGIN 
+  ${line_selection}${cursor}; 
+END ${procedure_name}; 
+</template>
+
+<template id="xds.template.modula.procedure_def" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Definition of procedure without arguments" enabled="true" name="procdef">PROCEDURE ${procedure_name} (); 
+</template>
+
+<template id="xds.template.modula.procedure_args" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Procedure with arguments" enabled="true" name="procargs">PROCEDURE ${procedure_name} (${args}); 
+BEGIN 
+  ${line_selection}${cursor}; 
+END ${procedure_name}; 
+</template>
+
+<template id="xds.template.modula.procargsdef" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Definition of procedure with arguments" enabled="true" name="procargsdef">PROCEDURE ${procedure_name} (${args}); 
+</template>
+
+<template id="xds.template.modula.function" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Function declaration" enabled="true" name="function">PROCEDURE ${procedure_name} (${args}): ${return_type}; 
+BEGIN 
+  ${line_selection}${cursor}; 
+END ${procedure_name}; 
+</template>
+
+<template id="xds.template.modula.functiondef" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Function definition" enabled="true" name="functiondef">PROCEDURE ${procedure_name} (${args}): ${return_type}; 
+</template>
+
+<template id="xds.template.modula.array" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Array type definition" enabled="true" name="ARRAY">ARRAY [${low}..${hight}] OF ${type}</template>
+
+<template id="xds.template.modula.var_decl" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Variable declaration" enabled="true" name="VAR">VAR 
+  ${variable}: ${type};
+</template>
+
+<template id="xds.template.modula.typedef" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Type definition" enabled="true" name="TYPE">TYPE 
+  ${name} = ${type};
+</template>
+
+<template id="xds.template.modula.set" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="SET type definition" enabled="true" name="set">{${elements}}</template>
+
+<template id="xds.template.modula.range" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Subrange type definition" enabled="true" name="range">[${lower_bound}..${upper_bound}]</template>
+
+<template id="xds.template.modula.record" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="RECORD type definition" enabled="true" name="RECORD">RECORD 
+  ${field}: ${type}; 
+END; (* record *)
+</template>
+
+<template id="xds.template.modula.pointer" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="Pointer type definition" enabled="true" name="POINTER">POINTER TO ${type};</template>
+
+<template id="xds.template.modula.with" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="WITH Clause" enabled="true" name="WITH">WITH ${record} DO 
+  ${line_selection}${cursor};
+END; (* with *)
+</template>
+
+<template id="xds.template.modula.begin" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="BEGIN..END statement" enabled="true" name="BEGIN">BEGIN
+END ${cursor};
+</template>
+
+<template id="xds.template.modula.return" autoinsert="false" context="com.excelsior.xds.ui.editor.templates.context.type.modula" deleted="false" description="RETURN statement" enabled="true" name="RETURN">RETURN${cursor};
+</template>
+
+</templates>

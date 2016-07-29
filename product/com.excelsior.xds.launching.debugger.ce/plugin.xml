@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension point="org.eclipse.debug.core.launchDelegates">
+	<launchDelegate id="com.excelsior.xds.ui.launching.DebugProfileModulaApplication"
+		delegate="com.excelsior.xds.launching.debugger.ce.internal.delegate.LaunchDelegate"
+		type="com.excelsior.xds.ui.launching.ModulaApplication"
+		modes="debug">
+	</launchDelegate>
+</extension>
+</plugin>

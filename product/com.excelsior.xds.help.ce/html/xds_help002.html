@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>First steps</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0003"><A NAME="Start">First steps</A></A></H1>
+
+<P><H2>
+<A NAME="0004"><A NAME="Start.ProjectFromScratch">Create new project</A></A></H2>
+
+<P>To create the new project select <B>File &gt; New &gt; Modula-2 Project</B> at the main menu. In the opened wizard specify new 
+<P>project parameters. 
+<P><IMG ALT="" SRC="pics/newproject.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Specify new project name (<B>Project Name</B> field). 
+<P>Then specify project root directory location:(<B>Project root</B>). 
+<P>Select the project SDK (<B>Project SDK</B> field): Unless otherwise indicated the default SDK is used. The <B>Configure...</B> button will open the SDK settings dialog. 
+<P>One can create main module or project file, standard directory structure and redirection file. If <B>Use SDK templates</B> is checked then SDK templates will be used to create the files. Directory structure and redirection file name are also taken from the selected SDK settings. 
+<P>Pressing the <B>Finish</B> button will create the new Modula-2 project and add it to the workspace. Newly created files and directories will show up in the Project Explorer. 
+<P><H2>
+<A NAME="0005"><A NAME="Start.ProjectFromSources">Create project from existing sources</A></A></H2>
+
+<P>To create project from existing sources select <B>File &gt; New &gt; Modula-2 Project from Existing Sources</B> in the main menu. Specify project settings in the wizard opened.
+<P><IMG ALT="" SRC="pics/existingproject.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>You can explicitly specify the new project name or it will be set automatically after the project root directory selection (<B>Project root</B> field). 
+<P>Select the project SDK (<B>Project SDK</B> field): Unless otherwise indicated the default SDK is used. The <B>Configure...</B> button will open the SDK settings dialog. 
+<P>Specify whether project file (<B>Project File</B> field) or main module (<B>Main module</B>) is used for the source build. One can select project file <TT>*.prj</TT> or main module file (<TT>*.mod</TT> or <TT>*.ob2</TT>) by pressing <B>Browse...</B> button. 
+<P>Pressing the <B>Finish</B> button will create the new Modula-2 project and add it to the workspace. Newly created files and directories will show up in the Project Explorer. 
+<P><H2>
+<A NAME="0006"><A NAME="Start.BuildProject">Build project</A></A></H2>
+
+<P>To compile project select it in the Project Explorer view and the click <B>Project &gt; Build Project</B> or <B>Project &gt; Rebuild Project</B> in the main menu. First 
+<P>compiles the project incrementally while the second rebuilds the project from scratch. These commands also can be invoked via the project element context menu at the Project Explorer view or by using hot key combinations <TT>Shift + F9</TT> or <TT>Ctrl + Shift + F9</TT> respectfully. 
+<P>Compiler errors and warnings show up in the <B>Problems</B> view. By default markers are shown for all open projects in the IDE. To restrict markers to be shown for the single project select <B>Show &gt; Error/Warnings on Project</B> item in the toolbar.
+<P><IMG ALT="" SRC="pics/showproblems.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><H2>
+<A NAME="0007"><A NAME="Start.RunProgramm">Run program</A></A></H2>
+
+<P>To run the Modula-2 program create the (<B>Run Configuration</B>). Run configuration specifies the project, executable file path and optional launch parameters for the program. 
+<P>To create run configuration select <B>Run &gt; Run Configurations...</B> in the main menu and specify run configuration parameters. 
+<P>In the opened dialog select <B>XDS Modula-2 Application</B> in the left pane, open context menu with the right mouse 
+<P>click and select <B>New</B>. 
+<P><IMG ALT="" SRC="pics/runconfiguration.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>New run configuration will be created and right pane will show run configuration editor. 
+<P><IMG ALT="" SRC="pics/createconfiguration.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Type run configuration name in the <B>Name</B> field. 
+<P>Select target workspace project for this run configuration and executable file for the launch. <B>Apply</B> button saves changes for the edited run configuration, <B>Revert</B> button reverts run configuration parameters to the last saved state. 
+<P>Other tabs allow to set additional optional run configuration parameters. 
+<P>After filling up mandatory fields press the <B>Run</B> button to launch the program. 
+<P>Once created launch configuration can be used again. To do this select it from the Main menu dropdown: <B>Run &gt; Run History</B>. 
+<P>The majority of launch actions for the progam is available via the <B>Run</B> toolbar button: 
+<P><IMG ALT="" SRC="pics/runbutton.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>This button shows the list of last invoked last configurations and their corresponding edit actions. Progam standard output and standard error will show up in the <B>Console</B> view. 
+<P><H2>
+<A NAME="0008"><A NAME="Start.DebugProgramm">Debug program</A></A></H2>
+
+<P>To launch Modula-2 program in debug mode create (<B>Debug Configuration</B>) or use already existent <B>Run Configuration</B>. 
+<P>To create the Debug Configuration select <B>Run &gt; Debug Configurations...</B> in the main menu. In the opened dialog select <B>XDS Modula-2 Application</B> in the left pane, open context menu with the right mouse 
+<P>click and select <B>New</B>. 
+<P>Type run configuration name in the <B>Name</B> field. 
+<P>Other fields can be filled the same way as for the Run Configuration. 
+<P>After filling up mandatory fields press the <B>Debug</B> button to launch the program in the Debug mode. 
+<P>Once created Debug configuration can be used again. To do this select it from the Main menu dropdown: <B>Debug &gt; Debug History</B>. 
+<P>The majority of launch actions for the progam is available via the <B>Debug</B> toolbar button: 
+<P><IMG ALT="" SRC="pics/debugbutton.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>This button shows the list of last invoked last configurations and their corresponding edit actions.  
+</BODY>
+</HTML>

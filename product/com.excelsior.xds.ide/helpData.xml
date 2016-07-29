@@ -1,0 +1,8 @@
+<extensions>
+<tocOrder>
+<toc id="/com.excelsior.xds.help/toc.xml" />
+</tocOrder>
+<hidden>
+<toc id="/org.eclipse.platform.doc.user/toc.xml" />
+</hidden>
+</extensions>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+    point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+        class="com.excelsior.xds.core.expressions.PropertyTester"
+        id="com.excelsior.xds.PropertyTester"
+        namespace="com.excelsior.xds"
+        properties="isModulaFile,isOberonFile,isDbgScriptFile,isDbgScriptSource,isSymFile,xdsProjectType,isInCompilationSet"
+        type="java.lang.Object">
+    </propertyTester>
+</extension>
+
+<!-- Expressions: Modula-2/Oberon-2 files  -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+      
+   <definition 
+         id="com.excelsior.xds.expression.file.InCompilationSet">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isInCompilationSet" value="true"/>
+      </adapt>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.resource.ModulaFile">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isModulaFile" value="true"/>
+      </adapt>
+   </definition>
+   
+   <definition 
+         id="com.excelsior.xds.expression.resource.OberonFile">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isOberonFile" value="true"/>
+      </adapt>
+   </definition>
+   
+   <definition 
+         id="com.excelsior.xds.expression.resource.SymFile">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isSymFile" value="true"/>
+      </adapt>
+   </definition>
+   
+   <definition 
+         id="com.excelsior.xds.expression.resource.DbgScriptFile">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isDbgScriptFile" value="true"/>
+      </adapt>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.resource.DbgScriptSource">
+      <adapt type="org.eclipse.core.resources.IFile">
+         <test property="com.excelsior.xds.isDbgScriptSource" value="true"/>
+      </adapt>
+   </definition>
+
+</extension>
+
+   
+<!-- =========================================================================== -->
+<!-- XDS Content Types                                                           -->
+<!-- =========================================================================== -->   
+<extension
+    point="org.eclipse.core.contenttype.contentTypes">
+
+    <!-- declares a content type for XDS files -->
+    <content-type 
+        id="com.excelsior.xds.contenttype.xdsFile" 
+        name="%contentTypeName.xds"
+        base-type="org.eclipse.core.runtime.text"
+        describer="com.excelsior.xds.core.text.TextEncodingContentDescriber"
+        priority="high">
+    </content-type>
+
+    <!-- declares a content type for XDS Source files -->
+    <content-type 
+        id="com.excelsior.xds.contenttype.xdsSource" 
+        name="%contentTypeName.xdsSource"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        priority="high">
+    </content-type>
+    
+    <!-- declares a content type for Modula-2 Source files -->
+    <content-type
+        id="com.excelsior.xds.contenttype.modulaProgramModule"
+        name="%contentTypeName.mod"
+        base-type="com.excelsior.xds.contenttype.xdsSource"
+        file-extensions="mod,MOD,Mod"
+        priority="high">
+    </content-type>
+    <content-type
+        id="com.excelsior.xds.contenttype.modulaDefinitionModule"
+        name="%contentTypeName.def"
+        base-type="com.excelsior.xds.contenttype.xdsSource"
+        file-extensions="def,DEF,Def"
+        priority="high">
+    </content-type>
+
+    <!-- declares a content type for Oberon-2 Source files -->
+    <content-type
+        id="com.excelsior.xds.contenttype.oberonModule"
+        name="%contentTypeName.ob2"
+        base-type="com.excelsior.xds.contenttype.xdsSource"
+        file-extensions="ob2,OB2,Ob2"
+        priority="high">
+    </content-type>
+    <content-type
+        id="com.excelsior.xds.contenttype.oberonDefinitionModule"
+        name="%contentTypeName.odf"
+        base-type="com.excelsior.xds.contenttype.xdsSource"
+        file-extensions="odf,ODF,Odf"
+        priority="high">
+    </content-type>
+    <content-type
+        id="com.excelsior.xds.contenttype.symFile"
+        name="%contentTypeName.sym"
+        base-type="com.excelsior.xds.contenttype.xdsSource"
+        file-extensions="sym,SYM,Sym"
+        priority="high">
+    </content-type>
+    
+    <!-- declares a content type for XDS Debug files -->
+    <content-type
+        id="com.excelsior.xds.contenttype.dbgScript"
+        name="%contentTypeName.pkt"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        file-extensions="pkt,PKT,Pkt"
+        priority="high">
+    </content-type>
+    <content-type
+        id="com.excelsior.xds.contenttype.dbgScriptBundle"
+        name="%contentTypeName.ldp"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        file-extensions="ldp,LDP,Ldp"
+        priority="high">
+    </content-type>
+    <content-type
+        id="com.excelsior.xds.contenttype.dbgScriptOutput"
+        name="%contentTypeName.res"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        file-extensions="res,RES,Res"
+        priority="high">
+    </content-type>
+
+    <!-- declares a content type for XDS Project files -->
+    <content-type 
+        id="com.excelsior.xds.contenttype.prjFile" 
+        name="%contentTypeName.prj"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        file-extensions="prj,PRJ,Prj"
+        priority="high">
+    </content-type>
+    
+    <!-- declares a content type for XDS Text files -->
+    <content-type 
+        id="com.excelsior.xds.contenttype.textFile" 
+        name="%contentTypeName.text"
+        base-type="com.excelsior.xds.contenttype.xdsFile"
+        file-extensions="cfg,CFG,Cfg,cha,CHA,Cha,lnk,LNK,Lnk,lst,LST,Lst,map,MAP,Map,mar,MAR,Mar,mkf,MKF,Mkf,old,OLD,Old,PRF,prf,Prf,s,S,sts,STS,Sts"
+        priority="high">
+    </content-type>
+
+    <!-- declares a content type for HTML files -->
+    <content-type 
+        id="com.excelsior.xds.contenttype.htmlFile" 
+        name="%contentTypeName.html"
+        base-type="org.eclipse.core.runtime.text"
+        describer="com.excelsior.xds.core.text.TextEncodingContentDescriber"
+        file-extensions="htm,html,shtm,stml"
+        priority="high">
+    </content-type>
+</extension>
+
+
+<!-- =========================================================================== -->
+<!-- XDS Markers                                                                 -->
+<!-- =========================================================================== -->   
+<extension
+    point="org.eclipse.core.resources.markers"
+    id="build_problem"
+    name="%marker.build_problem.name">
+    
+    <super type="org.eclipse.core.resources.problemmarker"/>
+    <super type="org.eclipse.core.resources.textmarker"/>
+    <persistent value="true"/>
+</extension>
+
+<extension 
+    point="org.eclipse.core.resources.markers" 
+    id="source_code_problem" 
+    name="%marker.parser_problem.name">
+    
+    <super type="com.excelsior.xds.core.build_problem"/>
+    <persistent value="false"/>
+</extension>
+<extension
+      point="org.eclipse.core.filesystem.filesystems">
+   <filesystem
+         scheme="history">
+      <run
+            class="com.excelsior.xds.core.filesystems.history.HistoryFs">
+      </run>
+   </filesystem>
+</extension>
+
+
+</plugin>

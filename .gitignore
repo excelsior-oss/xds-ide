@@ -1,0 +1,15 @@
+/.workspace/
+/.metadata/
+/junit-workspace
+
+/builder/*.log
+
+/product/*/bin/
+/product/xFind/*/bin/
+
+/tests/search/sandbox/
+/tests/parser/recognizer/reports/
+
+/tests/parser/recognizer/reports/
+/tests/debugger/sandbox/
+/localization/

@@ -1,0 +1,4 @@
+MODULE ${eclipse.ide.modulename};
+
+BEGIN
+END ${eclipse.ide.modulename}.

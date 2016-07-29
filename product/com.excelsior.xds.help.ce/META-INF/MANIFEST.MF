@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName	
+Bundle-SymbolicName: com.excelsior.xds.help.ce; singleton:=true
+Bundle-Version: 1.7.0.qualifier
+Bundle-Vendor: Excelsior LLC
+Bundle-Localization: plugin

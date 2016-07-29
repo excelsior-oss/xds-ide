@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.excelsior.xds.launching.commons;singleton:=true
+Bundle-Version: 1.7.0.qualifier
+Bundle-Activator: com.excelsior.xds.launching.commons.internal.plugin.LaunchingCommonsPlugin
+Bundle-Vendor: Excelsior LLC
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ com.excelsior.xds.core;bundle-version="1.7.0",
+ org.eclipse.core.resources,
+ org.eclipse.debug.core,
+ com.excelsior.xds.core.ide;bundle-version="1.7.0",
+ com.excelsior.xds.builder;bundle-version="1.7.0",
+ org.eclipse.core.variables,
+ org.eclipse.debug.ui,
+ org.eclipse.jface,
+ org.apache.commons.lang,
+ com.excelsior.xds.ui.commons;bundle-version="1.7.0",
+ org.apache.commons.io
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.excelsior.xds.launching.commons.delegate,
+ com.excelsior.xds.launching.commons.preferences,
+ com.excelsior.xds.launching.commons.services,
+ com.excelsior.xds.launching.commons.utils

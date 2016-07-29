@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+    <resources plugin="com.excelsior.xds.resources">
+        <file description="new def file template" source="wizards/new/new.def" name="resources/wizards/new/modula/new.def" version="1.0.1" />
+        <file description="new mod file template" source="wizards/new/new.mod" name="resources/wizards/new/modula/new.mod" version="1.0.2" />
+        <file description="new main mod file template" source="wizards/new/main.mod" name="resources/wizards/new/modula/main.mod" version="1.0.2" />        
+        <file description="auto complete code templates" source="templates/modula2.xml" name="resources/templates/modula2.xml" verifier="resources/templates/templates.xsd" version="1.0.0" />
+    </resources>
+    
+    <site url="file:////ariel/jshare/repo/" />
+    
+    <plugin source="helpJars/com.excelsior.xds.mips.help_1.0.0.v201205111844.jar" description="TCS: desc" />
+    
+    <directory name="docs">
+        <file description="test" source="wizards/new/new.def" name="new.def"  version="1.0.1" />
+    </directory>
+</updates>

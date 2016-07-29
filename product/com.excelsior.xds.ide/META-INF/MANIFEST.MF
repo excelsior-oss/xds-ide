@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Excelsior IDE for XDS Modula-2
+Bundle-SymbolicName: com.excelsior.xds.ide;singleton:=true
+Bundle-Version: 1.7.0.qualifier
+Bundle-Activator: com.excelsior.xds.ide.Activator
+Bundle-Vendor: Excelsior LLC
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.excelsior.xds.core;bundle-version="1.7.0",
+ com.excelsior.xds.ui;bundle-version="1.7.0",
+ org.eclipse.ui.ide,
+ org.apache.commons.io,
+ org.apache.commons.collections,
+ org.apache.commons.lang,
+ org.eclipse.e4.ui.css.core,
+ org.eclipse.e4.ui.css.swt,
+ org.w3c.css.sac,
+ org.eclipse.e4.ui.css.swt.theme,
+ org.eclipse.platform;bundle-version="4.4.2",
+ com.excelsior.xds.ui.editor;bundle-version="1.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

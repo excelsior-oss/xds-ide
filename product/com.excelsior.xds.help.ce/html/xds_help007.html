@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>Usage</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0045"><A NAME="Usage">Usage</A></A></H1>
+
+<P>This chapter describes main usages of the XDS Modula-2 IDE. 
+<P><H2>
+<A NAME="0046"><A NAME="Usage.New">Create new elements</A></A></H2>
+
+<P>Select <B>File &gt; New &gt; Other...</B> to create new resource. Select the appropriate wizard and press <B>Next</B>: 
+<P><IMG ALT="" SRC="pics/NewElement.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Provide all necessary parameters and <B>Finish</B>. The new resource will be created. 
+<P><H3>
+<A NAME="0047"><A NAME="Usage.New.ProjectFromScratch">New project from scratch</A></A></H3>
+
+<P>Select <B>File &gt; New &gt; Modula-2 Project</B> in the main menu, and provide necessary parameters:
+<P><IMG ALT="" SRC="pics/newproject.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Specify <B>Project Name</B>. Next, provide location of the project root directory (<B>Project root</B> field).
+<P>Select project SDK (<B>Project SDK</B> field). Use <B>Configure...</B> button to <A HREF="#0051">edit SDK settings</A>. 
+<P>One can create main module or project file, standard directory structure and redirection file. If <B>Use SDK templates</B> is checked then SDK templates will be used to create the files. Directory structure and redirection file name are also taken from the selected SDK settings. 
+<P>Pressing the <B>Finish</B> button will create the new Modula-2 project and add it to the workspace. Newly created files and directories will show up in the Project Explorer. 
+<P><H3>
+<A NAME="0048"><A NAME="Usage.New.ProjectFromSources">Create project from existing sources</A></A></H3>
+
+<P>To create project from existing sources select <B>File &gt; New &gt; Modula-2 Project from Existing Sources</B> in the main menu. Specify project settings in the wizard opened.
+<P><IMG ALT="" SRC="pics/existingproject.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>You can explicitly specify the new project name or it will be set automatically after the project root directory selection (<B>Project root</B> field). 
+<P>Select the project SDK (<B>Project SDK</B> field): Unless otherwise indicated the default SDK is used. The <B>Configure...</B> button will open the SDK settings dialog. 
+<P>Specify whether project file (<B>Project File</B> field) or main module (<B>Main module</B>) is used for the source build. One can select project file <TT>*.prj</TT> or main module file (<TT>*.mod</TT> or <TT>*.ob2</TT>) by pressing <B>Browse...</B> button. 
+<P>Pressing the <B>Finish</B> button will create the new Modula-2 project and add it to the workspace. Newly created files and directories will show up in the Project Explorer. 
+<P><H3>
+<A NAME="0049"><A NAME="Usage.New.M2Module">New Modula-2 module</A></A></H3>
+
+<P>To create the new Modula-2 module select <B>File &gt; New &gt; Other...</B> in the main menu or use <TT>Ctrl + N</TT> 
+<P>hotkey. Select <B>Modula-2 Module</B> wizard under the <B>XDS Modula-2</B> category (you can type <TT>module</TT> in the filter field to narrow the search). In the opened wizard 
+<P>specify module parameters: 
+<P><IMG ALT="" SRC="pics/NewModulaModule.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Specify new module name (<B>Module name</B> field). 
+<P>Specify folder to store the module that will be created (<B>Source folder</B> field). The <B>Browse...</B> button allows to select 
+<P>the directory from the available folders in workspace projects. 
+<P><IMG ALT="" SRC="pics/NewModulaModuleSource.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Text field atop allows to filter resources by name. Wildcards are supported : <TT>*</TT> stands for the arbitrary string, <TT>?</TT> stands for the single character or emptry string. 
+<P>Check the <B>Create main module</B> checkbox to promote the newly created module as the main project module. In this case it is necessary to specify implementation module (<B>Implementation</B> field). 
+<P>For the ordinary (not main) module one can set up the implementation and definition files &ndash; the <B>Implementation</B> field and the <B>Definition</B> field. The <B>Browse...</B> button allows to select module location directory via the standard Eclipse Folder Selection dialog. 
+<P>Pressing the <B>Finish</B> button in the wizard creates the module resource and add it to the workspace. Newly created files will show up in the Project Explorer. 
+<P><H2>
+<A NAME="0050"><A NAME="Usage.Edit">Edit SDK</A></A></H2>
+
+<P>Add or edit SDK under the <B>XDS Modula-2 &gt; Registered SDKs</B> preference page.
+<P><IMG ALT="" SRC="pics/preferences.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Use <B>Add</B> button to select the folder where SDK is installed to register the SDK. 
+<P>When the selected SDK is configured to be used with the IDE (i.e. SDK root folder contains the <TT>sdk.ini</TT>) then the installed SDK list will show the new added SDK record. 
+<P>If the <TT>sdk.ini</TT> file is absent then manual SDK configuration wizard will show up. One can always open the SDK configuration wizard by selecting the SDK in the list and pressing the <B>Edit</B> button. 
+<P>To remove SDK use the <B>Remove</B> button. 
+<P>To export selected SDK settings (<TT>*.ini</TT> file) press the <B>Export</B> button, select and select folder to export. 
+<P>To apply and commit SDK changes press the <B>Apply</B> button. 
+<P>To edit the particular SDK settings use the <A HREF="#0051">Edit SDK wizard</A>. 
+<P><H3>
+<A NAME="0051"><A NAME="Usage.Edit.EditSdkDialog">Edit SDK wizard</A></A></H3>
+
+<P>Edit SDK wizard is depicted on the picture below: 
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditComponents.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>In the top part of the wizard fields <B>XDS home</B> and <B>XDS name</B> used to set up SDK root folder and SDK name.
+<P>Another settings are accessible from the following tabs: <B>Components</B>, <B>Templates</B>, <B>Environment</B>. 
+<P><H4>
+<A NAME="0052"><A NAME="Usage.Edit.EditSdkDialog.Components">Components</A></A></H4>
+
+<P><H5>
+<A NAME="0053"><A NAME="Usage.Edit.EditSdkDialog.Components.BaseTools">Base tools</A></A></H5>
+ 
+<P>The <B>Base tools</B> section allow to specify main tools, such as: 
+<UL>
+ 
+<LI>compiler &ndash; <B>Compiler</B> field; </LI>
+<LI>debugger &ndash; <B>Debugger</B> field; </LI>
+<LI>simulator &ndash; <B>Simulator</B> field; </LI>
+<LI>library definitions &ndash; поле<B>Library definitions</B> field. </LI>
+</UL>
+
+<P>The first three fields should specify either executable file path (<TT>*.exe</TT> or <TT>*.bat</TT>). Last field should specify path to library definitions folder containing definition files <TT>*.def</TT>. The only mandatory field of these is the first one, containing compiler path. 
+<P><H5>
+<A NAME="0054"><A NAME="Usage.Edit.EditSdkDialog.Components.ExtraTools">Extra tools</A></A></H5>
+ 
+<P>The <B>Extra tools</B> section allow to specify extra tools. These extra tools can be invoked via the Project Explorer context menu. It is possible to build the context menu structure. 
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditComponentsAddTool3Way.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Here you can specify: 
+<UL>
+ 
+<LI><B>Add new Tool</B> &ndash; adds a new tool. </LI>
+<LI><B>Add menu items separator</B> &ndash; adds a horizontal line between menu items. </LI>
+<LI><B>Add new menu group</B> &ndash; adds a menu item group. </LI>
+</UL>
+
+<P>To modify the menu items ordering use <B>Up</B> and <B>Down</B> buttons. 
+<P>To reassign the instrument to the another group edit this instrument and change its group to another. 
+<P><H4>
+<A NAME="0055"><A NAME="Usage.Edit.EditSdkDialog.Templates">Templates</A></A></H4>
+
+<P>The <B>Templates</B> tab specifies file types and templates to create files to create files of these types. 
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditTemplates.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><H5>
+<A NAME="0056"><A NAME="Usage.Edit.EditSdkDialog.Templates.FilesTypes">Files types</A></A></H5>
+ 
+<P>The <B>Files types</B> tab specifies two parameters: 
+<UL>
+ 
+<LI>executable file extension &ndash; <B>Executable file extension</B> field.</LI>
+<LI>Comma-separated primary files extensions &ndash; <B>Primary files extensions</B> field. </LI>
+</UL>
+
+<P><H5>
+<A NAME="0057"><A NAME="Usage.Edit.EditSdkDialog.Templates.NewProjectTemplates">Templates files</A></A></H5>
+ 
+<P>The <B>Templates files</B> section specifies templates to create files. 
+<UL>
+ 
+<LI>Project file template &ndash; <B>Project file template</B> field, <TT>*.tpr</TT> file; </LI>
+<LI>Redirection file template &ndash; <B>Redirection file template</B> field, <TT>*.trd</TT> file; </LI>
+<LI>Main module template &ndash; <B>Main module template</B> field, <TT>*.tmd</TT> file; </LI>
+<LI>Definition module template &ndash; <B>Definition module template</B> field, <TT>*.tmd</TT> file; </LI>
+<LI>шаблон для файла реализации &ndash; <B>Implementation module template</B> field, <TT>*.tmd</TT> file; </LI>
+<LI>Oberon module template &ndash; <B>Oberon module template</B> field, <TT>*.tmd</TT> file. </LI>
+</UL>
+
+<P><H5>
+<A NAME="0058"><A NAME="Usage.Edit.EditSdkDialog.Templates.NewProjectFoldersLayout">Folders layout</A></A></H5>
+ 
+<P>The <B>Folders layout</B> section specifies directory names that will be created for the new project: 
+<UL>
+ 
+<LI><B>Folders to create</B> - comma-separated list of directories that will be created for the new project; </LI>
+<LI><B>Project file folder</B> - if set project file will be put into the specified directory; </LI>
+<LI><B>Main module folder</B> - if set main module will be put into the specified directory; </LI>
+</UL>
+
+<P><H4>
+<A NAME="0059"><A NAME="Usage.Edit.EditSdkDialog.Environment">Environment</A></A></H4>
+
+<P>The <B>Environment</B> specifies environment variables. 
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditEnvironment.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>To add the new variable use the <B>New...</B> button. In the opened wizard set the variable properties and press the <B>Finish</B> button. To edit or delete the variable press the <B>Edit...</B> button or the <B>Delete</B> button. 
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditEnvironmentNew.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Variable has the following properties: 
+<UL>
+ 
+<LI>variable name &ndash; <B>Name</B> field; </LI>
+<LI>variable value &ndash; <B>Value</B> field. </LI>
+</UL>
+
+<P>Only the name field is mandatory. When specifying the variable value one can use predefined IDE variables &ndash; these can be selected by pressing the <B>Variables...</B> button. 
+<P><H3>
+<A NAME="0060"><A NAME="Usage.Edit.EditToolDialog">Edit tool dialog</A></A></H3>
+
+<P><H4>
+<A NAME="0061"><A NAME="Usage.Edit.EditToolDialog.ToolSettings">Tool settings</A></A></H4>
+
+<P><IMG ALT="" SRC="pics/InstalledSDKsEditComponentsExtraTools.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>For the extra tools it is necessary to specify the following settings: 
+<UL>
+ 
+<LI>instrument name&ndash; <B>Name</B> field; </LI>
+<LI>instrument location &ndash; <B>Location</B>, this is the path to (<TT>*.exe</TT> or <TT>*.bat</TT>); </LI>
+</UL>
+
+<P>These fields are mandatory. 
+<P><H4>
+<A NAME="0062"><A NAME="Usage.Edit.EditToolDialog.ToolMenuContribution">Tool menu</A></A></H4>
+
+<P>The <B>Menu item text</B> section can set up the menu for the Extra tool. It is possible to set the menu name for the enabled menu (<B>Enabled menu item</B> field) and the menu name for the disabled menu (<B>Disabled menu item</B> field). If the fields are not filled then instument name will be used. 
+<P>Tool menu is the submenu for the <B>Tools</B> menu item in the IDE main menu or context menu. 
+<P><H4>
+<A NAME="0063"><A NAME="Usage.Edit.EditToolDialog.ToolLaunchSettings">Tool launch settings</A></A></H4>
+
+<P>The <B>Tool launch settings</B> section specifies the tools launch settings. 
+<P>When <B>Available for files with extensions</B> checkbox is set then tool is applied only to the files with 
+<P>the specified extensions: extensions should be separated with comma. 
+<P>В поле <B>Available for projects with source code root</B> необходимо выбрать, для каких типов проекта доступен инструмент. Возможны следующие варианты: 
+<P>The field <B>Available for projects with source code root</B> specifies project types for which the
+<P>tool is enabled. 
+<UL>
+ 
+<LI><B>any</B> &ndash; any project type; </LI>
+<LI><B>any, but with different settings</B> &ndash; any project type with special settings; </LI>
+<LI><B>project file (*.prj)</B> &ndash; project file based projects <TT>*.prj</TT>; </LI>
+<LI><B>main module</B> &ndash; main module based projects. </LI>
+</UL>
+
+<P>After selecting the project type it is possible to specify launch parameters and working directory. 
+<P>The <B>Output encoding</B> field specifies standard output (and standard error) encoding. 
+<P><H5>
+<A NAME="0064"><A NAME="Usage.Edit.EditToolDialog.ToolSettings.Arguments">Arguments</A></A></H5>
+ 
+<P>To specify arguments it is possible to use predefined IDE variables &ndash; these can be selected by pressing the <B>Variables...</B> button. More on this please see <A HREF="#0074">Working with variables</A> 
+<P><H5>
+<A NAME="0065"><A NAME="Usage.Edit.EditToolDialog.ToolSettings.WorkingDirectory">Working directory</A></A></H5>
+ 
+<P>The working directory is set up in the <B>Working directory</B> section. To use the SDK working directory &ndash; check the <B>Use default location</B> checkbox or manualy specify in the 
+<P><B>Location</B> field (see <A HREF="#0073">Selecting working directory</A>). 
+<P><H2>
+<A NAME="0066"><A NAME="Usage.Run">Launch configurations</A></A></H2>
+
+<P><H3>
+<A NAME="0067"><A NAME="Usage.Run.EditLaunchConfiguration">Edit launch configurations</A></A></H3>
+
+<P>To create or edit launch configuration select <B>Run &gt; Run Configurations...</B> or <B>Run &gt; Debug Configurations...</B> in the main menu.
+<P>In the opened dialog select <B>XDS Modula-2 Application</B> in the left pane, open context menu with the right mouse 
+<P>click and select <B>New</B>. 
+<P><IMG ALT="" SRC="pics/runconfiguration.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>To edit the existing launch configuration select it in the left pane - the right pane will display its properties. 
+<P><IMG ALT="" SRC="pics/createconfiguration.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Type run configuration name in the <B>Name</B> field. 
+<P>Select target workspace project for this run configuration and executable file for the launch. <B>Apply</B> button saves changes for the edited run configuration, <B>Revert</B> button reverts run configuration parameters to the last saved state. 
+<P>Next we will describe tabs used when creating or editing the run configuration. 
+<P><H5>
+<A NAME="0068"><A NAME="Usage.Run.EditLaunchConfiguration:Main">Main Tab</A></A></H5>
+ 
+<P>Select the project for the run configuration on the <B>Main</B> tab &ndash; fill in the <B>Project</B> field. Project is selected from the current workspace it is possible to type the project name manually or to use the project selection dialog. 
+<P>Next specify the executable file for run &ndash; it is done under the <B>Program to Run</B> section (see the <A HREF="#0073">Select folder or file</A> section). 
+<P><H5>
+<A NAME="0069"><A NAME="Usage.Run.EditLaunchConfiguration:Arguments">Arguments Tab</A></A></H5>
+ 
+<P>The <B>Arguments</B> tab allows to specify program arguments and working directory for the launched program. 
+<P><IMG ALT="" SRC="pics/CreateConfigurationArguments.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Specify program arguments under the <B>Program arguments</B> section. It is possible to use predefined IDE variables to 
+<P>specify arguments. To do this press the <B>Variables...</B> button. More on predefined IDE variables see <A HREF="#0074">Variables...</A>. 
+<P>Under the <B>Working directory</B> it is possible to specify whether to use project folder &ndash; <B>Default</B> item, or any other folder &ndash; <B>Other</B> folder. See (<A HREF="#0073">Select file or folder</A>). 
+<P><H5>
+<A NAME="0070"><A NAME="Usage.Run.EditLaunchConfiguration:SDKSettings">SDK Settings Tab</A></A></H5>
+ 
+<P>The <B>SDK Settings</B> tab allows to specify arguments for simulator and debugger &ndash; in the sections <B>Simulator arguments</B> and <B>Debugger arguments</B> correspondingly.
+<P><IMG ALT="" SRC="pics/CreateConfigurationSDKSettings.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>It is possible to use predefined IDE variables. More on this see <A HREF="#0074">Working with variables</A> 
+<P><H5>
+<A NAME="0071"><A NAME="Usage.Run.EditLaunchConfiguration:Environment">Environment</A></A></H5>
+ 
+<P>The <B>Environment</B> allow to set environment variables. 
+<P><IMG ALT="" SRC="pics/CreateConfigurationEnvironment.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>To add new predefined IDE variable press <B>New...</B> at the right. 
+<P><IMG ALT="" SRC="pics/CreateConfigurationEnvironmentNew.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>In the opened dialog specify variable name (<B>Name</B> field - mandatory) and variable value (<B>Value</B> field - optional). Variable value can be typed manually or predefined variables can be used (use <B>Variables...</B> button). 
+<P>Press <B>Edit...</B> button to edit the variable. 
+<P>It is possible to add variable from the list. Press <B>Select...</B> button to open this list. 
+<P><IMG ALT="" SRC="pics/CreateConfigurationEnvironmentSelect.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Select required variables in the list. Selected variables will be added to predefined IDE variables. 
+<P>To delete environment variable select it in the list and press <B>Remove</B>. 
+<P>If there is at least one variable choice is enabled: 
+<UL>
+ 
+<LI><B>Append environment to native environment</B> &ndash; add selected variables to system variables; </LI>
+<LI><B>Replace native environment with specified environment</B> &ndash; replace system variables with selected variables. </LI>
+</UL>
+
+<P><H5>
+<A NAME="0072"><A NAME="Usage.Run.EditLaunchConfiguration:Common">Common Tab</A></A></H5>
+ 
+<P>The <B>Common</B> tab allow to specify general launch configuration settings. 
+<P><IMG ALT="" SRC="pics/CreateConfigurationCommon.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>The <B>Save as</B> section allows to set whether to save launch configuration as local file (<B>Local file</B> item) or as shared file (<B>Shared file</B> item). In the latter case it is necessary to specify directory to save the launch configuration. 
+<P>The <B>Display in favorites menu</B> section allows to specify whether to show launch configuration in the Favorites dropdown at Run/Debug menu. 
+<P>Select encoding in the <B>Encoding</B> section: default (<B>Default</B> item) or specific (<B>Other</B> item). 
+<P>The <B>Standard Input and Output</B> section allows to specify input/output integration parameters. 
+<P>One can use: 
+<UL>
+ 
+<LI>allocated console - <B>Allocate console</B>; </LI>
+<LI>external file - <B>File</B> (see <A HREF="#0073">Selecting file or folder</A>). </LI>
+</UL>
+
+<P>The file will be appended if <B>Append</B> checkbox is checked. 
+<P><H2>
+<A NAME="0073"><A NAME="Usage.WorkingDirectory">Select folder or file</A></A></H2>
+
+<P>File or folder selection is a common task in various wizards and dialogs. It is possible to fill the <B>Location</B> field manually or using buttons: 
+<UL>
+ 
+<LI> <B>Workspace...</B> to select from workspace resources; </LI>
+<LI> <B>File System...</B> to select the file or folder from the file system; </LI>
+<LI> <B>Variables...</B> to select the variable (more on variables <A HREF="#0074">Working with variables</A>). </LI>
+</UL>
+
+<P>After the field is filled the <B>Location</B> field becomes the hyperlink &ndash; double click on it will open native operating system explorer. 
+<P><H2>
+<A NAME="0074"><A NAME="Usage.Variables">Working with variables</A></A></H2>
+
+<P>IDE predefined variables are often used in various wizards and dialogs. To open the variable list click on the <B>Variables...</B> button. 
+<P><IMG ALT="" SRC="pics/SelectVariable.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Filter field atop of the dialog alllow to quick filter variables by their name. Wildcards are enabled: <TT>*</TT> is an arbitrary string, <TT>?</TT> is a single character or an empty string. 
+<P>When the particular variable is selected the <B>Variable Description</B> field will show the quick variable 
+<P>description. Some variables can make use of their arguments &ndash; in this case <B>Argument</B> field will become active &ndash; arguments can be configured with the <B>Configure...</B> button. 
+<P>Apply changes and close the dialog with the <B>OK</B> button. 
+<P><H3>
+<A NAME="0075"><A NAME="Usage.Variables.ArgumentConfigure">Configure arguments </A></A></H3>
+
+<P>Argument configuration dialog looks like the following: 
+<P><IMG ALT="" SRC="pics/SelectVariableArgumentConfigure.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Filter field atop of the dialog alllow to quick filter variables by their name. Wildcards are enabled: <TT>*</TT> is an arbitrary string, <TT>?</TT> is a single character or an empty string. The <B>Matching resources</B> field show resources matching the 
+<P>condition. 
+<P>When the resource is selected the <B>In folders</B> field will show its location. 
+<P><H3>
+<A NAME="0076"><A NAME="Usage.Variables.EditVariables">Edit variables</A></A></H3>
+
+<P>One can introduce new variables using the <B>Edit Variables...</B> button. To add the variable press the <B>New...</B> 
+<P>button on the right. 
+<P><IMG ALT="" SRC="pics/SelectVariableEditVariables.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Variable has the following properties: 
+<UL>
+ 
+<LI>variable name &ndash; <B>Name</B> field; </LI>
+<LI>variable value &ndash; <B>Value</B> field. </LI>
+</UL>
+
+<P>Only the name field is mandatory. When specifying the variable value one can use predefined IDE variables &ndash; these can be selected by pressing the <B>Variables...</B> button. 
+<P>Press the <B>OK</B> button to add the variable to list. 
+<P>To edit the variable use the <B>Edit...</B> button, to delete it use the <B>Remove</B> button. 
+<P><H2>
+<A NAME="0077"><A NAME="Usage.Keymap">Keyboard map</A></A></H2>
+
+<P><FONT SIZE=2>
+<P><TABLE CELLSPACING=0>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Edit</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>Ctrl+Z</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Undo last edit </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+Z</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Redo last edit </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Y</TT> </TD>
+<TD  STYLE="padding:0px 3px;">delete current line </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+/</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Comment/uncomment lines </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+/</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Comment selected </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+\</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Uncomment </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+I</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Indent selected lines </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+F</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Format selected text </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Alt+Shift+Up</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Select containing construction </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Alt+Shift+Down</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Shrink containing construction selection </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+R</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Rename element </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Search</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>Ctrl+F</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Open xFind panel </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Вверх</TT> </TD>
+<TD  STYLE="padding:0px 3px;">xFind: quick find previos occurence </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Вниз</TT> </TD>
+<TD  STYLE="padding:0px 3px;">xFind: quick find next occurence </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Alt+F</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Search and replace dialog </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+H</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Модула-2 search </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+G</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Find declarations of the selected element in the workspace </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+G</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Find usages of the selected element in the workspace </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Navigation</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>Ctrl+L</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Go to line </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>F3</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Open declaration of the selected element </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+M</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Open module from list </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+P</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Open coupled module </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Alt+Shift+O</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Enable/disable mark occurences </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Компиляция и запуск</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>F9</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Compile file </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Shift+F9</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Build project </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+F9</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Rebuild project from scratch </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+F11</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Launch last Run configuration </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>F11</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Launch last Debug configuration </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Numbered bookmarks</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>Ctrl+Shift+&lt;digit&gt;</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Add/remove corresponding bookmark at the current line </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+&lt;цифра&gt;</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Goto corresponding bookmark </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+=</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Goto bookmark </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+=</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Add/remove </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><B>Прочее</B> </TD>
+<TD  STYLE="padding:0px 3px;">&nbsp;</TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"> <TT>Ctrl+O</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Show module quick outline </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>F2</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Show context tooltip </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>F12</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Show context help </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Shift+L</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Show key assist </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Alt+F9</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Maximize/restore editor window </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+Tab</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Next editor </TD>
+</TR>
+<TR>
+<TD  STYLE="padding:0px 3px;"><TT>Ctrl+&lsquo;</TT> </TD>
+<TD  STYLE="padding:0px 3px;">Next view </TD>
+</TR>
+</TABLE></FONT>  
+<P>
+</BODY>
+</HTML>

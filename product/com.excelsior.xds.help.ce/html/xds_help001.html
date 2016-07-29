@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>Getting started</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0000"><A NAME="Introduction">Getting started</A></A></H1>
+ 
+<P>XDS Modula-2 integrated development environment (<B>XDS Modula-2 IDE</B>) is used for the Modula-2 source code editing and interation of various Modula-2 tools and utilites into the single environment. 
+<P>XDS Modula-2 IDE is implemented as a number of Eclipse platform plugins. IDE itself doesnot includes Modula-2 development tools like compiler, debugger, etc. Instead IDE integrates with already installed <I>development systems</I> (SDK). 
+<P>IDE uses its own project system comprised of: <A HREF="xds_help003.html#0010"><I>Workspaces</I></A> (Workspace), <A HREF="xds_help003.html#0011"><I>Projects</I></A> (Projects) and <A HREF="xds_help003.html#0012"><I>Resources</I></A> (Resources). 
+<P>Each workspace can contain one or more XDS IDE projects. It is possible to cluster projects into a number of groups and apply different settings to each of these group. 
+<P>It is possible to create an arbitrary number of workspaces. However, each launched instance of XDS IDE works only with the one workspace at the moment, and locks used worspace making it inaccessible for the other XDS IDE instances. Switching between workspaces restarts the IDE. 
+<P><H2>
+<A NAME="0001"><A NAME="Introduction.Install">IDE installation and start</A></A></H2>
+
+<P>IDE is distributed as the ZIP-archive. To instal the IDE unpack the archive to the local directory of your PC. Your PC hard drive should have at least 300 MB of free disk space. 
+<P>No extra actions necessary. ZIP archive contains all required IDE components. 
+<P>To start IDE start <TT>xds-ide.exe</TT> file from the installation directory. After IDE startup the <B>XDS Modula-2</B> <A HREF="xds_help004.html#0016"><I>projection</I></A> will open. This projection is configured to 
+<P>support the Modula-2 development. 
+<P>After the first launch workspace is created at the <TT>%USERPROFILE%\xds-workspace</TT> &ndash; user home subfolder. 
+<P>By default subsequent launches will open last opened workspace and perspective. 
+<P><H2>
+<A NAME="0002"><A NAME="Introduction.AddSDK">Add SDK</A></A></H2>
+
+<P>IDE allows adding and usage of several development systems (SDKs). Development system should be installed locally or to the network drive. 
+<P>To add SDK open the <B>Preferences</B> dialog by clicking <B>Window &gt; Preferences</B> at the main menu. The select at the dialog left pane <B>XDS Modula-2 &gt; Registered SDKs</B>. After that press the <B>Add</B> button at 
+<P>the dialog right and select the SDK folder. 
+<P><IMG ALT="" SRC="pics/preferences.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>When the selected SDK is configured to be used with the IDE (i.e. SDK root folder contains the <TT>sdk.ini</TT>) then the installed SDK list will show the new added SDK record. 
+<P>If the <TT>sdk.ini</TT> file is absent then manual SDK configuration wizard will show up. One can always open the SDK configuration wizard by selecting the SDK in the list and pressing the <B>Edit</B> button. 
+<P>After the applying changes by pressing the <B>OK</B> button IDE is all set for the Modula-2 development. 
+<P>IDE allows usage of several SDKs at a time. Each SDK is given a unique name. In the cast of name conflict number suffix is used to resolve it. 
+<P>Checkboxed SDK is the default development system. It is used in the case no SDK have been selected for the given project. 
+</BODY>
+</HTML>

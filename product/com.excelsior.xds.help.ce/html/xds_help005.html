@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=cp866">
+<TITLE>Parameters</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><H1>
+<A NAME="0026"><A NAME="Preferences">Parameters</A></A></H1>
+
+<P>IDE preferences management is done via the <B>Preferences</B> dialog. Select <B>Window &gt; Preferences</B> in the main menu to open this dialog. 
+<P>The great number of preferences is supported for the IDE. Preferences are split into groups which are displayed on separate pages. Preference pages in turn are combined into the hierarchial structure displayed in the left pane of the dialog. In the upper part of the dialog filter text field is located which allows quick search of the particular page. 
+<P>Press the <B>Apply</B> button to apply changes and continue the preferences edit. To aply changes and close dialog press <B>OK</B> button. <B>Restore Defaults</B> button resets preferences to their defaults. 
+<P><H2>
+<A NAME="0027"><A NAME="Preferences.Modula2">XDS Modula-2</A></A></H2>
+
+<P>Modula-2 specific preferences are located in the <B>Preferences</B> dialog on the <B>XDS Modula-2</B> page and on the pages below: 
+<UL>
+ 
+<LI><A HREF="#0028"><B>Console</B></A> </LI>
+<LI><A HREF="#0029"><B>Editor</B></A> </LI>
+<LI><A HREF="#0033"><B>Registered SDKs</B></A> </LI>
+</UL>
+
+<P><H3>
+<A NAME="0028"><A NAME="Preferences.Modula2.Console">Console</A></A></H3>
+
+<P>Console preferences are located in the <B>Preferences</B> dialog on the <B>XDS Modula-2 &gt; Console</B>. 
+<P><IMG ALT="" SRC="pics/PreferencesConsole.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>In the upper part of the dialog there are two checkboxes: 
+<UL>
+ 
+<LI><B>Show console when building</B> &ndash; whether to show console when building; </LI>
+<LI><B>Always clear before building</B> &ndash; whether to clear console before building. </LI>
+</UL>
+
+<P><B>Console text color</B> page specify color key for the various message types, text and background coloring. The color list is as follows: 
+<UL>
+ 
+<LI><B>Error message</B> &ndash; error message color; </LI>
+<LI><B>Warning message</B> &ndash; warning message color; </LI>
+<LI><B>Error notification</B> &ndash; error notification color; </LI>
+<LI><B>Information message</B> &ndash; шnformation message color; </LI>
+<LI><B>Output text</B> &ndash; standard output color; </LI>
+<LI><B>Input text</B> &ndash; standard input color; </LI>
+<LI><B>Background color</B> &ndash; background color. </LI>
+</UL>
+
+<P>To change color left click on the corresponding rectangle then select preferred color in the standard color selection dialog and press the <B>OK</B> color. 
+<P><H3>
+<A NAME="0029"><A NAME="Preferences.Modula2.Editor">Editor</A></A></H3>
+
+<P>Modula-2 editor preferences are located in the <B>Preferences</B> dialog on the <B>XDS Modula-2 &gt; Editor</B> and on pages below:
+<UL>
+ 
+<LI><A HREF="#0031"><B>Syntax Coloring</B></A> </LI>
+<LI><A HREF="#0032"><B>Templates</B></A> </LI>
+</UL>
+
+<P><IMG ALT="" SRC="pics/PreferencesEditor.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>By checking <B>Highlight matching brackets</B> it is then possible to specify what colors should be used to highlight matched and unmatched brackets (brackets, parenthesis and angle brackets) in the code. The colors being specified: 
+<UL>
+ 
+<LI>for the matched brackets &ndash; <B>Matched brackets highlight color</B>; </LI>
+<LI>for the unmatched brackets &ndash; <B>Unmatched brackets highlight color</B>. </LI>
+</UL>
+
+<P><B>Highlight operators structure</B> checkbox turns on token highlighting for the tokens belonging to the same language construct. Highlight color is specified in the <B>Operators structure highlight color</B>.
+<P><B>Highlight inactive code</B> checkbox turns on highlighting of the code excluded by the compiler pragmas. Highlight color is specified on the <A HREF="#0031"><B>Syntax Coloring</B></A> page. 
+<P>To change the text editor font size go to the page <B>General &gt; Appearance &gt; Colors and Fonts</B> 
+<P>, select <B>Basic &gt; Text Font</B> and press the <B>Edit...</B> button. 
+<P><H4>
+<A NAME="0030"><A NAME="Preferences.Modula2.Editor.IndentGuide">Indent Guides</A></A></H4>
+
+<P>The page <B>XDS Modula-2 &gt; Editor &gt; Indent Guides</B> contains preferences for the indent guide display.
+<P><IMG ALT="" SRC="pics/PreferencesIndentGuide.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Indent guides are vertical lines displaying the program code structure, see the picture: 
+<P><IMG ALT="" SRC="pics/IndentGuideExample.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Indent guide display can be turned off by the checkbox <B>Show vertical indent guides</B>.
+<P>The following parameters can be specified: 
+<UL>
+ 
+<LI><B>Alpha</B> &ndash; value in [0..255] - line alpha parameter, where 0 - line is transparent, 255 - line is opaque; </LI>
+<LI><B>Style</B> &ndash; line display style; </LI>
+<LI><B>Width</B> &ndash; line thickness, [1..8] pixels; </LI>
+<LI><B>Shift</B> &ndash; horizontal line displacement, [1..8] pixels; </LI>
+<LI><B>Color</B> &ndash; line color; </LI>
+</UL>
+
+<P><H4>
+<A NAME="0031"><A NAME="Preferences.Modula2.Editor.SyntaxColoring">Syntax Coloring</A></A></H4>
+
+<P>The page <B>XDS Modula-2 &gt; Editor &gt; Syntax Coloring</B> allows to specify colors and stylings employed in 
+<P>Modula-2 syntax coloring. 
+<P><IMG ALT="" SRC="pics/PreferencesSyntaxColoring.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>The page <B>Element</B> allows to specify the type for which the higlighting is performed. To the right is possible to enable <B>Enable</B> highlighting (if is not checked then the given highlighting is saved in the system but is not applied). Also, the following stylings can be specified: 
+<UL>
+ 
+<LI><B>Color</B> &ndash; element color; </LI>
+<LI><B>Bold</B> &ndash; element is marked with bold if checked; </LI>
+<LI><B>Italic</B> &ndash; element is marked with italic if checked; </LI>
+<LI><B>Strikethrough</B> &ndash; element is strikethrough if checked; </LI>
+<LI><B>Underline</B> &ndash; element is underlined if checked. </LI>
+</UL>
+
+<P>In the page <B>Preview</B> it is possible to see the preview of the code corresponding to the parameters specified. 
+<P><H4>
+<A NAME="0032"><A NAME="Preferences.Modula2.Editor.Templates">Templates</A></A></H4>
+
+<P>The section <B>XDS Modula-2 &gt; Editor &gt; Templates</B> allows to setup the code templates.
+<P><IMG ALT="" SRC="pics/PreferencesTemplates.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>To add the new template press <B>New...</B> button at the dialog right. 
+<P><IMG ALT="" SRC="pics/PreferencesTemplatesEdit.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>In the opened dialog specify the folllowing: 
+<UL>
+ 
+<LI><B>Name</B> &ndash; template name; </LI>
+<LI><B>Context</B> &ndash; template usage context, selected in the dropdown list. </LI>
+<LI><B>Automatically insert</B> &ndash; this template will be automatically inserted, when checked; </LI>
+<LI><B>Description</B> &ndash; template description; </LI>
+<LI><B>Pattern</B> &ndash; template pattern. </LI>
+</UL>
+
+<P>Last field also allows usage of so called variables. Variable list can be opened by pressing the button <B>Insert Variable...</B>. 
+<P>Template is commited to the list by pressing the <B>OK</B> button. 
+<P>To edit the template press the <B>Edit...</B> button. To delete the template press the <B>Remove</B> button. To revert the deleted template press the <B>Restore Removed</B> button.
+<P>To reset the template list to defaults press the <B>Revert to Default</B> button.
+<P>Templates can be imported from the <TT>*.xml</TT> file by pressing the <B>Import...</B> button. To export templates press the <B>Export...</B> button. 
+<P>If the template is unchecked then it is saved but not applied (not active). 
+<P>If the <B>Use code formatter</B> checkbox is checked then the template code is formatted after the application. 
+<P>Lets modify the template using the IF-ELSE template as the example. Select IF-ELSE template and press <B>Edit...</B>. 
+<P>Template editor will pop up: 
+<P><IMG ALT="" SRC="pics/TplEdit.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Autocompletion template itself is the text with so called autocompletion variables. IDE replaces these variables in the moment of template insertion, or such variable can modify the editor behavior (demonstrated in the example below). 
+<P>There is a number of pre-defined autocompletion variables (to see them press <B>Insert Variable...</B> button): <TT>${cursor}, ${date}, $$, ${line_selection}, ${time}, ${user}, ${word_selection}, ${year} </TT>. 
+<P>Each autocompletion variable with the name different from the pre-defined variable name is the edit location (more on this below). When inserting template it is possible to traverse between edit locations using the <TT>Tab</TT> или <TT>Shift + Tab</TT> buttons. 
+<P>Let us consider the ${cursor} variable. 
+<P>Modify the IF-ELSE template as the following: 
+<P><PRE>IF&nbsp;${condition}&nbsp;THEN&nbsp;
+&nbsp;&nbsp;${line_selection}&nbsp;
+ELSE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;${cursor};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+END;
+</PRE>
+
+<P>Press <B>OK</B>, <B>Apply</B> and close the template editor. 
+<P>Open the Modula-2 editor on some mod-file, go to the procedure body, start typing the <TT>if</TT> and press <TT>Ctrl + Space</TT>. 
+<P>The following window appears: 
+<P><IMG ALT="" SRC="pics/TplPopup.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Cursor will be placed near condition, so if type <TT>TRUE</TT>, condition will be replaced with <TT>TRUE</TT>. 
+<P>Try pressing the <TT>Tab</TT> button - the cursor will traverse between edit locations, in the current example this happens to be lines 17 and 20. Line 20 corresponds to ${cursor} variable edit location. 
+<P>Remove the inserted text. 
+<P>Now type <TT>i := 0; </TT> and select this text: 
+<P><IMG ALT="" SRC="pics/TplSelBefore.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Press <TT>Ctrl + Space</TT> and select <TT>IF-ELSE</TT> in the autocompletion list. 
+<P>The following text will be inserted: 
+<P><IMG ALT="" SRC="pics/TplAfterApply.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>So the current selection was used as the ${line_selection} variable value. Edit the condition location and press <TT>Enter</TT>. Cursor will jump to edit location corresponding to the ${cursor} variable. This variable specifies the position where the cursor should be placed after completion of the autocompletion session. 
+<P>Now edit IF-ELSE template as the following: 
+<P><PRE>IF&nbsp;${condition}&nbsp;THEN&nbsp;(*&nbsp;${THEN\_comment}&nbsp;*)
+&nbsp;&nbsp;${line_selection}
+ELSE&nbsp;&nbsp;(*&nbsp;${ELSE\_comment}&nbsp;*)
+&nbsp;&nbsp;${cursor};
+END;&nbsp;(*&nbsp;${END\_comment}&nbsp;*)
+</PRE>
+
+<P>Go to the source code editor and invoke the <TT>IF-ELSE</TT> template: 
+<P><IMG ALT="" SRC="pics/TplWithComments.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>Since variables ${THEN_comment}, ${ELSE_comment} and ${END_comment} are not built-in they only specify edit locations. During the autocompletion session it is possible to traverse them using the <TT>Tab</TT> and <TT>Shift + Tab</TT> buttons. 
+<P>Built-in autocompletion variables: 
+<UL>
+ 
+<LI><TT>${cursor}</TT> &ndash; cursor is placed to this location after autcompletion session ends; </LI>
+<LI><TT>${date}</TT> &ndash; current date; </LI>
+<LI><TT>$$</TT> &ndash; dollar sign; </LI>
+<LI><TT>${line_selection}</TT> &ndash; replaced with the current text selection; </LI>
+<LI><TT>${time}</TT> &ndash; current time; </LI>
+<LI><TT>${user}</TT> &ndash; user name; </LI>
+<LI><TT>${year}</TT> &ndash; current year. </LI>
+</UL>
+
+<P><H3>
+<A NAME="0033"><A NAME="Preferences.Modula2.SDK">Registered SDKs</A></A></H3>
+
+<P>Section <B>XDS Modula-2 &gt; Registered SDKs</B> is used to specify new or edit existing SDKs.
+<P>More on SDK setup please see <A HREF="xds_help007.html#0050">SDK configuration</A>. 
+<P><H3>
+<A NAME="0034"><A NAME="Preferences.Modula2.CodeStyle">Code style</A></A></H3>
+
+<P>At the moment the section <B>XDS Modula-2 &gt; Code style</B> contains only formatting settings.
+<P><H3>
+<A NAME="0035"><A NAME="Preferences.Modula2.CodeStyle:Formatter">Formatter</A></A></H3>
+
+<P>The section <B>XDS Modula-2 &gt; Code style &gt; Formatter</B> is used to specify source code formatting settings.
+<P><IMG ALT="" SRC="pics/FormatterPrefs.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>All formattings settings are saved in the formatting profile. Initially built-in formatting profile is used - it is possible to inspect its settings but it is not possible to edit them. Listbox atop allows to activate existing profile. The buttons are as follows: 
+<UL>
+ 
+<LI><B>Edit</B> &ndash; edit formatting profile. ??? will open. </LI>
+<LI><B>Remove</B> &ndash; delete profile. </LI>
+<LI><B>New...</B> &ndash; create new profile. Dialog will open - it allows to specify profile name, also it is possible to select profile to get initial settings from. </LI>
+<LI><B>Import...</B> &ndash; import profile from the file. Select .xml file containing profiles, they will be imported. If some profile names are the same as already presented they will be redefined with the imported. </LI>
+<LI><B>Export All...</B> &ndash; export all profiles into the file. </LI>
+</UL>
+
+<P>In the dialog below there is a window <B>Preview</B> allowing to preview formatting on the given source code sample. 
+<P><H4>
+<A NAME="0036"><A NAME="Preferences.Modula2.CodeStyle:Formatter:Editor">Formatting profile edit dialog</A></A></H4>
+
+<P>Atop of the dialog there is a <B>Export...</B> button allowing export of the profile to the .xml file. 
+<P>The tabs below specify formatting parameter groups: 
+<UL>
+ 
+<LI><B>Indentation</B> &ndash; ??? </LI>
+<LI><B>White space</B> &ndash; ??? </LI>
+<LI><B>New lines</B> &ndash; ??? </LI>
+<LI><B>Line wrapping</B> &ndash; ??? </LI>
+</UL>
+
+<P>Each tab contains <B>Preview</B> window allowing preview effect of the settings being changed. 
+<P><H5>
+<A NAME="0037"><A NAME="Preferences.Modula2.CodeStyle:Formatter:Editor.Tabindentation">Indent formatting settings</A></A></H5>
+ 
+<P><IMG ALT="" SRC="pics/FormatterIndent.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<UL>
+ 
+<LI><B>Tab policy</B> - this list specifies tab usage mode. </LI>
+<LI><B>Indentation size</B> - indentation size in characters. </LI>
+<LI><B>Tab size</B> - tab width. </LI>
+</UL>
+
+<P>The <B>Indent</B> section allows to override <B>Indentation size</B> for the given elements:
+<UL>
+ 
+<LI><B>Declarations within module</B> </LI>
+<LI><B>Declarations within procedure</B> </LI>
+<LI><B>Declarations within VAR/TYPE/CONST block</B> </LI>
+<LI><B>Declarations of local procedures</B> </LI>
+<LI><B>Declarations of local modules</B> </LI>
+<LI><B>Declarations of record fields</B> </LI>
+<LI><B>Statements within operator/procedure/module body</B> </LI>
+<LI><B>Statements within CASE body</B> </LI>
+<LI><B>Statements within CASE alternative</B> </LI>
+</UL>
+
+<P><H5>
+<A NAME="0038"><A NAME="Preferences.Modula2.CodeStyle:Formatter:Editor.Tabwhitespace">Whitespace formatting settings</A></A></H5>
+ 
+<P><IMG ALT="" SRC="pics/FormatterWhitespace.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><B>Insert space</B> tree allows to select varios language elements. It is possible to specify for the selected element whether to put space after or before this element. 
+<P>When two elements are adjacent - space will be inserted if either of them confirm this. 
+<P><H5>
+<A NAME="0039"><A NAME="Preferences.Modula2.CodeStyle:Formatter:Editor.Tabnewlines">Newline formatting settings</A></A></H5>
+ 
+<P><IMG ALT="" SRC="pics/FormatterNewline.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><B>Insert new line</B> tree allows to select varios language elements. It is possible to specify for the selected element whether to put newline after or before this element. 
+<P>When two elements are adjacent - newline will be inserted if either of them confirm this. 
+<P><H5>
+<A NAME="0040"><A NAME="Preferences.Modula2.CodeStyle:Formatter:Editor.Tablinewrapping">Line wrap formatting settings</A></A></H5>
+ 
+<P><IMG ALT="" SRC="pics/FormatterLinewrap.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P>By line wrapping we mean reorganizing long strings in a way that newline or / and whitespace padding is inserted to fit the string in the editor. 
+<P>One can specify <B>Maximal line width</B> value - position in the string which will be used by the formatter to fit the text in. It is not always possible to do this without broking the program syntax so sometimes strings are extended beyond this border. 
+<P>Below the preview window the value <B>Set line width for preview window</B> specifies the text wrapping 
+<P>width in the preview window - by changing this value one can guess how the text will appear after the reorganizing. 
+<P><H2>
+<A NAME="0041"><A NAME="Preferences.General">General</A></A></H2>
+
+<P>General Eclipse platform settings. XDS Modula-2 IDE uses some of them and besides adds some of its own preferences. 
+<P><H3>
+<A NAME="0042"><A NAME="Preferences.General.Spelling">Spelling</A></A></H3>
+
+<P>Spellchecking preferences can be found in the <B>Preferences</B> dialog at the <B>General &gt; Editors &gt; Text Editors &gt; Spelling</B> page.
+<P><IMG ALT="" SRC="pics/PreferencesSpelling.png" HSPACE=0 VSPACE=0 BORDER=0>  
+<P><B>Enable spell checking</B> checkbox allows to turn on the spell checking. 
+<P>In the combobox below it is possible to select the currently active spell checking service. Here we describe the <B>XDS spell checking</B> settings.
+<P>The settings below affect the spell checking: 
+<UL>
+ 
+<LI><B>Ignore words with digits</B> </LI>
+<LI><B>Ignore mixed case words</B> </LI>
+<LI><B>Ignore sentence capitalization</B> </LI>
+<LI><B>Ignore upper case words</B> </LI>
+<LI><B>Ignore internet addresses</B> </LI>
+<LI><B>Ignore non-letters at word boundaries</B> </LI>
+<LI><B>Ignore single letters</B> </LI>
+<LI><B>Ignore Modula-2 string literals</B> </LI>
+</UL>
+
+<P>The section <B>Dictionaries</B> allows to select dictionary among the registered or select the user dictionary &ndash; in the later case the specially formatted file is expected. The format is as follows : each line contains the single word. IDE should have the permissions for both reading and writing the file. By selecting the file user should also specify the file encoding. 
+<P>In the dialog bottom is also possible to set maximum number of errors in the single source file and constrain the maximum count of spelling corrections offered to user. 
+</BODY>
+</HTML>

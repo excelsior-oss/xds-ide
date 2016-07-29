@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+        point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            id="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            name="%common.xdsModula2">
+      </page>
+      <page
+            category="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            class="com.excelsior.xds.ui.preferences.sdk.SDKsPreferencePage"
+            id="com.excelsior.xds.ui.preferences.SDKsPreferencePage"
+            name="%preferences.registeredSDKs">
+      </page>
+      <page
+            category="com.excelsior.xds.ui.preferences.XdsBasePreferencePage"
+            class="com.excelsior.xds.ui.console.preferences.XdsConsolePreferencePage"
+            id="com.excelsior.xds.ui.preferences.XdsConsolePreferencePage"
+            name="%preferences.console">
+      </page>
+</extension>
+
+<extension 
+        point="org.eclipse.ui.propertyPages">
+    <page name="%common.xdsModula2"
+            class="com.excelsior.xds.ui.preferences.project.ModulaProjectPreferencePage"
+            id="com.excelsior.xds.ui.preferences.ModulaProjectPreferencePage">
+         <enabledWhen>
+                     <reference 
+                        definitionId="com.excelsior.xds.expression.resource.ModulaProject">
+             </reference>
+         </enabledWhen>
+         <keywordReference id="com.excelsior.xds.ui.preferences.project.Modula2ProjectPreferencePage.Keyword"/>
+    </page>
+</extension>         
+<extension 
+        point="org.eclipse.ui.ide.projectNatureImages">
+    <image
+            icon="icons/m2_project_folder.gif"
+            natureId="com.excelsior.xds.ui.natures.Modula2SourceProjectNature"
+            id="com.excelsior.xds.ui.natures.Modula2SourceProjectNature.Image">
+    </image>
+</extension>
+
+<extension point="org.eclipse.ui.newWizards">
+        <category
+            id="com.excelsior.xds.ui.modula2"
+            name="%common.xdsModula2">
+        </category>
+        <wizard
+            id="com.excelsior.xds.ui.project.NewProjectFromScratchWizard"
+                category="com.excelsior.xds.ui.modula2"
+            name="%newWizard.modula2Project"
+            icon="icons/new_m2_project.gif"
+            class="com.excelsior.xds.ui.project.wizard.NewProjectFromScratchWizard"
+            project="true"
+            finalPerspective="com.excelsior.xds.DevelopmentPerspective"
+            preferredPerspectives="com.excelsior.xds.DevelopmentPerspective"
+            >
+            <description>%newWizard.createM2ProjectFromScratch</description>
+        </wizard>
+        <wizard
+            id="com.excelsior.xds.ui.project.NewProjectFromSourcesWizard"
+                category="com.excelsior.xds.ui.modula2"
+            name="%newWizard.modula2ProjectFromSources"
+            icon="icons/new_m2_project.gif"
+            class="com.excelsior.xds.ui.project.wizard.NewProjectFromSourcesWizard"
+            project="true"
+            finalPerspective="com.excelsior.xds.DevelopmentPerspective"
+            preferredPerspectives="com.excelsior.xds.DevelopmentPerspective"
+            >
+            <description>%newWizard.createM2ProjectFromSources</description>
+        </wizard>
+        <wizard
+            id="com.excelsior.xds.ui.project.NewModuleWizard"
+                category="com.excelsior.xds.ui.modula2"
+            name="%newWizard.Modula2Module"
+            icon="icons/new_module.gif"
+            class="com.excelsior.xds.ui.module.wizard.NewModuleWizard"
+            project="false"
+            finalPerspective="com.excelsior.xds.DevelopmentPerspective"
+            preferredPerspectives="com.excelsior.xds.DevelopmentPerspective"
+            >
+            <description>%newWizard.createM2Module</description>
+        </wizard>
+        <wizard
+            id="com.excelsior.xds.ui.project.NewOb2ModuleWizard"
+                category="com.excelsior.xds.ui.modula2"
+            name="%newWizard.Ob2Module"
+            icon="icons/new_module.gif"
+            class="com.excelsior.xds.ui.module.wizard.NewOb2ModuleWizard"
+            project="false"
+            finalPerspective="com.excelsior.xds.DevelopmentPerspective"
+            preferredPerspectives="com.excelsior.xds.DevelopmentPerspective"
+            >
+            <description>%newWizard.createO2Module</description>
+        </wizard>
+</extension>
+     
+<extension
+      point="org.eclipse.ui.ide.markerResolution">
+   <markerResolutionGenerator
+         class="com.excelsior.xds.ui.marker.resolution.NoSdkDefinedResolutionGenerator"
+         markerType="com.excelsior.xds.core.build_problem">
+   </markerResolutionGenerator>
+</extension>
+
+<extension
+        point="org.eclipse.ui.bindings">
+    <scheme
+            id="com.excelsior.xds.command.keybinding"
+            name="%xds.keybinding.scheme.name"
+            parentId="org.eclipse.ui.defaultAcceleratorConfiguration">
+    </scheme>
+    <!-- remap 'org.eclipse.ui.file.refresh' command from F5 to CTRL+F5 to fix conflict with XDS keyboard scheme -->
+    <key
+            commandId="org.eclipse.ui.file.refresh"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+F5">
+    </key>
+    <key
+            commandId="org.eclipse.ui.window.maximizePart"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="ALT+F9">
+    </key>
+    <key
+            commandId="org.eclipse.ui.file.save"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="F2">
+    </key>
+
+    <key
+            commandId="org.eclipse.ui.edit.redo"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+SHIFT+Z">
+    </key>
+
+    <key
+            commandId="org.eclipse.ui.edit.text.delete.line"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+Y">
+    </key>
+
+    <key
+            commandId="org.eclipse.ui.window.nextEditor"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+TAB">
+    </key>
+    <key
+            commandId="org.eclipse.ui.window.nextView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+`">
+    </key>
+
+    <key
+            commandId="com.excelsior.xds.commands.search.wholeword.workspace"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+ALT+W">
+    </key>
+    <key
+            commandId="com.excelsior.xds.commands.search.wholeword.project"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+ALT+P">
+    </key>
+    <key
+            commandId="com.excelsior.xds.commands.goto.compilation.unit"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="CTRL+M"
+            schemeId="com.excelsior.xds.command.keybinding">
+    </key>      
+
+     <key
+            commandId="com.excelsior.xds.commands.compile.file"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="F9">
+    </key>      
+    <key
+            commandId="com.excelsior.xds.commands.build.project"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="SHIFT+F9">
+    </key>
+    <key
+            commandId="com.excelsior.xds.commands.rebuild.project"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+SHIFT+F9">
+    </key>
+    <key
+            commandId="org.eclipse.ui.edit.rename"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="com.excelsior.xds.command.keybinding"
+            sequence="CTRL+R">
+    </key>      
+</extension>
+
+<extension
+        point="org.eclipse.ui.keywords">
+    <keyword
+            label="%keywords.modula"
+            id="com.excelsior.xds.ui.preferences.project.Modula2ProjectPreferencePage.Keyword"/>
+</extension>
+<extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="com.excelsior.xds.ui.decorators.InCompilationSetDecorator"
+            id="com.excelsior.xds.InCompilationSetDecorator"
+            label="XDS"
+            lightweight="true"
+            location="TOP_LEFT"
+            state="true">
+         <description>
+            Decorates xds elements in compilation set.
+         </description>
+         <enablement>
+                <or>
+                    <objectClass
+                          name="org.eclipse.core.resources.IResource">
+                    </objectClass>
+                    <objectClass
+                          name="com.excelsior.xds.core.model.IXdsElement">
+                    </objectClass>
+            </or>
+         </enablement>
+      </decorator>
+      <decorator
+            adaptable="true"
+            class="com.excelsior.xds.ui.decorators.ResourceProblemDecorator"
+            id="com.excelsior.xds.ui.decorators.ResourceProblemDecorator"
+            label="XDS"
+            lightweight="true"
+            location="BOTTOM_LEFT"
+            state="true">
+         <description>
+            Decorates with error or warning image.
+         </description>
+         <enablement>
+                <or>
+                    <objectClass
+                          name="org.eclipse.core.resources.IResource">
+                    </objectClass>
+                    <objectClass
+                          name="com.excelsior.xds.core.model.IXdsElement">
+                    </objectClass>
+            </or>
+         </enablement>
+      </decorator>
+</extension>
+
+<extension 
+      point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+          configTypeID="com.excelsior.xds.ui.launching.ModulaApplication"
+          icon="icons/xds16x16.gif"
+          id="com.excelsior.xds.ui.launching.ModulaProject.Icon">
+    </launchConfigurationTypeImage>
+</extension>
+<extension
+      point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    <launchConfigurationTabGroup
+          class="com.excelsior.xds.ui.launcher.LauncherTabGroup"
+          id="com.excelsior.xds.ui.launching.ModulaProject.TabGroup"
+          type="com.excelsior.xds.ui.launching.ModulaApplication"
+          helpContextId="com.excelsior.xds.help.launch_configuration_editor">
+        <launchMode
+              mode="run"
+              description="%launchConfigurationTabGroups.createRunConfig">
+        </launchMode>
+    </launchConfigurationTabGroup>
+</extension>
+
+<extension point="org.eclipse.debug.ui.launchShortcuts">
+   <shortcut
+         label="%common.xdsM2Application"
+         icon="icons/xds16x16.gif"
+         class="com.excelsior.xds.ui.launcher.LaunchShortcut"
+         modes="run"
+         id="com.excelsior.xds.ui.launching.ModulaProject.TabGroup.launchShortcut">
+		<contextualLaunch>
+			<enablement>
+				<reference definitionId="com.excelsior.xds.expression.launch.shortcut.ModulaApplication.enablement" />
+			</enablement>
+		</contextualLaunch>
+      <configurationType
+            id="com.excelsior.xds.ui.launching.ModulaApplication">
+      </configurationType>
+   </shortcut>
+</extension>
+
+<extension
+      point="org.eclipse.ui.navigator.navigatorContent">
+   <navigatorContent
+         activeByDefault="true"
+         contentProvider="com.excelsior.xds.ui.navigator.project.ProjectExplorerContentProvider"
+         id="com.excelsior.xds.ui.projectExplorerContent"
+         labelProvider="com.excelsior.xds.ui.navigator.project.ProjectExplorerLabelProvider"
+         name="%navigatorContent.xdsPrjExplorerContent"
+         priority="high">
+         <triggerPoints>
+                <or>
+                    <reference
+                                definitionId="com.excelsior.xds.expression.resource.ModulaProject">
+                </reference>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+               <instanceof value="com.excelsior.xds.core.model.IXdsElement"/> 
+            </or>
+         </possibleChildren>
+         <override policy="InvokeAlwaysRegardlessOfSuppressedExt" suppressedExtensionId="org.eclipse.ui.navigator.resourceContent"/>
+         <actionProvider
+                         class="com.excelsior.xds.ui.navigator.project.ProjectExplorerOpenActionProvider"
+                         id="com.excelsior.xds.ui.navigator.actions.OpenActions"
+                         overrides="org.eclipse.ui.navigator.resources.OpenActions"
+                         > 
+                  </actionProvider>
+                  <actionProvider
+                class="com.excelsior.xds.ui.navigator.project.ProjectExplorerActionProvider"
+                id="com.excelsior.xds.ui.ProjectExplorerActionProvider">
+                <!-- A hack to allways be enabled -->
+                <enablement>
+                                    <not>
+                                       <systemTest
+                                             property="STUB_PROPERTY"
+                                             value="E2F14F50-87AC-4C54-A431-D312838967F7">
+                                       </systemTest>
+                                    </not>
+                                </enablement>
+          </actionProvider>
+                  <commonWizard type="new" wizardId="com.excelsior.xds.ui.project.NewProjectFromSourcesWizard"> 
+                        <enablement></enablement> 
+          </commonWizard>
+          <commonWizard type="new" wizardId="com.excelsior.xds.ui.project.NewProjectFromScratchWizard"> 
+                        <enablement></enablement> 
+          </commonWizard>
+          <commonWizard type="new" wizardId="com.excelsior.xds.ui.project.NewModuleWizard"> 
+                        <enablement>
+                                            <reference
+                                                definitionId="com.excelsior.xds.expression.IsSelectedResourcesFromModulaProjectsOnly">
+                                            </reference>                        
+                        </enablement> 
+          </commonWizard>
+          <commonSorter
+                class="com.excelsior.xds.ui.navigator.project.ProjectExplorerContentCommonSorter"
+                id="com.excelsior.xds.ui.navigator.commonsorter">
+          </commonSorter>
+         <dropAssistant
+			class="com.excelsior.xds.ui.navigator.project.ProjectExplorerDropAdapterAssistant"
+			id="org.eclipse.cdt.ui.navigator.dropAssistant">
+			<possibleDropTargets>
+				<or>
+					<instanceof value="com.excelsior.xds.core.model.IXdsFolderContainer" />
+					<instanceof value="org.eclipse.core.resources.IProject" />
+					<instanceof value="org.eclipse.core.resources.IResource" />
+				</or>
+			</possibleDropTargets>
+		  </dropAssistant>
+   </navigatorContent>
+</extension>
+<extension point="org.eclipse.ui.activities">
+        <activity id="hideBuildProjectMenuItem" name="hideBuildProjectMenuItem">
+                <enabledWhen>
+                        <with variable="selection">
+                                <iterate operator="and">
+                                        <not>
+                                                <reference definitionId="com.excelsior.xds.expression.resource.ModulaProject"></reference>
+                                        </not>
+                                </iterate>
+                        </with>
+                </enabledWhen>
+        </activity>
+        <activityPatternBinding activityId="hideBuildProjectMenuItem"
+                isEqualityPattern="false" pattern="org.eclipse.ui.project.buildProject">
+        </activityPatternBinding>
+</extension>
+<extension
+       point="org.eclipse.ui.navigator.linkHelper">
+                <linkHelper
+                  class="com.excelsior.xds.ui.navigator.project.XdsLinkHelper"
+                  id="com.excelsior.xds.ui.xdsLinkHelper">          
+                 <editorInputEnablement>
+                         <or> 
+                             <instanceof value="org.eclipse.ui.IFileEditorInput" />
+                             <instanceof value="com.excelsior.xds.core.ide.editor.input.StorageEditorInput" />
+                         </or>
+                 </editorInputEnablement>
+                 <selectionEnablement>
+                        <or>
+                            <reference definitionId="com.excelsior.xds.expression.resource.ModulaProject"/>
+                            <instanceof value="org.eclipse.core.resources.IResource" /> 
+                            <instanceof value="com.excelsior.xds.core.model.IXdsExternalCompilationUnit" />
+                        </or>
+                 </selectionEnablement>
+      </linkHelper>          
+</extension>
+<!-- hack for remove some actions
+<extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension
+                  pattern="com.excelsior.xds.ui.navigator.remove.extension">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>    
+</extension>
+<extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="com.excelsior.xds.ui.navigator.project.ProjectExplorerRemoveSomeActionStubProvider"
+            id="com.excelsior.xds.ui.navigator.remove.extension"
+            overrides="org.eclipse.ui.navigator.resources.actions.EditActions"
+            priority="highest">
+         <enablement>
+         
+         <not>
+            <systemTest
+                  property="STUB_PROPERTY"
+                  value="E2F14F50-87AC-4C54-A431-D312838967F7">
+            </systemTest>
+         </not>
+         </enablement>
+     </actionProvider>
+</extension> --> <!-- A hack to allways be enabled -->
+
+<extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="com.excelsior.xds.ui.projectExplorerContent"/>
+            <contentExtension pattern="com.excelsior.xds.ui.xdsLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <dragAssistant
+          class="com.excelsior.xds.ui.navigator.project.ProjectExplorerDragAdapterAssistant"
+          viewerId="org.eclipse.ui.navigator.ProjectExplorer"/>
+</extension>
+
+<extension point="org.eclipse.core.runtime.adapters">
+        <factory 
+                    class="com.excelsior.xds.ui.internal.adapters.XdsElementAdapterFactory" 
+                    adaptableType="com.excelsior.xds.core.model.IXdsElement">
+                <adapter type="org.eclipse.core.resources.IResource"/>
+                <adapter type="org.eclipse.core.resources.IFile"/>
+                <adapter type="org.eclipse.core.resources.IProject"/>
+                <adapter type="org.eclipse.ui.views.properties.IPropertySource"/>
+                <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/>
+                <adapter type="org.eclipse.ui.IContributorResourceAdapter"/>
+        </factory>
+	 	<factory 
+                    class="com.excelsior.xds.ui.internal.adapters.XdsPlatformAdapterFactory" 
+                    adaptableType="org.eclipse.ui.IEditorInput">
+                <adapter type="org.eclipse.core.resources.IProject"/>
+        </factory>
+        <factory 
+                    class="com.excelsior.xds.ui.internal.adapters.XdsPlatformAdapterFactory" 
+                    adaptableType="org.eclipse.ui.IEditorPart">
+                <adapter type="org.eclipse.ui.IEditorInput"/>
+        </factory>           
+        <!-- you need to declare model element as adaptable to org.eclipse.debug.ui.actions.ILaunchable in order to enable Launch shortcut from it, see #KIDE-5-->
+        <factory class="org.eclipse.core.runtime.IAdaptable" adaptableType="org.eclipse.core.resources.IProject">
+                <adapter type="org.eclipse.debug.ui.actions.ILaunchable"/>
+        </factory>
+        <factory class="org.eclipse.core.runtime.IAdaptable" adaptableType="com.excelsior.xds.core.model.IXdsCompilationUnit">
+                <adapter type="org.eclipse.debug.ui.actions.ILaunchable"/>
+        </factory>
+        <factory class="org.eclipse.core.runtime.IAdaptable" adaptableType="com.excelsior.xds.core.model.IXdsProjectFile">
+                <adapter type="org.eclipse.debug.ui.actions.ILaunchable"/>
+        </factory>
+</extension>
+
+<extension point="org.eclipse.ui.console.consolePageParticipants">
+   <consolePageParticipant
+         class="com.excelsior.xds.ui.console.XdsConsoleParticipant"
+         id="com.excelsior.xds.ui.launcher.PageParticipantId">
+      <enablement>
+         <instanceof
+               value="com.excelsior.xds.ui.console.XdsConsole">
+         </instanceof></enablement>
+   </consolePageParticipant>
+</extension>
+
+<extension
+      point="org.eclipse.ui.commands">
+<!-- project -->
+   <command
+         name="%commands.compileModule.name"
+         description="%commands.compileModule.desc"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.compile.file">
+   </command>
+   <command
+         name="%commands.buildModule.name"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.build.file">
+   </command>
+   <command
+         name="%commands.rebuildModule.name"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.rebuild.file">
+   </command>
+   <command
+         name="%commands.buildProject.name"
+         description="%commands.buildProject.desc"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.build.project">
+   </command>
+   <command
+         name="%commands.rebuildProject.name"
+         description="%commands.rebuildProject.desc"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.rebuild.project">
+   </command>
+   
+   <command
+         name="%commands.newModulaProject.name"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.new.project">
+   </command>
+   <command
+         name="%commands.newModulaProjectFromSrc.name"
+         categoryId="org.eclipse.ui.category.project"
+         id="com.excelsior.xds.commands.new.project.from.sources">
+   </command>
+   <command
+         name="%commands.newModule.name"
+         categoryId="org.eclipse.ui.category.file"
+         id="com.excelsior.xds.commands.new.module">
+   </command>
+   <command
+         name="%commands.newOb2Module.name"
+         categoryId="org.eclipse.ui.category.file"
+         id="com.excelsior.xds.commands.new.ob2module">
+   </command>
+   <command
+         name="%commands.newFolder.name"
+         categoryId="org.eclipse.ui.category.file"
+         id="com.excelsior.xds.commands.new.folder">
+   </command>
+
+<!-- navigate -->
+   <command
+         name="%commands.openModule.name"
+         description="Open Modula-2 Module"
+         categoryId="org.eclipse.ui.category.navigate"
+         id="com.excelsior.xds.commands.goto.compilation.unit">
+   </command>
+
+<!-- search -->
+   <command
+         name="%commands.searchWholeWord.workspace.name"
+         categoryId="org.eclipse.search.ui.category.search"
+         id="com.excelsior.xds.commands.search.wholeword.workspace">
+   </command>
+   <command
+         name="%commands.searchWholeWord.project.name"
+         categoryId="org.eclipse.search.ui.category.search"
+         id="com.excelsior.xds.commands.search.wholeword.project">
+   </command>
+   <context
+         name="%commands.xdsUpdateContext.name"
+         id="com.excelsior.xds.update.context">
+   </context>
+</extension>
+
+<extension point="org.eclipse.ui.menus">
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <command
+            commandId="com.excelsior.xds.commands.build.project" icon="icons/build.gif"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference definitionId="com.excelsior.xds.expression.IsSelectedModulaProjectsOnly">
+                </reference>
+            </visibleWhen>
+      </command>
+   </menuContribution>
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <command
+            commandId="com.excelsior.xds.commands.rebuild.project" icon="icons/rebuild.gif"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference definitionId="com.excelsior.xds.expression.IsSelectedModulaProjectsOnly">
+                </reference>
+            </visibleWhen>
+      </command>
+   </menuContribution>
+
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <command
+            commandId="com.excelsior.xds.commands.compile.file" icon="icons/compile.gif"
+            style="push">
+         <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <command
+            commandId="com.excelsior.xds.commands.build.file" icon="icons/build.gif"
+            style="push">
+         <visibleWhen checkEnabled="false">
+             <and>
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+                <reference
+                    definitionId="com.excelsior.xds.expression.IsSelectedResourcesFromModulaProjectsOfMainModuleTypeOnly">
+                </reference>
+             </and>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <command
+            commandId="com.excelsior.xds.commands.rebuild.file" icon="icons/rebuild.gif"
+            style="push">
+         <visibleWhen checkEnabled="false">
+             <and>
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+                <reference
+                    definitionId="com.excelsior.xds.expression.IsSelectedResourcesFromModulaProjectsOfMainModuleTypeOnly">
+                </reference>
+             </and>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+   
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=import">
+      <menu
+            id="org.eclipse.ui.articles.action.contribution.navigator.subMenu"
+            label="%menus.tools"
+            icon="icons/tools.gif">
+         <dynamic
+               id="com.excelsior.xds.ui.menu.tools.dynamic" class="com.excelsior.xds.ui.tools.menu.DynamicToolsMenu">
+         </dynamic>
+      </menu>
+   <separator
+            name="com.excelsior.xds.explorer_xdsitems_separator"
+            visible="true">
+      </separator>
+   </menuContribution>
+
+   <menuContribution
+         locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=group.edit">
+      <command
+            commandId="org.eclipse.ui.edit.copy"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="org.eclipse.ui.edit.paste"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="org.eclipse.ui.edit.delete"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="org.eclipse.ui.edit.move"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                </reference>
+         </visibleWhen>
+      </command>
+      <command
+            commandId="org.eclipse.ui.edit.rename"
+            style="push">
+            <visibleWhen checkEnabled="false">
+                <or>
+                        <reference
+                            definitionId="com.excelsior.xds.expression.selected.XdsFolders">
+                        </reference>
+                        <reference
+                       		definitionId="com.excelsior.xds.expression.IsResourceEditableXdsSource">
+                        </reference>
+                        <reference
+                       		definitionId="com.excelsior.xds.expression.IsNotResourceEditableXdsSource">
+                        </reference>
+                </or>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+   
+   <menuContribution
+         locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="com.excelsior.xds.build.toolbar">
+            <command
+                  commandId="com.excelsior.xds.commands.compile.file"
+                  icon="icons/compile.gif"
+                  label="%commands.compileModule.label"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.excelsior.xds.commands.build.project"
+                  icon="icons/build.gif"
+                  label="%commands.buildProject.label"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.excelsior.xds.commands.rebuild.project"
+                  icon="icons/rebuild.gif"
+                  label="%commands.rebuildProject.label"
+                  style="push">
+            </command>            
+         </toolbar>
+   </menuContribution>
+
+   <menuContribution
+         allPopups="false"
+         locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar id="com.excelsior.xds.new.wizards.toolbar">
+            <command
+                commandId="com.excelsior.xds.commands.new.project"
+                  icon="icons/new_m2_project.gif"
+                  style="pulldown">
+            </command>
+            <command
+                commandId="com.excelsior.xds.commands.new.folder"
+                  icon="icons/new_m2_folder.gif"
+                  style="push">
+            </command>
+            <command
+                commandId="com.excelsior.xds.commands.new.module"
+                  icon="icons/new_module.gif"
+                  style="pulldown">
+            </command>
+         </toolbar>
+   </menuContribution>
+
+   <menuContribution
+            locationURI="menu:com.excelsior.xds.commands.new.project">
+            <command
+                commandId="com.excelsior.xds.commands.new.project"
+                  icon="icons/new_m2_project.gif"
+                  style="pulldown">
+            </command>
+            <command
+                commandId="com.excelsior.xds.commands.new.project.from.sources"
+                  icon="icons/new_m2_project.gif"
+                  style="push">
+            </command>
+   </menuContribution>
+   <menuContribution
+            locationURI="menu:com.excelsior.xds.commands.new.module">
+            <command
+                commandId="com.excelsior.xds.commands.new.module"
+                  icon="icons/new_module.gif"
+                  style="push">
+            </command>
+            <command
+                commandId="com.excelsior.xds.commands.new.ob2module"
+                  icon="icons/new_module.gif"
+                  style="push">
+            </command>
+   </menuContribution>
+   <menuContribution
+         allPopups="false"
+         locationURI="menu:navigate?endof=open.ext">
+      <command
+            commandId="com.excelsior.xds.commands.goto.compilation.unit"
+            style="push">
+      </command>
+   </menuContribution>
+   
+   <menuContribution
+         allPopups="false"
+         locationURI="menu:project?before=buildAutomatically">
+      <command
+            commandId="com.excelsior.xds.commands.build.project"
+            icon="icons/build.gif"
+            style="push">
+      </command>
+   </menuContribution>
+   <menuContribution
+         allPopups="false"
+         locationURI="menu:project?before=buildAutomatically">
+      <command
+            commandId="com.excelsior.xds.commands.rebuild.project"
+            icon="icons/rebuild.gif"
+            style="push">
+      </command>
+   </menuContribution>
+
+   <menuContribution
+         allPopups="false"
+         locationURI="menu:org.eclipse.ui.main.menu?after=project">
+      <menu
+            id="com.excelsior.xds.ui.menu.tools"
+            label="%menus.tools">
+      </menu>
+   </menuContribution>
+
+   <menuContribution locationURI="menu:com.excelsior.xds.ui.menu.tools">
+            <dynamic
+                  id="com.excelsior.xds.ui.menu.tools.dynamic" class="com.excelsior.xds.ui.tools.menu.DynamicToolsMenu">
+            </dynamic>
+   </menuContribution>
+</extension>
+
+<extension
+      point="org.eclipse.ui.handlers">
+   <handler
+         class="com.excelsior.xds.ui.commands.BuildProjectCommandHandler"
+         commandId="com.excelsior.xds.commands.build.project">
+         <enabledWhen>
+                         <reference definitionId="com.excelsior.xds.expression.selected.only.ModulaProjectElements">
+                         </reference>         
+                </enabledWhen>
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.RebuildProjectCommandHandler"
+         commandId="com.excelsior.xds.commands.rebuild.project">
+         <enabledWhen>
+                         <reference definitionId="com.excelsior.xds.expression.selected.only.ModulaProjectElements">
+                         </reference>         
+                </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.CompileFileCommandHandler"
+         commandId="com.excelsior.xds.commands.compile.file">
+         <enabledWhen>
+                  <and> 
+                    <with variable="selection">
+                        <count value="1"/>
+                    </with>
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+              </and>
+                </enabledWhen>
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.MakeFileCommandHandler"
+         commandId="com.excelsior.xds.commands.build.file">
+         <enabledWhen>
+                  <and> 
+                    <with variable="selection">
+                        <count value="1"/>
+                    </with>
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+              </and>
+                </enabledWhen>
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.RebuildFileCommandHandler"
+         commandId="com.excelsior.xds.commands.rebuild.file">
+                <enabledWhen>
+                  <and> 
+                    <with variable="selection">
+                        <count value="1"/>
+                    </with>
+                <reference
+                    definitionId="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+                </reference>
+              </and>
+                </enabledWhen>         
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.CopyXdsResourceToClipboardHandler" 
+         commandId="org.eclipse.ui.edit.copy">
+      <activeWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+         </reference>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+         </reference>
+      </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.PasteResourceHandler"
+         commandId="org.eclipse.ui.edit.paste">
+        <activeWhen>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>         
+         </activeWhen>
+         <enabledWhen>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>         
+         </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.DeleteXdsResourceHandler" 
+         commandId="org.eclipse.ui.edit.delete">
+      	 <activeWhen>
+      	 	<and>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>
+            </and>         
+         </activeWhen>
+         <enabledWhen>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>         
+         </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.MoveXdsResourceHandler" 
+         commandId="org.eclipse.ui.edit.move">
+      <activeWhen>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>
+         </activeWhen>
+         <enabledWhen>
+                        <reference
+                              definitionId="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+                        </reference>
+         </enabledWhen>
+   </handler>
+
+   <handler
+         class="com.excelsior.xds.ui.commands.RenameXdsResourceHandler" 
+         commandId="org.eclipse.ui.edit.rename">
+      <activeWhen>
+         <and>
+            <not>
+               <with variable="selection">
+                  <count value="1"/>
+               </with>
+            </not>
+            <reference
+                  definitionId="com.excelsior.xds.expression.selected.XdsFolders">
+            </reference>
+         </and>
+      </activeWhen>
+      <enabledWhen>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.XdsFolders">
+         </reference>
+      </enabledWhen>
+   </handler>
+   
+   <handler
+         class="com.excelsior.xds.ui.commands.NewModulaProjectCommandHandler"
+         commandId="com.excelsior.xds.commands.new.project">
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.NewModulaProjectFromSourcesCommandHandler"
+         commandId="com.excelsior.xds.commands.new.project.from.sources">
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.NewModuleCommandHandler"
+         commandId="com.excelsior.xds.commands.new.module">
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.NewOb2ModuleCommandHandler"
+         commandId="com.excelsior.xds.commands.new.ob2module">
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.NewFolderCommandHandler"
+         commandId="com.excelsior.xds.commands.new.folder">
+   </handler>
+   <handler
+         class="com.excelsior.xds.ui.commands.GotoCompilationUnitHandler"
+         commandId="com.excelsior.xds.commands.goto.compilation.unit">
+   </handler>
+   <handler
+            class="com.excelsior.xds.ui.commands.refactoring.RenameCompilationUnitHandler"
+            commandId="org.eclipse.ui.edit.rename">
+         <activeWhen>
+                        <reference
+                                        definitionId="com.excelsior.xds.expression.IsResourceEditableXdsSource">
+                        </reference>
+         </activeWhen>
+         <enabledWhen>
+                        <reference
+                                        definitionId="com.excelsior.xds.expression.IsResourceEditableXdsSource">
+                        </reference>         
+         </enabledWhen>
+    </handler>
+   <handler
+            class="org.eclipse.ltk.internal.ui.refactoring.actions.RenameResourceHandler"
+            commandId="org.eclipse.ui.edit.rename">
+         <activeWhen>
+                        <reference
+                                        definitionId="com.excelsior.xds.expression.IsNotResourceEditableXdsSource">
+                        </reference>
+         </activeWhen>
+         <enabledWhen>
+                        <reference
+                                        definitionId="com.excelsior.xds.expression.IsNotResourceEditableXdsSource">
+                        </reference>         
+         </enabledWhen>
+    </handler>
+    <handler commandId="org.eclipse.equinox.p2.ui.sdk.update" class="com.excelsior.xds.ui.internal.update.handlers.XdsUpdateHandler">
+       <activeWhen>
+               <with variable="activeContexts">
+                       <iterate
+                          ifEmpty="false"
+                          operator="or">
+                       <equals
+                           value="com.excelsior.xds.update.context">
+                       </equals>
+                       </iterate>
+                   </with>             
+       </activeWhen>
+    </handler>
+</extension> 
+<extension
+      point="org.eclipse.ui.perspectives">
+   <perspective
+         class="com.excelsior.xds.ui.perspectives.XdsPerspectiveFactory"
+         id="com.excelsior.xds.DevelopmentPerspective"
+         name="%common.xdsModula2"
+         fixed="false">
+   </perspective>
+</extension>
+<extension
+      point="org.eclipse.ui.startup">
+   <startup
+         class="com.excelsior.xds.ui.startup.UiStartupHandler">
+   </startup>
+</extension>
+
+
+<!-- Expressions: XDS stuctuted files and editors -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition
+         id="com.excelsior.xds.expression.selected.StructuredEditor">
+      <or>    
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaEditor">
+         </reference>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.OberonEditor">
+         </reference>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.SymFileEditor">
+         </reference>
+      </or>   
+   </definition>
+      
+
+   <definition id="com.excelsior.xds.expression.selected.only.StructuredFiles">
+      <or>    
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.StructuredEditor">
+         </reference>
+         <with variable="selection">
+             <iterate ifEmpty="false" operator="and">
+                <or>
+                   <reference
+                         definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+                   </reference>
+                   <reference
+                         definitionId="com.excelsior.xds.expression.resource.OberonFile">
+                   </reference>
+                   <reference
+                         definitionId="com.excelsior.xds.expression.resource.SymFile">
+                   </reference>
+                </or>
+             </iterate>
+         </with>
+      </or>   
+   </definition>
+
+</extension>
+
+
+<!-- Expressions: Symbol files and editors -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+
+   <definition
+         id="com.excelsior.xds.expression.selected.SymFileEditor">
+      <with variable="activePartId">
+         <equals 
+               value="com.excelsior.xds.ui.editor.SymFileEditor">
+         </equals>
+      </with>
+   </definition>
+
+</extension>
+
+
+<!-- Expressions: Modula-2/Oberon-2 files and editors -->
+<extension 
+      point="org.eclipse.core.expressions.definitions">
+      
+   <definition
+         id="com.excelsior.xds.expression.selected.ModulaEditor">
+      <or>    
+         <with variable="activePartId">
+            <equals 
+                  value="com.excelsior.xds.ui.editor.modula.ProgramModuleEditor">
+            </equals>
+         </with>
+         <with variable="activePartId">
+            <equals 
+                  value="com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor">
+            </equals>
+         </with>
+      </or>   
+   </definition>
+
+   <definition
+         id="com.excelsior.xds.expression.selected.OberonEditor">
+      <or>    
+         <with variable="activePartId">
+            <equals 
+                  value="com.excelsior.xds.ui.editor.oberon.ModuleEditor">
+            </equals>
+         </with>
+         <with variable="activePartId">
+            <equals 
+                  value="com.excelsior.xds.ui.editor.oberon.DefinitionModuleEditor">
+            </equals>
+         </with>
+      </or>   
+   </definition>
+
+   <definition
+         id="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+      <or>    
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaEditor">
+         </reference>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.OberonEditor">
+         </reference>
+      </or>   
+   </definition>
+      
+      
+   <definition id="com.excelsior.xds.expression.selected.only.ModulaOberonFiles">
+      <or>    
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+         </reference>
+         <with variable="selection">
+             <iterate ifEmpty="false" operator="and">
+                <or>
+                   <reference
+                         definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+                   </reference>
+                   <reference
+                         definitionId="com.excelsior.xds.expression.resource.OberonFile">
+                   </reference>
+                </or>
+             </iterate>
+         </with>
+      </or>   
+   </definition>
+   
+</extension>
+   
+<!-- Expressions: XDS Modula-2 project elements  -->
+<extension point="org.eclipse.core.expressions.definitions">
+   <definition
+         id="com.excelsior.xds.expression.selected.ProjectFileEditor">
+      <or>    
+         <with variable="activePartId">
+            <equals value="com.excelsior.xds.ui.editor.ProjectFileEditor">
+            </equals>
+         </with>
+      </or>   
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.IsSelectedModulaProjectsOnly">
+      <with variable="selection">
+         <iterate ifEmpty="false" operator="and">
+            <reference definitionId="com.excelsior.xds.expression.resource.ModulaProject">
+            </reference>
+         </iterate>
+      </with>   
+   </definition>
+   
+   <definition
+         id="com.excelsior.xds.expression.IsSelectedResourcesFromModulaProjectsOnly">
+      <with variable="selection">
+         <iterate ifEmpty="false" operator="and">
+            <reference
+                  definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+            </reference>
+         </iterate>
+      </with>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.IsSelectedResourcesFromModulaProjectsOfMainModuleTypeOnly">
+      <with variable="selection">
+         <iterate ifEmpty="false" operator="and">
+            <reference
+                  definitionId="com.excelsior.xds.expression.IsResourceModulaProjectOfMainModuleType">
+            </reference>
+         </iterate>
+      </with>
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.selected.only.ModulaProjectElements">
+      <or>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ModulaOberonEditor">
+         </reference>
+         <reference
+               definitionId="com.excelsior.xds.expression.selected.ProjectFileEditor">
+         </reference>
+         <with variable="selection">
+            <iterate ifEmpty="false" operator="and">
+               <or>
+                  <reference
+                        definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+                  </reference>
+                  <instanceof value="com.excelsior.xds.core.model.IXdsElement"/>
+               </or>
+            </iterate>
+         </with>
+      </or>      
+   </definition>
+
+   <definition 
+         id="com.excelsior.xds.expression.selected.ModulaProjectNotExternalResources">
+      <with variable="selection">
+         <iterate ifEmpty="false" operator="and">
+            <and>
+               <reference
+                     definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+               </reference>
+               <reference
+                     definitionId="com.excelsior.xds.expression.model.NotExternalElement">
+               </reference>
+               <not>
+               		 <instanceof value="org.eclipse.core.resources.IProject" />
+               </not>
+            </and>
+         </iterate>
+      </with>
+   </definition>   
+
+
+   <definition id="com.excelsior.xds.expression.IsResourceModulaProjectOfMainModuleType">
+          <and>
+          <reference
+              definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+          </reference>
+          <adapt type="org.eclipse.core.resources.IResource">
+              <test property="com.excelsior.xds.xdsProjectType" value="MAIN_MODULE" />
+                  </adapt>
+          </and>
+   </definition>
+   
+   <!-- Selected resource is either Oberon or Modula file -->
+   <definition id="com.excelsior.xds.expression.IsResourceEditableXdsSource">
+        <with variable="selection">
+                <count value="1" />
+                <iterate ifEmpty="false" operator="and">
+                        <reference definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+            </reference>
+                        <or>
+                                <reference definitionId="com.excelsior.xds.expression.resource.OberonFile">
+                                </reference>
+                                <reference definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+                                </reference>
+                        </or>
+                </iterate>
+        </with>
+   </definition>
+   <!-- Selected resource is something other than Oberon or Modula file -->
+   <definition id="com.excelsior.xds.expression.IsNotResourceEditableXdsSource">
+        <with variable="selection">
+                <count value="1" />
+                <iterate ifEmpty="false" operator="and">
+                        <reference definitionId="com.excelsior.xds.expression.resource.from.ModulaProject">
+           				</reference>
+                        <and>
+                                <not>
+                                        <reference definitionId="com.excelsior.xds.expression.resource.OberonFile">
+                                        </reference>
+                                </not>
+                                <not>
+                                        <reference definitionId="com.excelsior.xds.expression.resource.ModulaFile">
+                                        </reference>
+                                </not>
+                        </and>
+                </iterate>
+        </with>
+   </definition>
+</extension>
+
+<extension
+      point="org.eclipse.ui.actionSets">
+     <actionSet
+         id="com.excelsior.xds.ui.searchWholeWordActionSet"
+         visible="true"
+         label="%actionSets.search">
+
+<!-- see http://bugs.eclipse.org/bugs/show_bug.cgi?id=15684     -->
+<!-- Note: The menu (re-) definition has to be here due to bug: -->
+<!-- =========================================================================== -->
+<!-- Search Menu                                                                 -->
+<!-- =========================================================================== -->
+         <menu
+               label="%actionSets.search"
+               path="navigate"
+               id="org.eclipse.search.menu">
+                        <groupMarker name="internalDialogGroup"/>   <!-- not to be used by clients  -->
+                        <groupMarker name="dialogGroup"/>           <!-- to be used by clients      -->
+                        <separator name="fileSearchContextMenuActionsGroup"/> <!-- to be used by clients --> 
+                        <separator name="contextMenuActionsGroup"/> <!-- to be used by clients -->
+                        <separator name="occurencesActionsGroup"/>  <!-- to be used by clients -->
+                        <separator name="extraSearchGroup"/>        <!-- to be used by clients -->
+         </menu>
+         <menu id="textSearchSubMenu"
+		        label="%textSearchSubMenu.label"
+        		path="org.eclipse.search.menu/fileSearchContextMenuActionsGroup">
+        		<groupMarker name="group1"/>
+        		<groupMarker name="additions"/>
+        		<groupMarker name="group2"/>
+         </menu>
+ 		 <action
+               definitionId="com.excelsior.xds.commands.search.wholeword.workspace"
+               label="%commands.searchWholeWord.workspace.name"
+               style="push"
+               menubarPath="org.eclipse.search.menu/textSearchSubMenu/group1"
+               class="com.excelsior.xds.ui.search.SearchWholeWordInWorkspaceAction"
+               id="com.excelsior.xds.ui.searchWholeWordInWorkspaceAction">
+         </action>
+         <action
+               definitionId="com.excelsior.xds.commands.search.wholeword.project"
+               label="%commands.searchWholeWord.project.name"
+               style="push"
+               menubarPath="org.eclipse.search.menu/textSearchSubMenu/group1"
+               class="com.excelsior.xds.ui.search.SearchWholeWordInProjectAction"
+               id="com.excelsior.xds.ui.searchWholeWordInProjectAction">
+         </action>
+   </actionSet>
+   <actionSet
+         id="com.excelsior.xds.ui.searchActionSet"
+         visible="false"
+         label="%actionSets.search">
+         <action
+               label="%commands.openModulaSearchPage.name"
+               icon="icons/m2_search_tab.gif"
+               class="com.excelsior.xds.ui.search.modula.OpenModulaSearchPage"
+               menubarPath="org.eclipse.search.menu/dialogGroup"
+               id="com.excelsior.xds.ui.actions.OpenModulaSearchPage">
+         </action>
+   </actionSet>
+</extension>
+
+<extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation
+            targetID="com.excelsior.xds.ui.searchActionSet">
+         <part
+               id="com.excelsior.xds.ui.editor.modula.ProgramModuleEditor">
+         </part>
+         <part
+               id="com.excelsior.xds.ui.editor.modula.DefinitionModuleEditor">
+         </part>
+         <part
+               id="com.excelsior.xds.ui.editor.oberon.ModuleEditor">
+         </part>
+         <part
+               id="com.excelsior.xds.ui.editor.oberon.DefinitionModuleEditor">
+         </part>
+          <part
+               id="org.eclipse.search.SearchResultView">
+         </part>
+      </actionSetPartAssociation>
+</extension>
+
+<extension
+      point="org.eclipse.core.variables.dynamicVariables">
+   <variable
+         description="%dynamicVariables.desc.xds_home"
+         name="xds_home"
+         resolver="com.excelsior.xds.ui.variables.SdkVariableResolver"
+         supportsArgument="false">
+   </variable>
+
+   <variable
+         description="%dynamicVariables.desc.xds_project_loc"
+         name="xds_project_loc"
+         resolver="com.excelsior.xds.ui.variables.ProjectVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_project_baseloc"
+         name="xds_project_baseloc"
+         resolver="com.excelsior.xds.ui.variables.ProjectVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_project_name"
+         name="xds_project_name"
+         resolver="com.excelsior.xds.ui.variables.ProjectVariableResolver"
+         supportsArgument="false">
+   </variable>
+
+   <variable
+         description="%dynamicVariables.desc.xds_prjfile_loc"
+         name="xds_prjfile_loc"
+         resolver="com.excelsior.xds.ui.variables.PrjFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_prjfile_baseloc"
+         name="xds_prjfile_baseloc"
+         resolver="com.excelsior.xds.ui.variables.PrjFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_prjfile_name"
+         name="xds_prjfile_name"
+         resolver="com.excelsior.xds.ui.variables.PrjFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_prjfile_basename"
+         name="xds_prjfile_basename"
+         resolver="com.excelsior.xds.ui.variables.PrjFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_prjfile_ext"
+         name="xds_prjfile_ext"
+         resolver="com.excelsior.xds.ui.variables.PrjFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+
+   <variable
+         description="%dynamicVariables.desc.xds_mainmodule_loc"
+         name="xds_mainmodule_loc"
+         resolver="com.excelsior.xds.ui.variables.MainModuleVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_mainmodule_baseloc"
+         name="xds_mainmodule_baseloc"
+         resolver="com.excelsior.xds.ui.variables.MainModuleVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_mainmodule_name"
+         name="xds_mainmodule_name"
+         resolver="com.excelsior.xds.ui.variables.MainModuleVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_mainmodule_basename"
+         name="xds_mainmodule_basename"
+         resolver="com.excelsior.xds.ui.variables.MainModuleVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_mainmodule_ext"
+         name="xds_mainmodule_ext"
+         resolver="com.excelsior.xds.ui.variables.MainModuleVariableResolver"
+         supportsArgument="false">
+   </variable>
+
+   <variable
+         description="%dynamicVariables.desc.xds_exefile_loc"
+         name="xds_exefile_loc"
+         resolver="com.excelsior.xds.ui.variables.ExeFileVariableResolve"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_exefile_baseloc"
+         name="xds_exefile_baseloc"
+         resolver="com.excelsior.xds.ui.variables.ExeFileVariableResolve"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_exefile_name"
+         name="xds_exefile_name"
+         resolver="com.excelsior.xds.ui.variables.ExeFileVariableResolve"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_exefile_basename"
+         name="xds_exefile_basename"
+         resolver="com.excelsior.xds.ui.variables.ExeFileVariableResolve"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_exefile_ext"
+         name="xds_exefile_ext"
+         resolver="com.excelsior.xds.ui.variables.ExeFileVariableResolve"
+         supportsArgument="false">
+   </variable>
+
+   <variable
+         description="%dynamicVariables.desc.xds_selected_file_loc"
+         name="xds_selected_file_loc"
+         resolver="com.excelsior.xds.ui.variables.SelectedFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_selected_file_baseloc"
+         name="xds_selected_file_baseloc"
+         resolver="com.excelsior.xds.ui.variables.SelectedFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_selected_file_name"
+         name="xds_selected_file_name"
+         resolver="com.excelsior.xds.ui.variables.SelectedFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_selected_file_basename"
+         name="xds_selected_file_basename"
+         resolver="com.excelsior.xds.ui.variables.SelectedFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+   <variable
+         description="%dynamicVariables.desc.xds_selected_file_ext"
+         name="xds_selected_file_ext"
+         resolver="com.excelsior.xds.ui.variables.SelectedFileVariableResolver"
+         supportsArgument="false">
+   </variable>
+</extension>
+
+<!--
+ 	TODO : how it is used? com.excelsior.xds.ui.XdsSettingsTransfer is not present.
+-->
+<extension point="org.eclipse.ui.preferenceTransfer">
+   <settingsTransfer
+      name="settingsTransfer.Name"
+      id="com.excelsior.xds.ui.settingsTransfer"
+      class="com.excelsior.xds.ui.XdsSettingsTransfer" />
+   <transfer
+      id="com.excelsior.xds.ui.xdsColors"
+      name="%preferenceTransfer.xds_color_settings"
+      icon="icons/color_settings.png" >
+      <mapping scope="instance">
+         <entry node="com.excelsior.xds.core">
+            <key
+               name="com.excelsior.xds.core.XdsConsoleColor"
+               match="prefix" />
+         </entry>
+         <entry node="com.excelsior.xds.ui.editor">
+            <key
+               name="com.excelsior.xds.ui.editor.ModulaTokens.Preferencies"
+               match="prefix" />
+            <key
+               name="com.excelsior.xds.ui.editor.DbgScriptTokens.Preferencies"
+               match="prefix" />
+         </entry>
+      </mapping>
+      <description>
+         %preferenceTransfer.xds_color_settings.desc
+      </description>
+   </transfer>
+   <transfer
+      id="com.excelsior.xds.ui.xdsSdksSettings"
+      name="%preferenceTransfer.xds_sdks_settings"
+      icon="icons/xds16x16.gif" >
+      <mapping scope="instance">
+         <entry node="com.excelsior.xds.core">
+            <key
+               name="com.excelsior.xds.core.SdkManager.SdksSettings"/>
+         </entry>
+      </mapping>
+      <description>
+         %preferenceTransfer.xds_sdks_settings.desc
+      </description>
+   </transfer>
+</extension>
+
+
+<!-- =========================================================================== -->
+<!-- Modula-2 Search Page                                                           -->
+<!-- =========================================================================== -->   
+<extension  point="org.eclipse.search.searchPages">
+    <page
+        showScopeSection="true"
+        enabled="true"
+        canSearchEnclosingProjects="true"
+        label="%m2SearchPage.label"
+        icon="icons/m2_search_tab.gif"
+        extensions="mod:90, def:90, ob2:90, odf:90, sym:90"
+        class="com.excelsior.xds.ui.search.modula.ModulaSearchPage"
+        sizeHint="460,160"
+        id="com.excelsior.xds.ui.ModulaSearchPage">
+    </page>
+</extension>
+
+<extension point="org.eclipse.search.searchResultViewPages">
+    <viewPage class="com.excelsior.xds.ui.search.modula.ModulaSearchResultPage"
+            searchResultClass="com.excelsior.xds.ui.search.modula.ModulaSearchResult"
+            id="com.excelsior.xds.ui.ModulaSearchResultPage"/>
+</extension>
+<extension
+      point="com.excelsior.xds.builder.listener">
+   <listener
+         class="com.excelsior.xds.ui.decorators.UpdateDecoratorListener">
+   </listener>
+</extension>  
+</plugin>
